@@ -1,0 +1,21 @@
+.headerSearch {
+  position: relative;
+  max-width: 205px;
+  border: none;
+}
+.headerSearch input {
+  max-width: 204px;
+  padding: 11px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid #999;
+  background: transparent;
+}
+.headerSearch .searchIcon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-95%, -50%);
+}

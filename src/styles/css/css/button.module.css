@@ -1,0 +1,9 @@
+.contentTitle4_btn::after {
+  content: url(../../../../public/arrow_b.png);
+  height: 36px;
+}
+
+.contentTitle4_btn {
+  text-align: center;
+  padding-top: 10px;
+}

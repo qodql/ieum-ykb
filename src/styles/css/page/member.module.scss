@@ -1,0 +1,444 @@
+// 회원가입
+.CreateAccountBox{
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  .ieumLogo{
+    width: 43%;
+    height: 40px;
+    background-repeat: no-repeat;
+    margin: 16px auto;
+    display: block;
+    background-size: contain;
+  }
+  .createAccount{
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+  form{
+    .inputText{
+      display: block;
+      font-weight: 500;
+      margin : 12px 0 ;
+    }
+    .passwordCheck{
+      font-size: 12px;
+      color: rgb(255, 11, 11);
+      margin-top: 8px;
+    }
+    .passwordCheckok{
+      font-size: 12px;
+      color: #999999;
+      margin-top: 8px;
+    }
+    &>span:nth-of-type(1){
+      margin-top: 32px;
+    }
+
+    .userInput{
+
+      display: block;
+      width: 358px;
+      height: 43px;
+      margin: 0 auto;
+      border: none ;
+      border-bottom: 1px solid #111111;
+      &:focus::placeholder{
+        opacity: 0;
+      }
+     }
+     .duplicationBox{
+      width: 358px;
+      border-bottom: 1px solid black;
+      display: flex;
+      align-items: center;
+      &>.userInput{
+        border: none;
+        margin: 0;
+      }      
+      .certificationBtn{
+        width: 80px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: #2E8B57;
+        color: #fafafa;
+      }
+     }
+     .termsList{
+      width: 358px;
+      margin-top: 40px;
+      margin-bottom: 32px;
+      &>li:nth-of-type(1){
+        font-size: 20px;
+        margin-bottom: 32px;
+      }
+      &>li:nth-of-type(2){
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        &>input{
+          margin-right: 12px;
+          width: 23px;
+          height: 20px;
+        }
+        &>span{
+          font-size: 20px;
+        }
+      }
+      &>li:nth-of-type(3){
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        &>input{
+          margin-right: 12px;
+          width: 23px;
+          height: 20px;
+        }
+        &>span{
+          font-size: 20px;
+        }
+      }
+     }
+     .createAccountBtn{
+      width: 100%;
+      background-color: #2E8B57;
+      border: none;
+      border-radius: 8px;
+      color: #FFFFFF;
+      height: 48px;
+     }
+  }
+ 
+}
+
+// 로그인
+.loginBox{
+  max-width: 390px;
+  margin: 0 auto;
+  padding : 0 16px;
+  &>p{
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 16px;
+  }
+  &>h2{
+    text-align: center;
+    font-size: 80px;
+  }
+  .loginLogo{
+    width: 45%;
+    height: 40px;
+    background-repeat: no-repeat;
+    margin: 80px auto 0px auto;
+    background-size: contain;
+    
+  }
+  .loginInput{
+    display: block;
+    width: calc(100% - 137px);
+    height: 40px;
+    margin: 28px auto 0 auto;
+    border: 1px solid #999999;
+    border-radius: 8px;
+      &:nth-of-type(2){
+        margin-top: 8px;
+        margin-bottom: 20px;
+      }
+      &::placeholder{
+        color: #CCCCCC;
+        opacity: 0.4;
+        padding-left: 16px;
+      }
+      &:focus::placeholder{
+        opacity: 0;
+      }
+  }
+  .loginBtn{
+    width: calc(100% - 137px);
+    background-color: #2E8B57;
+    color: #fafafa;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+    height: 40px;
+  }
+  .linkTextBox{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    .linkText{
+      display: block;
+      text-decoration: underline;
+    }
+  }
+  .externalLoginBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 40px;
+    .loginIcon{
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+//아이디찾기
+ .findIdBox{
+  width: 390px;
+  padding: 0 16px;
+  margin: 60px auto;
+  &>p{
+    text-align: center;
+    font-weight: 500;
+    font-size: 36px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+  .ieumLogo{
+    width: 35%;
+    height: 35px;
+    background-repeat: no-repeat;
+    margin: 16px auto;
+    background-size: contain;
+  }
+
+  form{
+    .userInput{
+      display: block;
+      width: 100%;
+      height: 43px;
+      margin: 0 auto;
+      border: none ;
+      border-bottom: 1px solid #111111;
+      &:focus::placeholder{
+        opacity: 0;
+      }
+     }
+    &>span:nth-of-type(2){
+      margin-top: 16px;
+    }
+    &>span:nth-of-type(3){
+      margin-top: 16px;
+    }
+
+     .certificationBox{
+      display: flex;
+      border-bottom: 1px solid #111111;
+      align-items: center;
+      &>input{
+        border: none;
+        width: 95%;
+      }
+
+      .certificationBtn{
+       width: 80px;
+       height: 30px; 
+       background-color: #2E8B57;
+       color: #fafafa;
+       border: none;
+       border-radius: 8px;
+      }
+     }
+    .findBtn{
+      width: 100%;
+      background-color: #2E8B57;
+      color: white;
+      height: 48px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 36px;
+    }
+  }
+ }
+ 
+//마이페이지
+.mypageBox{
+  width: 390px;
+  margin: 0 auto;
+
+  .profileBox{
+    width: 100%;
+    height: 250px;
+    background-color: #F5F5DC;
+    .backBtn{
+      width: 30px;
+      height: 30px;
+      background-repeat: no-repeat;
+      position: relative;
+      top: 16px;
+      left: 16px;
+    }
+    .profile{
+      margin-top: 100px;
+      .profileImg{
+        width: 55px;
+        height: 55px;
+        background-repeat: no-repeat;
+        margin-top: 36px;
+        margin-left: 32px;
+        display: block;
+      }
+      &>p{
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 32px;
+      }
+      &>span{
+        font-size: 12px;
+        color: #999999;
+        margin-left: 32px;
+        display: block;
+      }
+    }
+  }
+  .contentBox{
+    padding: 0 16px;
+    width: 100%;
+    margin-top: 40px;
+    .contentList{
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      &>span{
+        font-size: 20px;
+      }
+      &>a{
+        font-size: 12px;
+      }
+    }
+    .mypageCardBox{
+      width: 358px;
+      display: flex;
+      margin-top: 12px;
+      margin-bottom: 40px;
+      gap: 20px;
+      overflow: hidden;
+    }
+    .contentText{
+      font-size: 12px;
+      color: #999999;
+      display: block;
+    }
+  }
+}
+
+//회원수정
+.memberCorrection{
+  width: 390px;
+  padding: 0 16px;
+  margin: 60px auto;
+  &>h2{
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 28px;
+  }
+
+  .labelText{
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin-top: 16px;
+  }
+  .ieumLogo{
+    width: 38%;
+    height: 35px;
+    background-repeat: no-repeat;
+    margin: 16px auto;
+    background-size: contain;
+  }
+  
+  .nicknameChangeBox{
+    &>span{
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+  }
+  .userInput{
+    display: block;
+    width: 358px;
+    height: 43px;
+    margin: 0 auto;
+    border: none ;
+    border-bottom: 1px solid #111111;
+    .userInput:focus{
+      border-bottom: 1px solid #111111;
+    }
+    &:nth-of-type(1):focus{
+      outline: none;
+    }
+    &:focus::placeholder{
+      opacity: 0;
+    }
+    &:nth-of-type(1):focus::placeholder{
+      opacity: 1;
+    }
+    &:last-of-type:focus::placeholder{
+      opacity: 1;
+    }
+    &:last-of-type:focus{
+      outline: none;
+    }
+   }
+   .nicknameChangeBox{
+    display: flex;
+    border-bottom: 1px solid #111111; 
+    justify-content: space-between;
+    align-items: center;
+    &>.userInput{
+      border: none;
+      &:focus{
+        border: 1px solid black;
+        border-radius: 4px;
+        outline: 1px solid #111111;
+        
+      }
+      &:focus::placeholder{
+        opacity: 0;
+      }
+    }
+    &>button{
+      width: 80px;
+      height: 40px;
+      background-color: #2E8B57;
+      border: none;
+      border-radius: 8px;
+      color: #fafafa;
+    }
+   }
+   .memberCorrectionBtnBox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    .memberCorrectionBtn{
+      background-color: #2E8B57;
+      width: 48%;
+      border: none;
+      border-radius: 8px;
+      height: 40px;
+      color: #fafafa;      
+    }
+    .memberCorrectionCancel{
+      width: 48%;
+      border: none;
+      border-radius: 8px;
+      height: 40px;
+      color: #111111;
+      background-color: #F2F2F2;
+    }
+   }
+}

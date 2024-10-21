@@ -1,0 +1,71 @@
+- 메뉴얼
+https://docs.google.com/document/d/1mX-WxuoGs8Hy-QalhHcvuV17n50uGI2Sg_GHofgiePE/edit
+
+- 앱키
+ttbbengby1506001
+ttbalsgus30741452001
+ttbhongyeong5751628001
+
+- 검색
+http://www.aladin.co.kr/ttb/api/ItemSearch.aspx
+(샘플)http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=[TTBKey]&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101
+
+QueryType
+ItemNewAll : 신간 전체 리스트
+ItemEditorChoice : 편집자 추천 리스트 // 카테고리가 있어야함
+Bestseller : 베스트셀러
+BlogBest : 블로거 베스트셀러
+
+
+
+- 리스트
+http://www.aladin.co.kr/ttb/api/ItemList.aspx
+(샘플)http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=[TTBKey]&QueryType=ItemNewAll&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101
+
+
+ttbkey: 발급받은 API 키를 삽입합니다.
+Query: 검색할 도서 제목이나 저자를 넣습니다.
+QueryType: 검색 유형입니다. (Title: 제목, Author: 저자, Publisher: 출판사)
+MaxResults: 반환받을 최대 결과 수 (1~100).
+SearchTarget: 검색할 대상(도서, 음악, 영화 등). 여기서는 Book으로 설정.
+output: 출력 포맷 (json 또는 xml). 보통 json을 사용.
+Version: API 버전. 최신 버전인 20131101을 사용.
+
+
+
+categoryId
+경제 170
+문학 1
+추리/미스터리 2556
+에세이 55889
+철학 8516
+판타지 4132
+에세이 55889
+
+&categoryId=${cateNum}
+
+
+
+
+
+
+
+베스트셀러 검색: ItemList.aspx를 사용하여 베스트셀러 목록을 가져올 수 있습니다.
+도서 상세 정보: ItemLookUp.aspx로 특정 도서의 상세 정보를 조회할 수 있습니다.
+카테고리별 검색: CategorySearch.aspx로 특정 카테고리의 도서를 검색할 수 있습니다.
+
+
+
+제공 리스트 종류
+신간 전체 리스트
+주목한 만한 신간 리스트
+편집자 추천 리스트(카테고리로만 조회 가능 - 국내도서/음반/외서 만 지원)
+베스트셀러
+북플 베스트셀러(국내도서 만 조회 가능)
+요청 방법
+요청 URL : http://www.aladin.co.kr/ttb/api/ItemList.aspx
+요청 URL샘플 : http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=TTBKey&QueryType=ItemNewAll&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101
+결과샘플
+XML형식 : http://www.aladin.co.kr/ttb/api/test/ItemList_20131101.xml
+javascript형식 : http://www.aladin.co.kr/ttb/api/test/ItemList_20131101.js
+총 결과는 1,000개까지만 조회 가능

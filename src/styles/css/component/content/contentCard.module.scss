@@ -1,0 +1,313 @@
+
+//card1
+.contentCard1{
+    width: 135px;
+    height: 148px;
+    position: relative;
+    z-index: -2;
+    flex-shrink: 0;
+    text-align: center;
+    background-color: #F7FAF6;
+    border-radius: 8px;
+    .bookmark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font-size: 17px;
+        font-weight: bold;
+        width: 21px;
+        height: 27px;
+        color: #fafafa;
+    }
+    .contentCard1_image{
+        width: 80px;
+        height: 125px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+//card2
+.contentCard2{
+    .contentCard2_image{
+        width: 165px;
+        height: 242px;
+        margin-bottom: 8px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .contentCard2_category{
+        width: 160px;
+        font-size: 14px;
+        margin-bottom: 4px;
+        font-weight: lighter;
+        color: #999999;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    .contentCard2_title{
+        width: 170px;
+        font-size: 16px;
+        color: #111111;
+        width: 140px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    .contentCard2_author{
+        width: 170px;
+        font-size: 14px;
+        font-weight: lighter;
+        color: #999999;
+        margin-top: 16px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}
+
+//card3
+
+.contentCard3{
+    .contentCard3_image{
+        width: 143px;
+        height: 212px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .contentCard3_title{
+        margin-top: 12px;
+        font-size: 16px;
+        color: #111111;
+        width: 120px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    .contentCard3_author{
+        font-size: 14px;
+        font-weight: lighter;
+        color: #999999;
+        margin-top: 16px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}
+
+//comment card
+.comment{
+    border: 1px solid #ddd;
+    margin: 16px 16px 80px;
+    border-radius: 8px;
+    .profile{
+        display: flex;
+        align-items: center;
+        span{
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            margin: 16px 8px 12px 16px;
+        }
+        .profile_text{
+            padding-top: 4px;
+            .name{
+                font-size: 14px;
+                color: #333;
+            }
+            .date{
+                font-size: 10px;
+                color: rgba(102, 102, 102, 40%);
+            }
+        }
+    }
+}
+.commentCard{
+    display: flex;
+    margin: 16px;
+    .commentCard_img{
+        width: 84px;
+        height: 120px;
+        flex-shrink: 0;
+    }
+    .commentCard_text{
+        .commentCard_title{
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .commentCard_rate{
+            font-size: 12px;
+            color: #ffc700;
+        }
+        .commentCard_review{
+            font-size: 12px;
+            font-weight: lighter;
+            color: #333;
+        }
+    }
+}
+
+
+
+// ContentList_card
+
+.ContentList_card{
+    padding: 20px 0;
+    margin: 0 16px;
+    border-bottom: 1px solid #ddd;
+    .ContentList_card_main{
+        display: flex;
+        .ContentList_card_img{
+            position: relative;
+            width: 80px;
+            height: 120px;
+            flex-shrink: 0;
+            .ContentList_card_bookmark{
+                position: absolute;
+                left: 4px;
+                top: 0;
+                padding-right: 2px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                width: 20px;
+                height: 27px;
+                color: #fafafa;
+            }
+            .ContentList_card_mainImg{
+                width: 100%;
+                height: 100%;
+                flex-shrink: 0;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        .ContentList_card_text{
+            margin: 0 20px;
+            .ContentList_card_title{
+                width: 220px;
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 4px;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+            }
+            .ContentList_card_auther{
+                margin-bottom: 4px;
+                width: 220px;
+                font-size: 13px;    
+                overflow:hidden;
+                text-overflow:ellipsis; 
+                white-space:nowrap;    
+            }
+            .ContentList_card_rateTitle{
+                margin: 4px 0;
+                font-size: 12px;
+                color: #999;
+            }
+            .ContentList_card_rate{
+                font-size: 16px;
+            }
+        }
+    }
+    .ContentList_card_foot{
+        display: flex;
+        margin-top: 16px;
+        gap: 40px;
+        .ContentList_card_Like{
+            font-size: 13px;
+        }
+        .ContentList_card_Like::before{
+
+            margin-right: 8px;
+        }
+        .ContentList_card_category{
+            width: 220px;
+            font-size: 13px;
+            margin-left: 52px;
+            color: rgba(0, 0, 0, 50%);
+        }
+    }
+}
+
+//Mypage contentscard
+.MypageCard{
+    .MypageCard_box{
+        text-align: center;
+        width: 115px;
+        height: 130px;
+        gap: 20px;
+        .MypageCard_image{
+            background-repeat: no-repeat;
+            width: 103px;
+            height: 118px;
+            background-size: contain;
+            margin: 0 auto;
+        }
+    }
+    .MypageCard_title{
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #333;
+        width: 100px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}
+
+// Mypage CommentCard
+
+.MypageComment{
+    display: flex;
+    margin: 20px 0;
+    .MypageComment_img{
+        
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 70px;
+        height: 100px;
+        flex-shrink: 0;
+    }
+    .MypageComment_text{
+        position: relative;
+        margin-left: 12px;
+        .MypageComment_date{
+            margin-bottom: 4px;
+            font-size: 12px;
+            font-weight: lighter;
+            color: #999;
+        }
+        .MypageComment_title{
+            margin-bottom: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            overflow:hidden;
+            text-overflow:ellipsis; 
+            white-space:nowrap;  
+        }
+        .MypageComment_rate{        
+            font-size: 13px;
+            color: #ffc700;
+        }
+        .MypageComment_review{
+            width: 220px;
+            margin-top: 8px;
+            font-size: 13px;
+            overflow:hidden;
+            text-overflow:ellipsis; 
+            white-space:nowrap;  
+        }
+    }
+    .MypageComment_more{
+        position: absolute;
+    }
+}

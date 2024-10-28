@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.mockupImage {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  height: 900px;
+  width: 390px;
+}
+
+@media screen and (max-width: 480px) {
+  .mockupImage {
+    display: none;
+  }
+}

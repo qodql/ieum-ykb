@@ -4,6 +4,8 @@ import { useSession } from 'next-auth/react';
 import { db } from '@/lib/firebase';
 import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
+import MockupComponent from '@/component/MockupComponent';
+import Footer from '@/component/Footer';
 
 
 const Membercorrection = () => {
@@ -66,65 +68,64 @@ const Membercorrection = () => {
   };
 
   return (
-    <div className={loginStyles.memberCorrection}>
-      <div
-        className={loginStyles.ieumLogo}
-        style={{ backgroundImage: `url(../../IEUMLOGO.png)` }}
-      />
-      <h2>회원수정</h2>
-      <form onSubmit={correctionChange}>
-        <span className={loginStyles.labelText}>이메일</span>
-        <input
-          type="text"
-          placeholder={session ? session.user.email : '이메일을 입력하세요'}
-          readOnly
-          className={loginStyles.userInput}
-        />
-
-        <span className={loginStyles.labelText}>닉네임 수정</span>
-        <div className={loginStyles.nicknameChangeBox}>
-          <input
-            type="text"
-            placeholder="변경할 닉네임을 입력하세요"
-            className={loginStyles.userInput}
-            onChange={(e) => handleCorrection({ nickname: e.target.value })}
-          />
-          <button onClick={nicknameCheck} type="button">중복확인</button>
+    <MockupComponent>
+      <main style={{marginTop:'24px', height:'850px'}}>
+        <div className={loginStyles.memberCorrection}>
+          <div className={loginStyles.commentList_title}>
+            <span className={loginStyles.commentList_back} onClick={backBtn}></span>
+            <h2>회원수정</h2>
+          </div>
+          <form onSubmit={correctionChange}>
+            <span className={loginStyles.labelText}>이메일</span>
+            <input
+              type="text"
+              placeholder={session ? session.user.email : '이메일을 입력하세요'}
+              readOnly
+              className={loginStyles.userInput}
+            />
+            <span className={loginStyles.labelText}>닉네임 수정</span>
+            <div className={loginStyles.nicknameChangeBox}>
+              <input
+                type="text"
+                placeholder="변경할 닉네임을 입력하세요"
+                className={loginStyles.userInput}
+                onChange={(e) => handleCorrection({ nickname: e.target.value })}
+              />
+              <button onClick={nicknameCheck} type="button">중복확인</button>
+            </div>
+            <span className={loginStyles.labelText}>변경할 비밀번호</span>
+            <input
+              type="password"
+              placeholder="변경할 비밀번호를 입력하세요"
+              className={loginStyles.userInput}
+              onChange={(e) => handleCorrection({ password: e.target.value })}
+            />
+            <span className={loginStyles.labelText}>비밀번호 확인</span>
+            <input
+              type="password"
+              placeholder="변경할 비밀번호를 다시 입력하세요"
+              className={loginStyles.userInput}
+            />
+            <span className={loginStyles.labelText}>핸드폰번호</span>
+            <input
+              type="text"
+              placeholder="010-6660-1578"
+              readOnly
+              className={loginStyles.userInput}
+            />
+            <div className={loginStyles.memberCorrectionBtnBox}>
+              <button type="submit" className={loginStyles.memberCorrectionBtn}>
+                저장
+              </button>
+              <button onClick={backBtn} type="button" className={loginStyles.memberCorrectionCancel}>
+                취소
+              </button>
+            </div>
+          </form>
         </div>
-
-        <span className={loginStyles.labelText}>변경할 비밀번호</span>
-        <input
-          type="password"
-          placeholder="변경할 비밀번호를 입력하세요"
-          className={loginStyles.userInput}
-          onChange={(e) => handleCorrection({ password: e.target.value })}
-        />
-
-        <span className={loginStyles.labelText}>비밀번호 확인</span>
-        <input
-          type="password"
-          placeholder="변경할 비밀번호를 다시 입력하세요"
-          className={loginStyles.userInput}
-        />
-
-        <span className={loginStyles.labelText}>핸드폰번호</span>
-        <input
-          type="text"
-          placeholder="010-6660-1578"
-          readOnly
-          className={loginStyles.userInput}
-        />
-
-        <div className={loginStyles.memberCorrectionBtnBox}>
-          <button type="submit" className={loginStyles.memberCorrectionBtn}>
-            저장
-          </button>
-          <button onClick={backBtn} type="button" className={loginStyles.memberCorrectionCancel}>
-            취소
-          </button>
-        </div>
-      </form>
-    </div>
+      </main>
+      <Footer/>
+    </MockupComponent>
   );
 };
 

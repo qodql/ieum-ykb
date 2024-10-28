@@ -1,0 +1,99 @@
+.banner {
+  margin-top: 24px;
+  margin-left: 16px;
+  background-color: #2e8b57;
+  border-radius: 8px 0px 0px 8px;
+  display: flex;
+  width: 100%;
+  height: 225px;
+}
+
+.bannerBox {
+  display: flex;
+}
+.bannerBox .bannerImg {
+  width: 133px;
+  height: 197px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
+  margin: 16px;
+}
+.bannerBox .bannerText {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-right: 36px;
+  width: 50%;
+}
+.bannerBox .bannerText .bannerTitle {
+  margin-top: 16px;
+}
+.bannerBox .bannerText .bannerTitle h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fafafa;
+}
+.bannerBox .bannerText .bannerTitle p {
+  font-size: 12px;
+  color: #fafafa;
+}
+.bannerBox .bannerOverview {
+  margin-top: 40px;
+}
+.bannerBox .bannerOverview p {
+  font-size: 12px;
+  color: #fafafa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bannerBox .bannerBot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.bannerBox .bannerBot .bannerLike {
+  font-size: 12px;
+  color: #fafafa;
+}
+.bannerBox .bannerBot .bannerLike::before {
+  content: url(../../../../../public/Like.png);
+  margin-right: 4px;
+}
+.bannerBox .bannerBot .bannerPage {
+  font-size: 12px;
+  color: #fafafa;
+}
+.bannerBox .bannerBot .bannerPage::after {
+  content: url(../../../../../public/arrow.png);
+  margin-left: 4px;
+}
+
+.content1 {
+  display: flex;
+  margin: 16px 0px 0px 16px;
+}
+
+.content2 {
+  display: flex;
+  margin-left: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content3 {
+  margin-left: 16px;
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 290px;
+  background-color: transparent;
+}

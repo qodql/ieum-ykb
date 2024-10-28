@@ -47,11 +47,15 @@
                 }
                 .detailThumbInfo{
                     width: 150%;
+                    position: relative;
                     .detailThumbIcon{
                         display: flex;
                         gap: 8px;
-                        padding-bottom: 12px;
-                        span{
+                        padding-top: 16px;
+                        position: absolute;
+                        top: 100%; left: 0;
+                        transform: translateY(-100%);
+                        p{
                             width: 40px;
                             height: 40px;
                             font-weight: 500;
@@ -64,6 +68,7 @@
                             justify-content: center;
                             text-align: center;
                             padding: 4px;
+                            background-color: rgba(46, 139, 87, 0.45);
                         }
                     }
                     .detailThumbTit{
@@ -71,20 +76,29 @@
                         font-weight: 500;
                         color: #fafafa;
                         padding-bottom: 32px;
+                        word-break: keep-all;
+                        position: absolute;
+                        top: 0; left: 0;
                     }
                     .detailTumbOverview{
                         font-size: 14px;
                         color: #fafafa;
                         padding-bottom: 32px;
+                        position: absolute;
+                        top: 0; left: 0;
                     }
                     .detailThumbWriter{
                         font-size: 12px;
                         color: #EAEAEA;
                         padding-bottom: 8px;
+                        position: absolute;
+                        top: 54%; left: 0;
                     }
                     .detailThumbType{
                         font-size: 8px;
                         color: #EAEAEA;
+                        position: absolute;
+                        top: 73%; left: 0;
                     }
                 }
             }
@@ -126,13 +140,6 @@
                         }
                     }
                 }
-                .detailInfoStar{
-                    padding: 20px 0;
-                    border-bottom: 1px solid #eaeaea;
-                    display: flex;
-                    justify-content: center;
-                    gap: 12px;
-                }
                 .detailInfoIcon{
                     display: flex;
                     justify-content: center;
@@ -143,6 +150,7 @@
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                        width: 52px;
                         span{
                             font-size: 13px;
                             color: #333;

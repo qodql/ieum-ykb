@@ -1,14 +1,12 @@
 //Header
 .header1{
-    transition: .3s;
-    height: 68px;
     display: flex;
-    padding: 20px 16px 8px;
-    padding-top: 20px;
+    padding: 20px 16px 3px;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 9999;
+    margin-top: 69px;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
     .headerLogo{
         width: 100%;
         height: 25px;
@@ -34,33 +32,18 @@
         }
     }
 }
-.header1Act{
-    transition: .3s;
-    background-color: #ffff;
-}
 .header2{
-    position: relative;
     transition: .3s;
     display: flex;
-    padding-top: 16px;
-    padding-left: 16px;
+    padding: 16px;
     transform: translateY(-5%);
     gap: 16px;
     z-index: -1;
+    background-color: #fff;
     .header2Li{            
         font-size: 20px;
     }
-    // .header2Li:first-of-type{
-    //     color: #2e8b57;
-    //     font-weight: bold;
-    // }
 }
-.header2Active{
-    transition: .3s;
-    transform: translateY(-200%);
-
-}
-
 .activeLink {
     color: #2e8b57; 
     font-weight: bold;

@@ -1,0 +1,132 @@
+.commentList_title {
+  max-width: 390px;
+  margin: 16px;
+  display: flex;
+  align-items: center;
+  gap: 125px;
+}
+.commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+}
+.commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+
+.commetListWrite {
+  margin: 28px 16px 36px;
+}
+.commetListWrite h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.commetListWrite .commetListWriteBox form .detailInfoStar {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.commetListWrite .commetListWriteBox form .detailInfoStar span {
+  margin-right: 2px;
+}
+.commetListWrite .commetListWriteBox form button {
+  width: 100%;
+  height: 36px;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2E8B57;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont {
+  position: relative;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  padding: 8px;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont textarea::-moz-placeholder {
+  font-size: 12px;
+  color: #999;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont textarea::placeholder {
+  font-size: 12px;
+  color: #999;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont .commetListWriteLetters {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+.commetListWrite .commetListWriteBox .commetListWriteCont .commetListWriteLetters span {
+  font-size: 12px;
+  color: #999;
+  padding-right: 2px;
+}
+
+.commentCard_list {
+  margin: 0 16px 60px;
+}
+.commentCard_list.commentCard_list2 {
+  margin: 0;
+}
+.commentCard_list.commentCard_list2 .detailComment {
+  border-top: none;
+}
+.commentCard_list h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+.commentCard_list .detailComment {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+  padding: 16px 0;
+}
+.commentCard_list .detailComment .detailCommentInfo {
+  padding-left: 12px;
+}
+.commentCard_list .detailComment .detailCommentInfo .detailCommentNickName {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.commentCard_list .detailComment .detailCommentInfo .detailCommentNickName p {
+  font-size: 14px;
+  color: #333;
+}
+.commentCard_list .detailComment .detailCommentInfo .detailCommentNickName span {
+  font-size: 10px;
+  color: #999;
+}
+.commentCard_list .detailComment .detailCommentStar {
+  padding-top: 0;
+}
+.commentCard_list .detailComment .detailCommentStar span span span {
+  display: block;
+}
+.commentCard_list .detailComment .detailCommentCont {
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+}
+
+.commentBox {
+  width: 390px;
+  height: 100%;
+  padding: 0 16px;
+}
+.commentBox .headerBox {
+  display: flex;
+  width: 100%;
+}

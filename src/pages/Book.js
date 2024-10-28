@@ -5,13 +5,17 @@ import { ContentList_card } from '../component/contents/ContentCard'
 import list from '../styles/css/page/book.module.scss'
 import s from '../styles/css/page/main.module.scss'
 import BookStore from '../stores/BookStore';
+import MockupComponent from '@/component/MockupComponent';
 import { useRouter } from 'next/router';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 const Book = () => {
     const { mainItems, itemApi, loading } = BookStore();
     const [categoryTab, setCategoryTab] = useState('Bestseller');
     const router = useRouter();
     const categoryQuery = router.query.category || 'Bestseller';
+    const [comment, setComment] = useState();
     
     //api 요청
     useEffect(() => {
@@ -40,12 +44,28 @@ const Book = () => {
         }
     };
 
+    //평균 평점
+    useEffect(() => {
+        const fetchAverageComment = async () => {
+            const q = query(collection(db, 'comment'));
+            const querySnapshot = await getDocs(q);
+            let comments = []
+            querySnapshot.forEach((doc) => comments.push(doc.data()) );
+            
+            setComment(comments)
+        };
+
+        fetchAverageComment();
+    }, []);
+
     // 로딩
-    if (loading) {
+    if (loading || !comment) {
         return (
-            <div className={s.loading}>
-                <img src="/icon/loading.gif" alt="Loading..." />
-            </div>
+            <MockupComponent>
+                <div className={s.loading}>
+                    <img src="/icon/loading.gif" alt="Loading..." />
+                </div>
+            </MockupComponent>
         );
     }
 
@@ -53,7 +73,7 @@ const Book = () => {
     const detailMove = (item) => {
         router.push({
             pathname: '/Detail',
-            query: { itemId: item.itemId },
+            query: { itemId: item.itemId, itemTitle: item.title},
         });
     };
 
@@ -64,10 +84,13 @@ const Book = () => {
             bestRank: v.bestRank || (i + 1), 
         }));
     };
-
+    // setCategoryTab(v)
+    
     return (
         <>
-            <Header />
+        <MockupComponent>
+            <Header/>
+            <main>
             <div className={list.book}>
                 <div className={list.bookBanner}>
                     <h2>
@@ -78,8 +101,8 @@ const Book = () => {
                     {categoryItems.map((v) => (
                         <button
                             key={v}
-                            className={categoryTab === v ? list.activeTab : list.tab}
-                            onClick={() => setCategoryTab(v)}
+                            className={router.query === v ? list.activeTab : list.tab}
+                            onClick={() => router.push({ pathname: '/Book', query: { category: v } })}
                         >
                             <img src={`./icon/${v}.png`} alt={v}
                                 className={list.tabImage} 
@@ -91,12 +114,14 @@ const Book = () => {
                 <div className={list.bookList}>
                     {mainItems[categoryTab]?.item && rankItems(mainItems[categoryTab].item).map((item) => (
                         <div key={item.itemId} onClick={() => detailMove(item)}>
-                            <ContentList_card item={item} showBookmark={true}/>
+                            <ContentList_card item={item} showBookmark={true} comment={comment}/>
                         </div>
                     ))}
                 </div>
             </div>
+            </main>
             <Footer />
+            </MockupComponent>
         </>
     );
 };

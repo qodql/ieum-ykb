@@ -1,0 +1,29 @@
+.book {
+  margin: 30px auto 0px;
+  max-width: 390px;
+  overflow: hidden;
+}
+.book .bookBanner {
+  margin: 0 16px;
+}
+.book .bookBanner h2 {
+  font-size: 20px;
+  color: #111;
+  font-weight: 600;
+}
+.book .tabContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0 28px;
+}
+.book .tabContainer button {
+  height: 74px;
+  border: none;
+  border-radius: 8px;
+}
+.book .tabContainer button .tabImage {
+  width: 100%;
+  height: 100%;
+}

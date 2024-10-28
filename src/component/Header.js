@@ -5,31 +5,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const Header = () => {
-    const [position, setPosition] = useState(0);
-    const [visible, setVisible] = useState(true);
     const router = useRouter();
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [position]);
-
-    const handleScroll = useCallback(() => {
-        const moving = window.scrollY;
-        setVisible(moving < 100 ? true : false); 
-        setPosition(moving);
-    }, [position]);
-    
 
     return (
         <header>
-            <div className={!visible ? `${s.header1} ${s.header1Act}` : `${s.header1}`}>
+            <div className={`${s.header1}`}>
                 <Link href="/" className={s.headerLogo} style={{ backgroundImage: `url(./IEUMLOGO.png)` }} />
                 <Search />
             </div>
-            <ul className={!visible ? `${s.header2} ${s.header2Active}` : `${s.header2}`}>
+            <ul className={`${s.header2}`}>
                 <li className={s.header2Li}>
                     <Link href="/" className={`${router.pathname === '/' ? s.activeLink : ''}`}>
                         홈

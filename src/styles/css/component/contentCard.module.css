@@ -1,0 +1,329 @@
+.contentCard1 {
+  width: 135px;
+  height: 148px;
+  position: relative;
+  z-index: -2;
+  flex-shrink: 0;
+  text-align: center;
+  background-color: #F7FAF6;
+  border-radius: 8px;
+}
+.contentCard1 .bookmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  width: 21px;
+  height: 27px;
+  color: #fafafa;
+}
+.contentCard1 .contentCard1_image {
+  width: 80px;
+  height: 125px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contentCard2 .contentCard2_image {
+  width: 165px;
+  height: 242px;
+  margin-bottom: 8px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contentCard2 .contentCard2_category {
+  width: 160px;
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: lighter;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contentCard2 .contentCard2_title {
+  width: 170px;
+  font-size: 16px;
+  color: #111111;
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contentCard2 .contentCard2_author {
+  width: 170px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #999999;
+  margin-top: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contentCard3 .contentCard3_image {
+  width: 143px;
+  height: 212px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contentCard3 .contentCard3_title {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #111111;
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contentCard3 .contentCard3_author {
+  font-size: 14px;
+  font-weight: lighter;
+  color: #999999;
+  margin-top: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comment {
+  border: 1px solid #ddd;
+  margin: 16px 16px 80px;
+  border-radius: 8px;
+}
+.comment .profile {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+}
+.comment .profile span {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  margin: 16px 8px 12px 16px;
+}
+.comment .profile .profile_text {
+  padding-top: 4px;
+}
+.comment .profile .profile_text .name {
+  font-size: 14px;
+  color: #333;
+}
+.comment .profile .profile_text .date {
+  font-size: 10px;
+  color: rgba(102, 102, 102, 0.4);
+}
+
+.commentCard {
+  display: flex;
+  margin: 16px;
+  gap: 12px;
+}
+.commentCard .commentCard_img {
+  width: 84px;
+  height: 120px;
+  flex-shrink: 0;
+}
+.commentCard .commentCard_text .commentCard_title {
+  font-size: 12px;
+  font-weight: 500;
+}
+.commentCard .commentCard_text .commentCard_rate {
+  font-size: 12px;
+  color: #ffc700;
+}
+.commentCard .commentCard_text .commentCard_rate span span span {
+  display: block;
+}
+.commentCard .commentCard_text .commentCard_review {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #333;
+}
+
+.ContentList_card {
+  padding: 20px 0;
+  margin: 0 16px;
+  border-bottom: 1px solid #ddd;
+}
+.ContentList_card .ContentList_card_main {
+  display: flex;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_img {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  flex-shrink: 0;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_img .ContentList_card_bookmark {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  padding-right: 2px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  width: 20px;
+  height: 27px;
+  color: #fafafa;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_img .ContentList_card_mainImg {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text {
+  margin: 0 20px;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_title {
+  width: 220px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_auther {
+  margin-bottom: 4px;
+  width: 220px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_rateTitle {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #999;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_rate {
+  font-size: 16px;
+  position: relative;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_commentRate {
+  font-size: 12px;
+  position: absolute;
+  top: 28%;
+  left: 38%;
+}
+.ContentList_card .ContentList_card_foot {
+  display: flex;
+  margin-top: 16px;
+  gap: 40px;
+}
+.ContentList_card .ContentList_card_foot .ContentList_card_Like {
+  font-size: 13px;
+}
+.ContentList_card .ContentList_card_foot .ContentList_card_Like::before {
+  margin-right: 8px;
+}
+.ContentList_card .ContentList_card_foot .ContentList_card_category {
+  width: 220px;
+  font-size: 13px;
+  margin-left: 52px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.MypageCard .MypageCard_box {
+  text-align: center;
+  width: 115px;
+  height: 130px;
+  gap: 20px;
+}
+.MypageCard .MypageCard_box .MypageCard_image {
+  background-repeat: no-repeat;
+  width: 103px;
+  height: 118px;
+  background-size: contain;
+  margin: 0 auto;
+}
+.MypageCard .MypageCard_title {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.MypageComment {
+  display: flex;
+  margin: 20px 0;
+}
+.MypageComment .MypageComment_img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.MypageComment .MypageComment_text {
+  position: relative;
+  margin-left: 12px;
+}
+.MypageComment .MypageComment_text .MypageComment_date {
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: lighter;
+  color: #999;
+}
+.MypageComment .MypageComment_text .MypageComment_title {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.MypageComment .MypageComment_text .MypageComment_rate {
+  font-size: 13px;
+  color: #ffc700;
+}
+.MypageComment .MypageComment_text .MypageComment_review {
+  width: 220px;
+  margin-top: 8px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.MypageComment .MypageComment_more {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 20px;
+  position: relative;
+}
+.MypageComment .MypageComment_moreBox {
+  margin-left: 4px;
+  height: 100%;
+  border: 1px solid #333333;
+  padding: 4px;
+  border-radius: 8px;
+}
+.MypageComment .MypageComment_moreBox > span {
+  display: block;
+}
+
+.MypageLine {
+  width: 358px;
+  height: 1px;
+  border: 1px solid #fafafa;
+}

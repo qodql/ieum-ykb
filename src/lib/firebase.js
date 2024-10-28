@@ -2,8 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore"
 
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
@@ -18,3 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 export const db = getFirestore(app);
+
+
+

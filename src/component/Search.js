@@ -13,8 +13,6 @@ const Search = () => {
 
   }, [searchResults]);
 
- 
-
   // 검색
   const handleSearch = (e) => {
     e.preventDefault();

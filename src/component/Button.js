@@ -24,4 +24,6 @@ const ButtonArrowBack = ()=>{
   )
 }
 
-export {ButtonAll, ButtonArrow,ButtonArrowBack}
+
+
+export {ButtonAll, ButtonArrow, ButtonArrowBack}

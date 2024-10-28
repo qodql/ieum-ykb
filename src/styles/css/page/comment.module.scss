@@ -1,4 +1,5 @@
 .commentList_title{
+    max-width: 390px;
     margin: 16px;
     display: flex;
     align-items: center;
@@ -21,10 +22,18 @@
         font-size: 16px;
         font-weight: 600;
         color: #333;
-        margin-bottom: 12px;
     }
     .commetListWriteBox{
         form{
+            .detailInfoStar{
+                margin: 16px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                    margin-right: 2px;
+                }
+            }
             button{
                 width: 100%;
                 height: 36px;
@@ -63,6 +72,12 @@
 
 .commentCard_list{
     margin: 0 16px 60px;
+    &.commentCard_list2{
+        margin: 0;
+        .detailComment{
+            border-top: none;
+        }
+    }
     h5{
         font-size: 16px;
         font-weight: 600;
@@ -80,7 +95,7 @@
             .detailCommentNickName{
                 display: flex;
                 align-items: flex-end;
-                gap: 4px;
+                gap: 8px;
                 p{
                     font-size: 14px;
                     color: #333;
@@ -93,6 +108,13 @@
         }
         .detailCommentStar{
             padding-top: 0;
+            span{
+                span{
+                    span{
+                        display: block;
+                    }
+                }
+            }
         }
         .detailCommentCont{
             font-size: 12px;

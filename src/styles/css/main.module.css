@@ -1,0 +1,126 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 860px;
+  background-color: transparent;
+}
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 860px;
+  background-color: #2E8B57;
+  animation: loadingfadeIn 0.5s forwards;
+}
+
+@keyframes loadingfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modalOverlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
+}
+.modalOverlay .modalContent {
+  bottom: 120px;
+  width: 100%;
+  max-width: 390px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateY(50%);
+  left: 50%;
+}
+.modalOverlay .modalContent.open {
+  transform: translateY(-30%);
+}
+.modalOverlay .modalContent h3 {
+  text-align: center;
+}
+.modalOverlay .modalContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+.modalOverlay .modalContent ul li {
+  margin: 10px 0;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.modalOverlay .modalContent button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contentTitle {
+  margin: 40px 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.contentTitle h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111111;
+}
+.contentTitle button {
+  border: none;
+  color: #333;
+  font-size: 12px;
+  background-color: transparent;
+}
+
+.banner {
+  margin-top: 24px;
+  margin-left: 16px;
+  background-color: #2e8b57;
+  border-radius: 8px 0px 0px 8px;
+  display: flex;
+  width: 100%;
+  height: 225px;
+}
+
+.mainContent3 .c3Category {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mainContent3 .c3Category .c3Category_li .c3Category_btn {
+  border: none;
+  color: #666;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.active {
+  border: none;
+  color: #111111;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent;
+}

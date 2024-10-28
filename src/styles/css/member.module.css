@@ -1,0 +1,517 @@
+.CreateAccountBox {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+.CreateAccountBox .commentList_title {
+  max-width: 390px;
+  margin: 16px 0 80px;
+  display: flex;
+  align-items: center;
+  gap: 125px;
+}
+.CreateAccountBox .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+}
+.CreateAccountBox .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+.CreateAccountBox form .inputText {
+  display: block;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.CreateAccountBox form .passwordCheck {
+  font-size: 12px;
+  color: rgb(255, 11, 11);
+  margin-top: 8px;
+}
+.CreateAccountBox form .passwordCheckok {
+  font-size: 12px;
+  color: #999999;
+  margin-top: 8px;
+}
+.CreateAccountBox form > span:nth-of-type(1) {
+  margin-top: 32px;
+}
+.CreateAccountBox form .userInput {
+  display: block;
+  width: 358px;
+  height: 43px;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #111111;
+}
+.CreateAccountBox form .userInput:focus::-moz-placeholder {
+  opacity: 0;
+}
+.CreateAccountBox form .userInput:focus::placeholder {
+  opacity: 0;
+}
+.CreateAccountBox form .duplicationBox {
+  width: 358px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.CreateAccountBox form .duplicationBox > .userInput {
+  border: none;
+  margin: 0;
+}
+.CreateAccountBox form .duplicationBox .certificationBtn {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2E8B57;
+  color: #fafafa;
+}
+.CreateAccountBox form .termsList {
+  width: 358px;
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(1) {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(2) {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(2) > input {
+  margin-right: 12px;
+  width: 23px;
+  height: 20px;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(2) > span {
+  font-size: 20px;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(3) {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(3) > input {
+  margin-right: 12px;
+  width: 23px;
+  height: 20px;
+}
+.CreateAccountBox form .termsList > li:nth-of-type(3) > span {
+  font-size: 20px;
+}
+.CreateAccountBox form .createAccountBtn {
+  width: 100%;
+  background-color: #2E8B57;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  height: 48px;
+}
+
+.loginBox {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.loginBox > p {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 16px;
+}
+.loginBox > h2 {
+  text-align: center;
+  font-size: 80px;
+}
+.loginBox .loginLogo {
+  width: 104px;
+  height: 28px;
+  background-repeat: no-repeat;
+  margin: 160px auto 0;
+  background-size: contain;
+}
+.loginBox .loginInput {
+  display: block;
+  width: calc(100% - 137px);
+  height: 40px;
+  margin: 28px auto 0 auto;
+  border: 1px solid #999999;
+  border-radius: 8px;
+}
+.loginBox .loginInput:nth-of-type(2) {
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.loginBox .loginInput::-moz-placeholder {
+  color: #CCCCCC;
+  opacity: 0.4;
+  padding-left: 16px;
+}
+.loginBox .loginInput::placeholder {
+  color: #CCCCCC;
+  opacity: 0.4;
+  padding-left: 16px;
+}
+.loginBox .loginInput:focus::-moz-placeholder {
+  opacity: 0;
+}
+.loginBox .loginInput:focus::placeholder {
+  opacity: 0;
+}
+.loginBox .loginBtn {
+  width: calc(100% - 137px);
+  background-color: #2E8B57;
+  color: #fafafa;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+  height: 40px;
+}
+.loginBox .linkTextBox {
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginBox .linkTextBox .linkText {
+  display: block;
+  text-decoration: underline;
+}
+.loginBox .externalLoginBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 40px;
+}
+.loginBox .externalLoginBox .loginIcon {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.findIdBox {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.findIdBox .commentList_title {
+  max-width: 390px;
+  margin: 0 0 100px;
+  display: flex;
+  align-items: center;
+  gap: 115px;
+}
+.findIdBox .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+}
+.findIdBox .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+.findIdBox form .userInput {
+  display: block;
+  width: 100%;
+  height: 43px;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #111111;
+}
+.findIdBox form .userInput:focus::-moz-placeholder {
+  opacity: 0;
+}
+.findIdBox form .userInput:focus::placeholder {
+  opacity: 0;
+}
+.findIdBox form > span:nth-of-type(2) {
+  margin-top: 16px;
+}
+.findIdBox form > span:nth-of-type(3) {
+  margin-top: 16px;
+}
+.findIdBox form .certificationBox {
+  display: flex;
+  border-bottom: 1px solid #111111;
+  align-items: center;
+}
+.findIdBox form .certificationBox > input {
+  border: none;
+  width: 95%;
+}
+.findIdBox form .certificationBox .certificationBtn {
+  width: 80px;
+  height: 30px;
+  background-color: #2E8B57;
+  color: #fafafa;
+  border: none;
+  border-radius: 8px;
+}
+.findIdBox form .findBtn {
+  width: 100%;
+  background-color: #2E8B57;
+  color: white;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 36px;
+}
+
+.mypageBox {
+  width: 390px;
+  margin: 0 auto;
+}
+.mypageBox .profileBox {
+  width: 100%;
+  height: 187px;
+  background-color: #F5F5DC;
+}
+.mypageBox .profileBox .btnBox {
+  display: flex;
+  width: 100%;
+  padding-top: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.mypageBox .profileBox .btnBox .backBtn {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 16px;
+}
+.mypageBox .profileBox .btnBox > span {
+  display: block;
+  margin-right: 16px;
+}
+.mypageBox .profileBox .profile .profileImg {
+  width: 55px;
+  height: 55px;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  margin-left: 32px;
+  display: block;
+}
+.mypageBox .profileBox .profile > p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 32px;
+}
+.mypageBox .profileBox .profile > span {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 32px;
+  display: block;
+  margin-bottom: 20px;
+}
+.mypageBox .contentBox {
+  padding: 0 16px;
+  width: 100%;
+  margin-top: 40px;
+}
+.mypageBox .contentBox .contentList {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.mypageBox .contentBox .contentList > span {
+  font-size: 20px;
+}
+.mypageBox .contentBox .contentList > a {
+  font-size: 12px;
+}
+.mypageBox .contentBox .mypageCardBox {
+  width: 358px;
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: 40px;
+  gap: 16px;
+  overflow: hidden;
+}
+.mypageBox .contentBox .contentText {
+  font-size: 12px;
+  color: #999999;
+  display: block;
+}
+.mypageBox .morePage {
+  width: 390px;
+  height: 1200px;
+  padding: 0 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+}
+.mypageBox .morePage > ul {
+  height: 100%;
+}
+.mypageBox .morePage .headerBox {
+  width: 205px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.mypageBox .morePage .headerBox .moreBackBtn {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mypageBox .morePage .headerBox > h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.mypageBox .morePage > span:first-of-type {
+  display: block;
+  margin-top: 20px;
+}
+.mypageBox .morePage > span:first-of-type::after {
+  content: "";
+  border: 1px solid #eaeaea;
+  width: 358px;
+  margin-top: 12px;
+  display: block;
+}
+.mypageBox .morePage .myComentList::after {
+  content: "";
+  border: 1px solid #eaeaea;
+  width: 358px;
+  margin-top: 12px;
+  display: block;
+}
+
+.memberCorrection {
+  width: 390px;
+  padding: 0 16px;
+  margin: 60px auto;
+}
+.memberCorrection .commentList_title {
+  max-width: 390px;
+  margin: 0 0 88px;
+  display: flex;
+  align-items: center;
+  gap: 115px;
+}
+.memberCorrection .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+}
+.memberCorrection .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+.memberCorrection .labelText {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  margin-top: 16px;
+}
+.memberCorrection .nicknameChangeBox > span {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+.memberCorrection .userInput {
+  display: block;
+  width: 358px;
+  height: 43px;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid #111111;
+}
+.memberCorrection .userInput .userInput:focus {
+  border-bottom: 1px solid #111111;
+}
+.memberCorrection .userInput:nth-of-type(1):focus {
+  outline: none;
+}
+.memberCorrection .userInput:focus::-moz-placeholder {
+  opacity: 0;
+}
+.memberCorrection .userInput:focus::placeholder {
+  opacity: 0;
+}
+.memberCorrection .userInput:nth-of-type(1):focus::-moz-placeholder {
+  opacity: 1;
+}
+.memberCorrection .userInput:nth-of-type(1):focus::placeholder {
+  opacity: 1;
+}
+.memberCorrection .userInput:last-of-type:focus::-moz-placeholder {
+  opacity: 1;
+}
+.memberCorrection .userInput:last-of-type:focus::placeholder {
+  opacity: 1;
+}
+.memberCorrection .userInput:last-of-type:focus {
+  outline: none;
+}
+.memberCorrection .nicknameChangeBox {
+  display: flex;
+  border-bottom: 1px solid #111111;
+  justify-content: space-between;
+  align-items: center;
+}
+.memberCorrection .nicknameChangeBox > .userInput {
+  border: none;
+}
+.memberCorrection .nicknameChangeBox > .userInput:focus {
+  border: 1px solid black;
+  border-radius: 4px;
+  outline: 1px solid #111111;
+}
+.memberCorrection .nicknameChangeBox > .userInput:focus::-moz-placeholder {
+  opacity: 0;
+}
+.memberCorrection .nicknameChangeBox > .userInput:focus::placeholder {
+  opacity: 0;
+}
+.memberCorrection .nicknameChangeBox > button {
+  width: 80px;
+  height: 40px;
+  background-color: #2E8B57;
+  border: none;
+  border-radius: 8px;
+  color: #fafafa;
+}
+.memberCorrection .memberCorrectionBtnBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.memberCorrection .memberCorrectionBtnBox .memberCorrectionBtn {
+  background-color: #2E8B57;
+  width: 48%;
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  color: #fafafa;
+}
+.memberCorrection .memberCorrectionBtnBox .memberCorrectionCancel {
+  width: 48%;
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  color: #111111;
+  background-color: #F2F2F2;
+}

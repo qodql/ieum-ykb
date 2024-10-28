@@ -2,13 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react'
 import s from '@/styles/css/component/footer.module.scss'
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import {  useRouter } from 'next/router';
 
 const Footer = () => {
     const [position, setPosition] = useState(0);
     const [visible, setVisible] = useState(true);
     const { data: session } = useSession();
-    const router = useRouter();
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -16,10 +14,7 @@ const Footer = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [position]);
-    const searchPush = () => {
-        router.push('/SearchList?k=한강');
-        // location.href = '/SearchList?k=한강';
-    }
+    
 
     const handleScroll = useCallback(() => {
         const moving = window.scrollY;

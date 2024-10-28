@@ -107,8 +107,10 @@
     margin: 16px 16px 80px;
     border-radius: 8px;
     .profile{
+        height: 32px;
         display: flex;
         align-items: center;
+        margin: 12px 0;
         span{
             width: 32px;
             height: 32px;
@@ -131,6 +133,7 @@
 .commentCard{
     display: flex;
     margin: 16px;
+    gap: 12px;
     .commentCard_img{
         width: 84px;
         height: 120px;
@@ -144,6 +147,13 @@
         .commentCard_rate{
             font-size: 12px;
             color: #ffc700;
+            span{
+                span{
+                    span{
+                        display: block;
+                    }
+                }
+            }
         }
         .commentCard_review{
             font-size: 12px;
@@ -214,6 +224,14 @@
             }
             .ContentList_card_rate{
                 font-size: 16px;
+                position: relative;
+            }
+            .ContentList_card_commentRate{
+                font-size: 12px;
+                position: absolute;
+                top: 28%;
+                left: 38%;
+
             }
         }
     }
@@ -269,8 +287,8 @@
 .MypageComment{
     display: flex;
     margin: 20px 0;
-    .MypageComment_img{
-        
+
+    .MypageComment_img{    
         background-repeat: no-repeat;
         background-size: cover;
         width: 70px;
@@ -304,10 +322,41 @@
             font-size: 13px;
             overflow:hidden;
             text-overflow:ellipsis; 
-            white-space:nowrap;  
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
         }
     }
     .MypageComment_more{
-        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 20px;
+        position: relative;
     }
+    .MypageComment_moreBox{
+        margin-left: 4px;
+        height: 100%;
+        border: 1px solid  #333333;
+        padding: 4px;
+        border-radius: 8px;
+        &>span{
+            display: block;
+            // &:first-of-type::after{
+            //     content: '';
+            //     width: 100%;
+            //     border: 1px solid #EAEAEA;
+            //     display: block;
+            // }
+        }
+        
+    }
+}
+.MypageLine{
+    width: 358px;
+    height: 1px;
+    border: 1px solid #fafafa;
 }

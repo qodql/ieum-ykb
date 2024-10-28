@@ -3,18 +3,23 @@
   max-width: 390px;
   margin: 0 auto;
   padding: 40px 16px;
-  .ieumLogo{
-    width: 43%;
-    height: 40px;
-    background-repeat: no-repeat;
-    margin: 16px auto;
-    display: block;
-    background-size: contain;
-  }
-  .createAccount{
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
+  .commentList_title{
+    max-width: 390px;
+    margin: 16px 0 80px;
+    display: flex;
+    align-items: center;
+    gap: 125px;
+    .commentList_back::after{
+        content: url(../../../../public/back.png);
+        width: 24px;
+        height: 24px;
+    }
+    h2{
+        word-spacing: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #111;
+    }
   }
   form{
     .inputText{
@@ -129,10 +134,10 @@
     font-size: 80px;
   }
   .loginLogo{
-    width: 45%;
-    height: 40px;
+    width: 104px;
+    height: 28px;
     background-repeat: no-repeat;
-    margin: 80px auto 0px auto;
+    margin: 160px auto 0;
     background-size: contain;
     
   }
@@ -196,24 +201,27 @@
 
 //아이디찾기
  .findIdBox{
-  width: 390px;
-  padding: 0 16px;
-  margin: 60px auto;
-  &>p{
-    text-align: center;
-    font-weight: 500;
-    font-size: 36px;
-    margin-top: 16px;
-    margin-bottom: 32px;
-  }
-  .ieumLogo{
-    width: 35%;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin: 16px auto;
-    background-size: contain;
-  }
-
+  max-width: 390px;
+  margin: 0 auto;
+  padding : 0 16px;
+  .commentList_title{
+    max-width: 390px;
+    margin: 0 0 100px;
+    display: flex;
+    align-items: center;
+    gap: 115px;
+    .commentList_back::after{
+        content: url(../../../../public/back.png);
+        width: 24px;
+        height: 24px;
+    }
+    h2{
+        word-spacing: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #111;
+    }
+}
   form{
     .userInput{
       display: block;
@@ -267,26 +275,35 @@
 .mypageBox{
   width: 390px;
   margin: 0 auto;
-
   .profileBox{
     width: 100%;
-    height: 250px;
+    height: 187px;
     background-color: #F5F5DC;
-    .backBtn{
-      width: 30px;
-      height: 30px;
-      background-repeat: no-repeat;
-      position: relative;
-      top: 16px;
-      left: 16px;
+    .btnBox{
+      display: flex;
+      width: 100%;
+      padding-top: 16px;
+      align-items: center;
+      justify-content: space-between;
+      .backBtn{
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 16px;
+      }
+      &>span{
+        display: block;
+        margin-right:16px ;
+      }
     }
+
     .profile{
-      margin-top: 100px;
       .profileImg{
         width: 55px;
         height: 55px;
         background-repeat: no-repeat;
-        margin-top: 36px;
+        margin-top: 20px;
         margin-left: 32px;
         display: block;
       }
@@ -300,6 +317,7 @@
         color: #999999;
         margin-left: 32px;
         display: block;
+        margin-bottom: 20px;
       }
     }
   }
@@ -323,12 +341,60 @@
       display: flex;
       margin-top: 12px;
       margin-bottom: 40px;
-      gap: 20px;
+      gap: 16px;
       overflow: hidden;
     }
     .contentText{
       font-size: 12px;
       color: #999999;
+      display: block;
+    }
+  }
+
+  .morePage{
+    width: 390px;
+    height: 1200px;
+    padding: 0 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fafafa ;
+    &>ul{
+      height: 100%;
+    }
+    .headerBox{
+      width: 205px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      .moreBackBtn{
+       width: 30px;
+       height: 30px;
+       background-size: cover;
+       background-repeat: no-repeat;
+      }
+      &>h2{
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    &>span:first-of-type{
+      display: block;
+      margin-top: 20px;
+      &::after{
+        content: '';
+        border: 1px solid #eaeaea;
+        width: 358px;
+        margin-top: 12px;
+        display: block;
+      }
+    }
+    .myComentList::after{
+      content: '';
+      border: 1px solid #eaeaea;
+      width: 358px;
+      margin-top: 12px;
       display: block;
     }
   }
@@ -339,25 +405,29 @@
   width: 390px;
   padding: 0 16px;
   margin: 60px auto;
-  &>h2{
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 28px;
+  .commentList_title{
+    max-width: 390px;
+    margin: 0 0 88px;
+    display: flex;
+    align-items: center;
+    gap: 115px;
+    .commentList_back::after{
+        content: url(../../../../public/back.png);
+        width: 24px;
+        height: 24px;
+    }
+    h2{
+        word-spacing: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #111;
+    }
   }
-
   .labelText{
     font-size: 16px;
     font-weight: 500;
     display: block;
     margin-top: 16px;
-  }
-  .ieumLogo{
-    width: 38%;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin: 16px auto;
-    background-size: contain;
   }
   
   .nicknameChangeBox{

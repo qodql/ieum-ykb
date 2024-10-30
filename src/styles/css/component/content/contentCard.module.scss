@@ -225,13 +225,19 @@
             .ContentList_card_rate{
                 font-size: 16px;
                 position: relative;
+                span{
+                    span{
+                        span{
+                            display: block;
+                        }
+                    }
+                }
             }
             .ContentList_card_commentRate{
                 font-size: 12px;
                 position: absolute;
                 top: 28%;
                 left: 38%;
-
             }
         }
     }

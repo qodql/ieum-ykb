@@ -7,7 +7,7 @@
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-sass.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-figma.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-swiper.svg"/>
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-mui.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-mui2.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-js.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-next.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-react.svg"/>
@@ -19,7 +19,6 @@
 </div> 
 
 ## 📝 프로젝트 소개
-<br />
 IEUM은 독서 활동을 기록하고, <br />
 원하는 도서를 검색 및 책에 대한 리뷰를 작성할 수 있는 <br />
 도서리뷰 웹 애플리케이션입니다.
@@ -31,7 +30,7 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 
 ## 🗓 프로젝트 일정
 **총 일정 2024.10.4 ~ 2024.10.27(24일), 3인**
-<br />
+<br /><br />
 10.4 ~ 10.8 주제선정 및 기획
 <br />
 10.8 ~ 10.11 디자인 및 화면 구성
@@ -41,10 +40,8 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 10.23 ~ 10.27 점검 및 오류 수정
 
 ## 🔗 배포 URL
-<br />
 <a href="https://book-ieum.vercel.app/" target="_blank">https://book-ieum.vercel.app/</a>
 <br />
-
 
 ## 💁‍♂️ 프로젝트 팀원
 <table>
@@ -69,20 +66,13 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
         <td>기능 개발</td>
     </tr>
 </table>
-
-
 <br />
-## 🖥화면 구성
 
-|화면 명|
-|:---:|
-|<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/img-project02.jpg"/ width="500">|
-|화면에 대한 설명을 입력합니다.|
-
+## 🖥 화면 구성
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/img-project02.jpg" width="500">
 <br />
 
 ## ⚙ 기술 스택
-
 이 프로젝트는 다양한 최신 기술을 활용하여 구현되었습니다.
 
 - **NEXT**: 프론트엔드 프레임워크, 컴포넌트 기반 UI를 구현
@@ -91,11 +81,9 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 - **SASS**: CSS 방식으로 컴포넌트 스타일링
 - **Vercel**: 배포 플랫폼 (배포 사이트: [https://book-ieum.vercel.app/](https://book-ieum.vercel.app/))
 - **GitHub**: 버전 관리 및 협업 도구
-
 <br />
 
 ## 🛠 주요 기능 및 특징
-
 1. **서비스 접속 초기화면**: 접속 시 splash 화면이 나타난 뒤, 본 페이지가 로드됩니다.
 
 2. **홈 화면**:
@@ -122,7 +110,6 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 6. **로그인 기능**:
    - 사용자는 **네이버**, **깃허브**, **구글 로그인** 및 **직접 회원가입**을 통해 로그인할 수 있습니다.
    - 로그인 시 **마이페이지**로 이동하여 북마크 및 코멘트 목록을 확인하고, 회원 정보를 수정할 수 있습니다.
-
 <br />
 
 ## 🤔 기술적 이슈와 해결 과정
@@ -150,155 +137,26 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 문제: 카테고리별 리스트를 출력할 때, 컴포넌트를 이용하여 다른 서버요청 실행으로 인해 홈 화면의 서버요청이 반복되어 무한 랜더링이 발생하였습니다.
 
 해결: 랜더링을 실행할 때, 서로 다른 전역 변수에 저장하는 방법을 사용하여 서버요청으로 인한 전역변수의 변화가 서로 다르게 하여 반복적인 서버요청을 하지 않도록 해결했습니다.
-
 <br />
 
 ##  :file_folder: 폴더 구조
-Book-IEUM/
-<br />
-├── 📂public/                          # 이미지, 폰트, 아이콘 등 정적 자원
-<br />
-│   ├── 📂icon
-<br />
-│   │   └── logo.png                 # 예시: 로고 이미지
-<br />
-│   └── ...
-<br />
-├── 📂src/                             # 소스 코드 디렉토리
-<br />
-│   ├── 📂components/                  # 재사용 가능한 컴포넌트들
-<br />
-│   │   ├── 📜Button.js               # 버튼 컴포넌트
-<br />
-│   │   ├── 📜Footer.js               # 푸터 컴포넌트
-<br />
-│   │   ├── 📜Header.js               # 헤더 컴포넌트
-<br />
-│   │   ├── 📜loadingScreen.js        # 로딩화면 컴포넌트
-<br />
-│   │   ├── 📜MockupComponent.js      # 어플 목업 컴포넌트
-<br />
-│   │   ├── 📜Modal.js                # 모달 컴포넌트
-<br />
-│   │   ├── 📜search.js               # 검색박스 컴포넌트
-<br />
-│   │   ├── 📂contents/                # 재사용 가능한 컴포넌트들(컨텐츠)
-<br />
-│   │   │  ├── 📜ContentCard.js               # 컨텐츠카드 컴포넌트
-<br />
-│   │   │  └── 📜ContentList.js               # 컨텐츠리스트 컴포넌트
-<br />
-│   ├── 📂lib/                         # firebase 관련
-<br />
-│   │   └── 📜firebase.js              # firebase
-<br />
-│   ├── 📂pages/                       # 각 화면 파일들
-<br />
-│   │   ├── 📂api/                # api 관련 파일(데이터 및 서버)
-<br />
-│   │   │  ├──  📂auth/                # 로그인 nextauth 관련
-<br />
-│   │   │  │  └── 📜[...nextauth].js               # nextauth(로그인api 관련)
-<br />
-│   │   │  ├── 📜aladin.js               # api 서버요청
-<br />
-│   │   │  ├── 📜hello.js             
-<br />
-│   │   │  └── 📄알라딘 api 저장.txt      # api 요청시 필요한 url 등의 정보             
-<br />
-│   │   ├── 📂fonts/                # 폰트 적용
-<br />
-│   │   │  ├── 📄GeistMonoVF.woff               
-<br />
-│   │   │  └── 📄GeistVF.woff               # 컨텐츠리스트 컴포넌트
-<br />
-│   │   ├── 📂page/                # 재사용 가능한 컴포넌트들(컨텐츠)
-<br />
-│   │   │  ├──  📂member/                # 로그인 관련 페이지
-<br />
-│   │   │  │  ├── 📜CreateAcount.js        # 회원가입
-<br />
-│   │   │  │  ├── 📜Finded.js              # 아이디찾기
-<br />
-│   │   │  │  ├── 📜Login.js               # 로그인
-<br />
-│   │   │  │  ├── 📜Membercorrection.js    # 회원수정
-<br />
-│   │   │  │  └── 📜Mypage.js              # 마이페이지
-<br />
-│   │   ├── 📜_app.js                      
-<br />
-│   │   ├── 📜_document.js                 
-<br />
-│   │   ├── 📜Book.js                      # 도서 목록 페이지
-<br />
-│   │   ├── 📜CommentList.js               # 코멘트 목록 페이지
-<br />
-│   │   ├── 📜Detail.js                    # 상세페이지
-<br />
-│   │   ├── 📜index.js                     # 화면 출력
-<br />
-│   │   ├── 📜Main.js                      # 메인 홈페이지
-<br />
-│   │   └── 📜SearchList.js               # 도서 검색 목록 페이지
-<br />
-│   ├── 📂store/                    # 상태관리(zustand)
-<br />
-│   │   └── 📜BookStore.js                   # zustand 사용 상태관리
-<br />
-│   ├── 📂styles/                      # 스타일 파일들 (CSS, SCSS, Styled Components 등)
-<br />
-│   │   ├── 📂css/                # css 파일
-<br />
-│   │   │  ├──  📂component/                # component 스타일 파일
-<br />
-│   │   │  │  ├──  📂content/                # 컨텐츠 스타일 파일
-<br />
-│   │   │  │  │  ├── 🖌contentCard.module.scss        # 컨텐츠카드 스타일
-<br />
-│   │   │  │  │  └── 🖌contentList.module.scss        # 컨텐츠리스트 스타일
-<br />
-│   │   │  │  ├── 🖌button.module.scss                # 버튼
-<br />
-│   │   │  │  ├── 🖌footer.module.scss                # 푸터
-<br />
-│   │   │  │  ├── 🖌header.module.scss                # 헤더
-<br />
-│   │   │  │  ├── 🖌MockupComponent.module.scss       # 목업
-<br />
-│   │   │  │  └── 🖌Search.module.scss                # 검색
-<br />
-│   │   │  ├──  📂page/                # page 스타일 파일
-<br />
-│   │   │  │  ├── 🖌book.module.scss                # 도서 목록 페이지
-<br />
-│   │   │  │  ├── 🖌comment.module.scss             # 코멘트페이지
-<br />
-│   │   │  │  ├── 🖌detail.module.scss              # 상세페이지
-<br />
-│   │   │  │  ├── 🖌main.module.scss                # 메인 홈페이지
-<br />
-│   │   │  │  ├── 🖌member.module.scss              # 로그인 관련 페이지(로그인, 회원가입, 회원수정, 마이페이지, 아이디찾기)
-<br />
-│   │   │  │  └── 🖌SearchList.module.scss          # 검색 목록 페이지
-<br />
-│   │   ├── 🖌globals.css          # 전역 스타일
-<br />
-│   │   └── 🖌Home.module.css                 # 테마 관련 설정 (색상, 폰트 등)
-<br />
-├── 📄.env                             # 민감한 정보나 환경 변수를 안전하게 관리
-<br />
-├── 📄.exlintrc.json                   # Git에서 무시할 파일/폴더 목록
-<br />
-├── 📄.gitignore                       # Git에서 무시할 파일/폴더 목록
-<br />
-├── 📄next.config.mjs                  # Next.js 프로젝트의 주요 설정을 정의하는 파일
-<br />
-├── 📄package.json                     # 프로젝트 의존성 및 설정
-<br />
-├── 📄package-lock.json                # 프로젝트의 빌드 및 실행 동작을 커스터마이즈
-<br />
-└── 📄README.md                        # 프로젝트 라이선스 (MIT 등)
+📦BOOK-IEUM
+ ┣ 📂public                  # 이미지, 폰트, 아이콘 등 정적 자원
+ ┃ ┣ 📂icons                # 로고 이미지
+ ┣ 📂src                      # 소스 코드 디렉토리
+ ┃ ┣ 📂components       # 컴포넌트 폴더
+ ┃ ┣ 📂lib
+ ┃ ┃ ┗ 📜firebase.js      # DB
+ ┃ ┣ 📂pages               # 페이지 폴더
+ ┃ ┃ ┣ 📂api               # api 관련 파일(데이터 및 서버)
+ ┃ ┃ ┃ ┣ 📂auth
+ ┃ ┃ ┃ ┃ ┗ 📜[...nextauth].js    # 로그인 관련 (Next Auth)
+ ┃ ┃ ┃ ┣ 📜aladin.js               # 알라딘 API
+ ┃ ┣ 📂store            # 전역 상태 관리
+ ┃ ┃ ┣ 📜aladin.js     # zustand 사용 상태관리
+ ┃ ┣ 📂styles           # scss
+ ┣ 📜.env                 # 민감한 정보나 환경 변수를 안전하게 관리
+ ┗ 📜README.md
 
 
 

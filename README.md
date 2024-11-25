@@ -139,25 +139,27 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 <br />
 
 ##  :file_folder: 폴더 구조
+<pre class="notranslate">
 <code>
 📦BOOK-IEUM
  ┣ 📂public                  # 이미지, 폰트, 아이콘 등 정적 자원
- ┃ ┣ 📂icons                # 로고 이미지
- ┣ 📂src                      # 소스 코드 디렉토리
- ┃ ┣ 📂components       # 컴포넌트 폴더
+ ┃ ┣ 📂icons                 # 로고 이미지
+ ┣ 📂src                     # 소스 코드 디렉토리
+ ┃ ┣ 📂components            # 컴포넌트 폴더
  ┃ ┣ 📂lib
- ┃ ┃ ┗ 📜firebase.js      # DB
- ┃ ┣ 📂pages               # 페이지 폴더
- ┃ ┃ ┣ 📂api               # api 관련 파일(데이터 및 서버)
+ ┃ ┃ ┗ 📜firebase.js         # DB
+ ┃ ┣ 📂pages                 # 페이지 폴더
+ ┃ ┃ ┣ 📂api                 # api 관련 파일(데이터 및 서버)
  ┃ ┃ ┃ ┣ 📂auth
- ┃ ┃ ┃ ┃ ┗ 📜[...nextauth].js    # 로그인 관련 (Next Auth)
- ┃ ┃ ┃ ┣ 📜aladin.js               # 알라딘 API
- ┃ ┣ 📂store            # 전역 상태 관리
- ┃ ┃ ┣ 📜aladin.js     # zustand 사용 상태관리
- ┃ ┣ 📂styles           # scss
- ┣ 📜.env                 # 민감한 정보나 환경 변수를 안전하게 관리
+ ┃ ┃ ┃ ┃ ┗ 📜[...nextauth].js   # 로그인 관련 (Next Auth)
+ ┃ ┃ ┃ ┣ 📜aladin.js            # 알라딘 API
+ ┃ ┣ 📂store                 # 전역 상태 관리
+ ┃ ┃ ┣ 📜aladin.js           # zustand 사용 상태관리
+ ┃ ┣ 📂styles                # scss
+ ┣ 📜.env                    # 민감한 정보나 환경 변수를 안전하게 관리
  ┗ 📜README.md
  </code>
+ </pre>
 
 
 

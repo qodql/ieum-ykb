@@ -14,7 +14,7 @@
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-firebase.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-firestore.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-zustand.svg"/>
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-vercerl.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-vercel.svg"/>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-git.svg"/>
 </div> 
 
@@ -46,7 +46,6 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 <br />
 
 
-<br />
 ## 💁‍♂️ 프로젝트 팀원
 <table>
     <tr>
@@ -73,11 +72,11 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 
 
 <br />
-### 화면 구성
+## 🖥화면 구성
 
 |화면 명|
 |:---:|
-|<img src="https://user-images.githubusercontent.com/80824750/208456234-fb5fe434-aa65-4d7a-b955-89098d5bbe0b.gif" width="450"/>|
+|<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/img-project02.jpg"/ width="500">|
 |화면에 대한 설명을 입력합니다.|
 
 <br />
@@ -95,7 +94,7 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 
 <br />
 
-## :wrench: 주요 기능 및 특징
+## 🛠 주요 기능 및 특징
 
 1. **서비스 접속 초기화면**: 접속 시 splash 화면이 나타난 뒤, 본 페이지가 로드됩니다.
 

@@ -1,7 +1,8 @@
 <div align="center">
 
 <!-- logo -->
-<img src="https://github.com/minhyun-k/Book-IEUM/blob/main/public/loading-1.png" width="400" height="400"/>
+<!-- <img src="https://github.com/minhyun-k/Book-IEUM/blob/main/public/loading-1.png" width="400" height="400"/> -->
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/IEUMLOGO.svg" width="250" height="200"/>
 
 ### IEUM 🖍️
 
@@ -19,11 +20,11 @@ Next.js와 Firebase를 활용해 <br />
 React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 설계했습니다.<br />
 
 [배포사이트 링크](https://book-ieum.vercel.app/)  
-[GitHub Repository](https://github.com/minhyun-k/Book-IEUM.git)
+[GitHub Repository](https://github.com/qodql/ieum-ykb.git)
 <br />
 
 ## 🗓 프로젝트 일정
-**총 일정 2024.10.4 ~ 2024.10.30**
+**총 일정 2024.10.4 ~ 2024.10.27(24일), 3인**
 <br />
 10.4 ~ 10.8 주제선정 및 기획
 <br />
@@ -32,14 +33,13 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 10.12 ~ 10.22 프로젝트 진행
 <br />
 10.23 ~ 10.27 점검 및 오류 수정
-<br />
-10.27 ~ 10.30 프로젝트 리뷰
+
 
 
 <br />
 
 ## 💁‍♂️ 프로젝트 팀원
-강민현(팀장, 디자인, 데이터), 윤경빈(디자인, 데이터), 이홍영(로그인)
+강민현(팀장, 디자인, 데이터), 윤경빈(배포, API, 디자인), 이홍영(로그인)
 
 
 <br />

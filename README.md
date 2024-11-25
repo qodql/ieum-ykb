@@ -1,10 +1,14 @@
-<div align="center">
+<div align="left">
 
 <!-- logo -->
-<!-- <img src="https://github.com/minhyun-k/Book-IEUM/blob/main/public/loading-1.png" width="400" height="400"/> -->
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/IEUMLOGO.svg" width="250" height="200"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/IEUMLOGO.svg" width="200" height="150"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
 
-### IEUM 🖍️
+
+
 
 </div> 
 
@@ -19,8 +23,10 @@ Next.js와 Firebase를 활용해 <br />
 사용자 인증 및 데이터 저장 기능을 구현했으며, <br />
 React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 설계했습니다.<br />
 
-[배포사이트 링크](https://book-ieum.vercel.app/)  
-[GitHub Repository](https://github.com/qodql/ieum-ykb.git)
+
+## 🔗 배포 URL
+<a href="https://book-ieum.vercel.app/" target="_blank">https://book-ieum.vercel.app/</a>
+
 <br />
 
 ## 🗓 프로젝트 일정

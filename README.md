@@ -69,8 +69,7 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 <br />
 
 ## 🖥 화면 구성
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/img-project02.jpg" width="500">
-<br />
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/img-project02.jpg" width="680">
 
 ## ⚙ 기술 스택
 이 프로젝트는 다양한 최신 기술을 활용하여 구현되었습니다.
@@ -140,6 +139,7 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 <br />
 
 ##  :file_folder: 폴더 구조
+<code>
 📦BOOK-IEUM
  ┣ 📂public                  # 이미지, 폰트, 아이콘 등 정적 자원
  ┃ ┣ 📂icons                # 로고 이미지
@@ -157,6 +157,7 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
  ┃ ┣ 📂styles           # scss
  ┣ 📜.env                 # 민감한 정보나 환경 변수를 안전하게 관리
  ┗ 📜README.md
+ </code>
 
 
 

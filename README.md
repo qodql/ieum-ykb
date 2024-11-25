@@ -1,19 +1,25 @@
 <div align="left">
 
 <!-- logo -->
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/IEUMLOGO.svg" width="200" height="150"/>
+<p><img src="https://github.com/qodql/ieum-ykb/blob/main/public/IEUMLOGO.svg" width="200" height="150"/></p>
 <img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
-<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-html.svg"/>
-
-
-
-
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-css.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-sass.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-figma.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-swiper.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-mui.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-js.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-next.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-react.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-firebase.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-firestore.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-zustand.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-vercerl.svg"/>
+<img src="https://github.com/qodql/ieum-ykb/blob/main/public/readme/icon-project-git.svg"/>
 </div> 
 
 ## 📝 프로젝트 소개
-
+<br />
 IEUM은 독서 활동을 기록하고, <br />
 원하는 도서를 검색 및 책에 대한 리뷰를 작성할 수 있는 <br />
 도서리뷰 웹 애플리케이션입니다.
@@ -22,12 +28,6 @@ IEUM은 독서 활동을 기록하고, <br />
 Next.js와 Firebase를 활용해 <br />
 사용자 인증 및 데이터 저장 기능을 구현했으며, <br />
 React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 설계했습니다.<br />
-
-
-## 🔗 배포 URL
-<a href="https://book-ieum.vercel.app/" target="_blank">https://book-ieum.vercel.app/</a>
-
-<br />
 
 ## 🗓 프로젝트 일정
 **총 일정 2024.10.4 ~ 2024.10.27(24일), 3인**
@@ -40,12 +40,36 @@ React와 SCSS로 사용자가 쉽게 탐색할 수 있도록 깔끔한 UI/UX를 
 <br />
 10.23 ~ 10.27 점검 및 오류 수정
 
+## 🔗 배포 URL
+<br />
+<a href="https://book-ieum.vercel.app/" target="_blank">https://book-ieum.vercel.app/</a>
+<br />
 
 
 <br />
-
 ## 💁‍♂️ 프로젝트 팀원
-강민현(팀장, 디자인, 데이터), 윤경빈(배포, API, 디자인), 이홍영(로그인)
+<table>
+    <tr>
+        <th>이름</th>
+        <th>Github</th>
+        <th>직무</th>
+    </tr>
+    <tr>
+        <td>강민현</td>
+        <td><a href="https://github.com/minhyun-k">minhyun-k</a></td>
+        <td>팀장, 데이터</td>
+    </tr>
+     <tr>
+        <td>윤경빈</td>
+        <td><a href="https://github.com/qodql">qodql</a></td>
+        <td>배포, API, 디자인</td>
+    </tr>
+    <tr>
+        <td>이홍영</td>
+        <td><a href="https://github.com/Infouse">Infouse</a></td>
+        <td>기능 개발</td>
+    </tr>
+</table>
 
 
 <br />

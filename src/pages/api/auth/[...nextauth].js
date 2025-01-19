@@ -33,20 +33,26 @@ export const authOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        const q = query(
-          collection(db, "userInfo"),
-          where("info.email", "==", credentials.email),
-          where("info.password", "==", credentials.password)
-        );
-        const querySnapshot = await getDocs(q);
-        let user = null;
-        querySnapshot.docs.map((doc) => {
-          user = doc.data();
-        });
-        if (user) {
-          return user.info;
-        } else {
-          throw new Error('Invalid credentials');
+        try {
+          const q = query(
+            collection(db, "userInfo"),
+            where("info.email", "==", credentials.email),
+            where("info.password", "==", credentials.password)
+          );
+          const querySnapshot = await getDocs(q);
+          let user = null;
+          querySnapshot.docs.map((doc) => {
+            user = doc.data();
+          });
+          if (user) {
+            return user.info;
+          } else {
+            console.error("Invalid credentials during authorize.");
+            throw new Error('Invalid credentials');
+          }
+        } catch (error) {
+          console.error("Error during authorize callback:", error);
+          throw error;
         }
       },
     }),
@@ -63,85 +69,80 @@ export const authOptions = {
           );
           const querySnapshot = await getDocs(q);
           if (querySnapshot.empty) {
-            console.error('Invalid credentials during sign-in');
+            console.error("Invalid credentials in signIn.");
             return false;
           }
           return true;
         } else if (['naver', 'google', 'github'].includes(account.provider)) {
           let email;
 
-          // 네이버 프로필 확인 및 처리
           if (account.provider === 'naver') {
             const naverProfile = profile?.response;
             if (!naverProfile || !naverProfile.email) {
-              console.error('Naver profile is missing email information.');
-              throw new Error('Naver authentication failed: No email found.');
+              console.error("Naver profile missing email in signIn.");
+              return false;
             }
             email = naverProfile.email;
           } else {
             email = user.email;
           }
 
-          // Firebase Firestore에서 사용자 확인
           const q = query(
             collection(db, "userInfo"),
             where("info.email", "==", email)
           );
           const querySnapshot = await getDocs(q);
 
-          // Firestore에 사용자 추가
           if (querySnapshot.empty) {
             const userRef = collection(db, "userInfo");
-            if (account.provider === 'google' || account.provider === 'github') {
-              await addDoc(userRef, {
-                info: {
-                  id: user.id,
-                  nickname: user.name,
-                  email: user.email,
-                  provider: account.provider
-                }
-              });
-            } else if (account.provider === 'naver') {
-              try {
-                await addDoc(userRef, {
-                  info: {
-                    id: profile.response.id,
-                    name: profile.response.name,
-                    email: profile.response.email,
-                    nickname: profile.response.nickname,
-                    phonenum: profile.response.mobile,
-                    provider: account.provider,
-                    image: '/img_member_profile.svg'
-                  }
-                });
-                console.log("Naver user added to Firestore successfully");
-              } catch (error) {
-                console.error("Error adding Naver user to Firestore:", error);
-                throw new Error('Failed to add user to Firestore');
-              }
+            const userInfo = {
+              id: account.provider === 'naver' ? profile.response.id : user.id,
+              name: account.provider === 'naver' ? profile.response.name : user.name,
+              email: email,
+              nickname: account.provider === 'naver' ? profile.response.nickname : user.name,
+              provider: account.provider,
+              image: account.provider === 'naver' ? '/img_member_profile.svg' : user.image,
+            };
+
+            try {
+              await addDoc(userRef, { info: userInfo });
+              console.log(`${account.provider} user added to Firestore:`, userInfo);
+            } catch (error) {
+              console.error(`Error adding user to Firestore (${account.provider}):`, error);
+              throw new Error("Failed to add user to Firestore");
             }
           }
           return true;
         }
         return false;
       } catch (error) {
-        console.error('Error during signIn callback:', error);
+        console.error("Error during signIn callback:", error);
         return false;
       }
     },
 
     async jwt({ token, user, account, profile }) {
-      if (account) {
-        token.accessToken = account.access_token;
-      } else if (user) {
-        token.accessToken = user.id;
+      try {
+        if (account) {
+          token.accessToken = account.access_token;
+        } else if (user) {
+          token.accessToken = user.id;
+        }
+        return token;
+      } catch (error) {
+        console.error("Error during jwt callback:", error);
+        throw error;
       }
-      return token;
     },
 
     async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      return session;
+      try {
+        session.accessToken = token.accessToken;
+        return session;
+      } catch (error) {
+        console.error("Error during session callback:", error);
+        throw error;
+      }
     }
   }
 };

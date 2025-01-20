@@ -5,7 +5,15 @@ import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+import https from "https";
 
+// HTTPS 에이전트 설정
+const agent = new https.Agent({
+  keepAlive: true, // 연결 재사용 활성화
+  timeout: 10000,  // 요청 타임아웃 10초
+});
+
+// NextAuth 설정
 export const authOptions = {
   secret: "968416519848645165",
   providers: [
@@ -13,24 +21,15 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    // NaverProvider({
-    //   clientId: process.env.NAVER_CLIENT_ID,
-    //   clientSecret: process.env.NAVER_CLIENT_SECRET,
-    //   authorization: {
-    //     params: {
-    //       scope: "email",
-    //       // scope: "email name nickname",
-    //     },
-    //   },
-    // }),
     NaverProvider({
-      clientId: process.env.NAVER_CLIENT_ID || "missing_client_id",
-      clientSecret: process.env.NAVER_CLIENT_SECRET || "missing_client_secret",
+      clientId: process.env.NAVER_CLIENT_ID,
+      clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
           scope: "email",
         },
       },
+      httpOptions: { agent }, // HTTPS 에이전트 추가
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -118,7 +117,7 @@ export const authOptions = {
             email,
             nickname: account.provider === "naver" ? profile.response.nickname : user.name,
             provider: account.provider,
-            // image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
+            image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
           };
 
           try {
@@ -170,7 +169,7 @@ export const authOptions = {
   },
 
   pages: {
-    error: "에러", 
+    error: "에러",
   },
 };
 

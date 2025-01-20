@@ -69,16 +69,13 @@ export const authOptions = {
           if (account.provider === "naver") {
             console.log("Naver Profile:", profile);
 
-            // 네이버 프로필 데이터 검증
             const naverProfile = profile?.response;
             if (!naverProfile) {
               console.error("No response from Naver API");
-              await signOut(); // 세션 초기화
               return false;
             }
             if (!naverProfile.email) {
               console.error("Email is missing in Naver profile");
-              await signOut(); // 세션 초기화
               return false;
             }
 
@@ -89,9 +86,15 @@ export const authOptions = {
 
           // Firestore에서 사용자 조회
           const q = query(collection(db, "userInfo"), where("info.email", "==", email));
-          const querySnapshot = await getDocs(q);
+          let querySnapshot;
+          try {
+            querySnapshot = await getDocs(q);
+          } catch (error) {
+            console.error("Firestore query failed:", error);
+            return false;
+          }
 
-          // Firestore에 사용자 정보가 없으면 추가
+          // Firestore에 사용자 정보 추가
           if (querySnapshot.empty) {
             const userInfo = {
               id: account.provider === "naver" ? profile.response.id : user.id,
@@ -102,34 +105,46 @@ export const authOptions = {
               image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
             };
 
-            await addDoc(collection(db, "userInfo"), { info: userInfo });
-            console.log(`${account.provider} user added to Firestore:`, userInfo);
+            try {
+              await addDoc(collection(db, "userInfo"), { info: userInfo });
+              console.log(`${account.provider} user added to Firestore:`, userInfo);
+            } catch (error) {
+              console.error("Failed to save user to Firestore:", error);
+              return false;
+            }
           }
-          return true; // 모든 작업 완료 후 true 반환
+
+          return true; // 모든 작업이 완료된 경우 true 반환
         }
-        return false; // 기타 제공자 처리 실패
+        return false; // 지원하지 않는 제공자의 경우 false 반환
       } catch (error) {
         console.error("Error during signIn callback:", error);
-        await signOut(); // 세션 초기화
-        return false;
+        return false; // 에러 발생 시 false 반환
       }
     },
 
-    async jwt({ token, account }) {
+    async jwt({ token, account, profile }) {
       if (account) {
+        if (account.provider === "naver" && (!profile?.response || !profile.response.email)) {
+          console.error("Invalid Naver profile during JWT callback");
+          return {};
+        }
         token.accessToken = account.access_token;
       }
       return token;
     },
 
     async session({ session, token }) {
+      if (!token || !token.accessToken) {
+        return null; // 세션 데이터가 없으면 null 반환
+      }
       session.accessToken = token.accessToken;
       return session;
     },
   },
 
   pages: {
-    error: "/auth/error", // 에러 페이지 설정
+    error: "/auth/error", // 에러 페이지 경로 설정
   },
 };
 

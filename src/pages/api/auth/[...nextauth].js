@@ -18,7 +18,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname",
+          scope: "email",
         },
       },
     }),
@@ -79,7 +79,7 @@ export const authOptions = {
           if (account.provider === 'naver') {
             const naverProfile = profile?.response;
             if (!naverProfile || !naverProfile.email) {
-              console.error("Naver profile missing email in signIn.");
+              console.log("Naver Profile:", profile);
               return false;
             }
             email = naverProfile.email;

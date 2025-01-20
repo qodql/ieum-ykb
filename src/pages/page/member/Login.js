@@ -71,7 +71,7 @@ const Login = () => {
               placeholder="이메일을 입력하세요"
               value={email}
               onChange={handleEmailChange}
-              disabled={loading} // 로딩 중 입력 비활성화
+              disabled={loading} 
             />
             <input
               className={loginStyles.loginInput}
@@ -79,18 +79,18 @@ const Login = () => {
               placeholder="비밀번호를 입력하세요"
               value={password}
               onChange={handlePasswordChange}
-              disabled={loading} // 로딩 중 입력 비활성화
+              disabled={loading} 
             />
             <button
               type="submit"
               className={loginStyles.loginBtn}
-              disabled={loading} // 로딩 중 버튼 비활성화
+              disabled={loading}
             >
-              {loading ? '로그인 중...' : '로그인'} {/* 로딩 중 버튼 텍스트 변경 */}
+              {loading ? '로그인 중...' : '로그인'} 
             </button>
           </form>
 
-          {error && <div className={loginStyles.errorMessage}>{error}</div>} {/* 에러 메시지 표시 */}
+          {error && <div className={loginStyles.errorMessage}>{error}</div>}
 
           <div className={loginStyles.linkTextBox}>
             <Link href='/page/member/CreateAcount' className={loginStyles.linkText}>회원가입</Link>
@@ -98,7 +98,12 @@ const Login = () => {
           </div>
           <div className={loginStyles.externalLoginBox}>
             <div
-              onClick={() => signIn('naver', { callbackUrl: '/' })}
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  signIn('naver', { callbackUrl: '/' });
+                }, 2000); // 2초 지연
+              }}
               style={{ backgroundImage: `url(/icon_login_naver.svg)` }}
               className={loginStyles.loginIcon}
             />

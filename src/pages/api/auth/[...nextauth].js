@@ -19,6 +19,7 @@ export const authOptions = {
       authorization: {
         params: {
           scope: "email name nickname",
+          redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/naver`,
         },
       },
     }),

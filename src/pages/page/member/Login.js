@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signIn, useSession, signOut } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import loginStyles from '@/styles/css/page/member.module.scss';
 import MockupComponent from '@/component/MockupComponent';
@@ -46,10 +46,21 @@ const Login = () => {
     }
   }
 
+  // 네이버 로그인 처리 함수
+  const handleNaverLogin = async () => {
+    try {
+      // 네이버 로그인 요청
+      await signIn('naver', { redirect: true, callbackUrl: '/' });
+    } catch (error) {
+      console.error('네이버 로그인 실패:', error);
+      alert('네이버 로그인 중 문제가 발생했습니다. 다시 시도해 주세요.');
+    }
+  };
+
   // 뒤로가기 
   const backBtn = () => {
     router.back();
-  }
+  };
 
   return (
     <MockupComponent>
@@ -71,7 +82,7 @@ const Login = () => {
               placeholder="이메일을 입력하세요"
               value={email}
               onChange={handleEmailChange}
-              disabled={loading} 
+              disabled={loading}
             />
             <input
               className={loginStyles.loginInput}
@@ -79,14 +90,14 @@ const Login = () => {
               placeholder="비밀번호를 입력하세요"
               value={password}
               onChange={handlePasswordChange}
-              disabled={loading} 
+              disabled={loading}
             />
             <button
               type="submit"
               className={loginStyles.loginBtn}
               disabled={loading}
             >
-              {loading ? '로그인 중...' : '로그인'} 
+              {loading ? '로그인 중...' : '로그인'}
             </button>
           </form>
 
@@ -98,12 +109,7 @@ const Login = () => {
           </div>
           <div className={loginStyles.externalLoginBox}>
             <div
-              onClick={() => {
-                setLoading(true);
-                setTimeout(() => {
-                  signIn('naver', { callbackUrl: '/' });
-                }, 2000); // 2초 지연
-              }}
+              onClick={handleNaverLogin} // 네이버 로그인 처리 함수 연결
               style={{ backgroundImage: `url(/icon_login_naver.svg)` }}
               className={loginStyles.loginIcon}
             />

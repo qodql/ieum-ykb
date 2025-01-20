@@ -4,7 +4,7 @@ const nextConfig = {
   env: {
     NAVER_CLIENT_ID: process.env.NAVER_CLIENT_ID,
     NAVER_CLIENT_SECRET: process.env.NAVER_CLIENT_SECRET,
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL || "http://localhost:3000", // 기본값 제공
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL || "http://localhost:3000",
   },
 };
 

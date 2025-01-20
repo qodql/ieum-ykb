@@ -67,16 +67,23 @@ export const authOptions = {
 
           if (account.provider === "naver") {
             console.log("Naver Profile:", profile);
+
+            // 네이버 프로필 데이터 검증 추가
             const naverProfile = profile?.response;
-            console.log(profile);
-            if (!naverProfile || !naverProfile.email) {
-              console.error("Missing email in Naver profile.");
-              return false;
+            if (!naverProfile) {
+              console.error("No response from Naver API");
+              throw new Error("Failed to fetch user profile from Naver API");
             }
+            if (!naverProfile.email) {
+              console.error("Email is missing in Naver profile");
+              throw new Error("Email is missing in Naver profile");
+            }
+
             email = naverProfile.email;
           } else {
             email = user.email;
           }
+
 
           // Firestore에서 사용자 조회
           const q = query(collection(db, "userInfo"), where("info.email", "==", email));

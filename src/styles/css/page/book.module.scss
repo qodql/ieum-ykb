@@ -19,10 +19,11 @@
         button{
             height: 74px;
             border: none;
-            border-radius: 8px;
+            background: none;
             .tabImage{
                 width: 100%;
                 height: 100%;
+                display: block;
             }
         }
     }

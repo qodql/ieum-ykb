@@ -18,8 +18,8 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname",
-          redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/naver`,
+          scope: "email",
+          // scope: "email name nickname",
         },
       },
     }),

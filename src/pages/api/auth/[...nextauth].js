@@ -13,13 +13,22 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+    // NaverProvider({
+    //   clientId: process.env.NAVER_CLIENT_ID,
+    //   clientSecret: process.env.NAVER_CLIENT_SECRET,
+    //   authorization: {
+    //     params: {
+    //       scope: "email",
+    //       // scope: "email name nickname",
+    //     },
+    //   },
+    // }),
     NaverProvider({
-      clientId: process.env.NAVER_CLIENT_ID,
-      clientSecret: process.env.NAVER_CLIENT_SECRET,
+      clientId: process.env.NAVER_CLIENT_ID || "missing_client_id",
+      clientSecret: process.env.NAVER_CLIENT_SECRET || "missing_client_secret",
       authorization: {
         params: {
           scope: "email",
-          // scope: "email name nickname",
         },
       },
     }),
@@ -109,7 +118,7 @@ export const authOptions = {
             email,
             nickname: account.provider === "naver" ? profile.response.nickname : user.name,
             provider: account.provider,
-            image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
+            // image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
           };
 
           try {

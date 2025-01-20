@@ -104,7 +104,7 @@ const Book = () => {
                             className={router.query === v ? list.activeTab : list.tab}
                             onClick={() => router.push({ pathname: '/Book', query: { category: v } })}
                         >
-                            <img src={`./icon/${v}.png`} alt={v}
+                            <img src={`./icon/${v}.svg`} alt={v}
                                 className={list.tabImage} 
                             />
                         </button>

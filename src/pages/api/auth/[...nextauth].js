@@ -5,6 +5,7 @@ import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+import { signOut } from "next-auth/react";
 
 export const authOptions = {
   secret: '968416519848645165',
@@ -18,7 +19,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname birthday mobile"
+          scope: "email name nickname birthday mobile",
         },
       },
     }),
@@ -42,7 +43,7 @@ export const authOptions = {
           const querySnapshot = await getDocs(q);
 
           let user = null;
-          querySnapshot.docs.map((doc) => {
+          querySnapshot.docs.forEach((doc) => {
             user = doc.data();
           });
 
@@ -68,22 +69,23 @@ export const authOptions = {
           if (account.provider === "naver") {
             console.log("Naver Profile:", profile);
 
-            // 네이버 프로필 데이터 검증 추가
+            // 네이버 프로필 데이터 검증
             const naverProfile = profile?.response;
             if (!naverProfile) {
               console.error("No response from Naver API");
-              throw new Error("Failed to fetch user profile from Naver API");
+              await signOut(); // 세션 초기화
+              return false;
             }
             if (!naverProfile.email) {
               console.error("Email is missing in Naver profile");
-              throw new Error("Email is missing in Naver profile");
+              await signOut(); // 세션 초기화
+              return false;
             }
 
             email = naverProfile.email;
           } else {
             email = user.email;
           }
-
 
           // Firestore에서 사용자 조회
           const q = query(collection(db, "userInfo"), where("info.email", "==", email));
@@ -108,11 +110,12 @@ export const authOptions = {
               throw new Error("Failed to save user in Firestore");
             }
           }
-          return true;
+          return true; // 로그인 성공
         }
-        return false;
+        return false; // 기타 제공자 처리 실패
       } catch (error) {
         console.error("Error during signIn callback:", error);
+        await signOut(); // 세션 초기화
         return false;
       }
     },
@@ -128,6 +131,10 @@ export const authOptions = {
       session.accessToken = token.accessToken;
       return session;
     },
+  },
+
+  pages: {
+    error: '에러발생', 
   },
 };
 

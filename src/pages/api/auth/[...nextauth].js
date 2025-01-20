@@ -5,6 +5,7 @@ import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+import { signOut } from "next-auth/react";
 
 export const authOptions = {
   secret: "968416519848645165",
@@ -18,7 +19,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname birthday mobile",
+          scope: "email",
         },
       },
     }),
@@ -67,21 +68,18 @@ export const authOptions = {
           let email;
 
           if (account.provider === "naver") {
-            console.log("Naver Profile received:", profile);
+            console.log("Naver Profile:", profile);
 
-            const fetchNaverProfileWithRetry = async (profile, retries = 3, delay = 1000) => {
-              for (let attempt = 1; attempt <= retries; attempt++) {
-                const response = profile?.response;
-                if (response?.email) {
-                  return response; // 정상 응답
-                }
-                console.warn(`Retrying Naver API response (${attempt}/${retries})...`);
-                await new Promise((resolve) => setTimeout(resolve, delay)); // 대기
-              }
-              throw new Error("Failed to fetch Naver profile after retries.");
-            };
+            const naverProfile = profile?.response;
+            if (!naverProfile) {
+              console.error("No response from Naver API");
+              return false;
+            }
+            if (!naverProfile.email) {
+              console.error("Email is missing in Naver profile");
+              return false;
+            }
 
-            const naverProfile = await fetchNaverProfileWithRetry(profile);
             email = naverProfile.email;
           } else {
             email = user.email;
@@ -91,7 +89,16 @@ export const authOptions = {
           const q = query(collection(db, "userInfo"), where("info.email", "==", email));
           console.log("Firestore query initiated for email:", email);
 
-          const querySnapshot = await getDocs(q);
+          let querySnapshot;
+          try {
+            querySnapshot = await getDocs(q);
+            if (querySnapshot.empty) {
+              console.log("User not found, adding new user to Firestore.");
+            }
+          } catch (error) {
+            console.error("Firestore query failed:", error);
+            return false;
+          }
 
           // Firestore에 사용자 정보 추가
           if (querySnapshot.empty) {
@@ -126,28 +133,36 @@ export const authOptions = {
     async jwt({ token, account, profile }) {
       try {
         if (account) {
+          if (account.provider === "naver" && (!profile?.response || !profile.response.email)) {
+            console.error("Invalid Naver profile during JWT callback");
+            return {};
+          }
           token.accessToken = account.access_token;
         }
         return token;
       } catch (error) {
         console.error("Error during JWT callback:", error);
-        return token;
+        return token; // 에러 발생 시 token 그대로 반환
       }
     },
 
     async session({ session, token }) {
       try {
+        if (!token || !token.accessToken) {
+          console.error("Session error: No access token found");
+          return null; // 세션 데이터가 없으면 null 반환
+        }
         session.accessToken = token.accessToken;
         return session;
       } catch (error) {
         console.error("Error during session callback:", error);
-        return null;
+        return null; // 에러 발생 시 null 반환
       }
     },
   },
 
   pages: {
-    error: "/auth/error",
+    error: "/auth/error", // 에러 페이지 경로 설정
   },
 };
 

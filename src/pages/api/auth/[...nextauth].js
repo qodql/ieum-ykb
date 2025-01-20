@@ -7,7 +7,7 @@ import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
 
 export const authOptions = {
-  secret: '968416519848645165', // NextAuth 비밀키
+  secret: '968416519848645165',
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -18,7 +18,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname", // 요청할 권한
+          scope: "email name nickname birthday mobile"
         },
       },
     }),
@@ -68,6 +68,7 @@ export const authOptions = {
           if (account.provider === "naver") {
             console.log("Naver Profile:", profile);
             const naverProfile = profile?.response;
+            console.log(profile);
             if (!naverProfile || !naverProfile.email) {
               console.error("Missing email in Naver profile.");
               return false;

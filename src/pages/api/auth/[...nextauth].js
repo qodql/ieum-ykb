@@ -7,9 +7,9 @@ import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
 
 export const authOptions = {
-  debug: true, // 디버그 모드 활성화
+  debug: true,
   
-  secret: "968416519848645165", // 비밀 키
+  secret: "968416519848645165",
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -20,7 +20,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname birthday mobile",
+          scope: "email name nickname",
         },
       },
     }),
@@ -162,7 +162,7 @@ export const authOptions = {
   },
 
   pages: {
-    error: "/auth/error", // 에러 페이지 경로 설정
+    error: "에러", 
   },
 };
 

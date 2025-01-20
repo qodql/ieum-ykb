@@ -76,7 +76,7 @@ export const authOptions = {
             }
 
             // 요청 처리 시간을 늘리기 위해 약간의 지연 추가
-            await new Promise((resolve) => setTimeout(resolve, 2000));
+            await new Promise((resolve) => setTimeout(resolve, 3500));
 
             if (!naverProfile.email) {
               console.error("Email is missing in Naver profile");

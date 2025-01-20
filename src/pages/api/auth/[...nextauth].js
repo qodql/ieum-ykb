@@ -8,6 +8,7 @@ import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
 
 export const authOptions = {
   secret: '968416519848645165',
+  debug: true,
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -16,11 +17,6 @@ export const authOptions = {
     NaverProvider({
       clientId: process.env.NAVER_CLIENT_ID,
       clientSecret: process.env.NAVER_CLIENT_SECRET,
-      authorization: {
-        params: {
-          scope: "email name nickname",
-        },
-      },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,

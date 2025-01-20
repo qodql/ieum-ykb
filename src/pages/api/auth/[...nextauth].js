@@ -69,7 +69,7 @@ export const authOptions = {
           if (account.provider === "naver") {
             console.log("Naver Profile received:", profile);
 
-            const fetchNaverProfileWithRetry = async (profile, retries = 3, delay = 500) => {
+            const fetchNaverProfileWithRetry = async (profile, retries = 3, delay = 1000) => {
               for (let attempt = 1; attempt <= retries; attempt++) {
                 const response = profile?.response;
                 if (response?.email) {

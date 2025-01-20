@@ -89,6 +89,9 @@ export const authOptions = {
           let querySnapshot;
           try {
             querySnapshot = await getDocs(q);
+            if (querySnapshot.empty) {
+              console.log("User not found, adding new user to Firestore.");
+            }
           } catch (error) {
             console.error("Firestore query failed:", error);
             return false;

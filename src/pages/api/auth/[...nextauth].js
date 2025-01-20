@@ -63,6 +63,7 @@ export const authOptions = {
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
+        console.log("Starting signIn callback");
         if (["naver", "google", "github"].includes(account.provider)) {
           let email;
 
@@ -86,6 +87,8 @@ export const authOptions = {
 
           // Firestore에서 사용자 조회
           const q = query(collection(db, "userInfo"), where("info.email", "==", email));
+          console.log("Firestore query initiated for email:", email);
+
           let querySnapshot;
           try {
             querySnapshot = await getDocs(q);
@@ -109,6 +112,7 @@ export const authOptions = {
             };
 
             try {
+              console.log("Adding new user to Firestore:", userInfo);
               await addDoc(collection(db, "userInfo"), { info: userInfo });
               console.log(`${account.provider} user added to Firestore:`, userInfo);
             } catch (error) {
@@ -127,22 +131,33 @@ export const authOptions = {
     },
 
     async jwt({ token, account, profile }) {
-      if (account) {
-        if (account.provider === "naver" && (!profile?.response || !profile.response.email)) {
-          console.error("Invalid Naver profile during JWT callback");
-          return {};
+      try {
+        if (account) {
+          if (account.provider === "naver" && (!profile?.response || !profile.response.email)) {
+            console.error("Invalid Naver profile during JWT callback");
+            return {};
+          }
+          token.accessToken = account.access_token;
         }
-        token.accessToken = account.access_token;
+        return token;
+      } catch (error) {
+        console.error("Error during JWT callback:", error);
+        return token; // 에러 발생 시 token 그대로 반환
       }
-      return token;
     },
 
     async session({ session, token }) {
-      if (!token || !token.accessToken) {
-        return null; // 세션 데이터가 없으면 null 반환
+      try {
+        if (!token || !token.accessToken) {
+          console.error("Session error: No access token found");
+          return null; // 세션 데이터가 없으면 null 반환
+        }
+        session.accessToken = token.accessToken;
+        return session;
+      } catch (error) {
+        console.error("Error during session callback:", error);
+        return null; // 에러 발생 시 null 반환
       }
-      session.accessToken = token.accessToken;
-      return session;
     },
   },
 

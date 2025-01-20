@@ -51,9 +51,10 @@
                 height: 80px;
                 border-radius: 8px;
                 padding: 8px;
+                background-color: transparent;
+                color: #999;
                 &::placeholder{
                     font-size: 12px;
-                    color: #999;
                 }
             }
             .commetListWriteLetters{

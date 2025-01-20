@@ -446,11 +446,14 @@
     margin: 0 auto;
     border: none ;
     border-bottom: 1px solid #111111;
+    background-color: transparent;
     .userInput:focus{
       border-bottom: 1px solid #111111;
     }
     &:nth-of-type(1):focus{
       outline: none;
+      border: none;
+      transition: 0.3s;
     }
     &:focus::placeholder{
       opacity: 0;

@@ -5,6 +5,7 @@ import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+import { signOut } from "next-auth/react";
 
 export const authOptions = {
   secret: "968416519848645165",
@@ -18,7 +19,7 @@ export const authOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "email name nickname",
+          scope: "email name nickname birthday mobile",
         },
       },
     }),
@@ -74,14 +75,10 @@ export const authOptions = {
               console.error("No response from Naver API");
               return false;
             }
-
-            // 요청 처리 시간을 늘리기 위해 약간의 지연 추가
-            await new Promise((resolve) => setTimeout(resolve, 3500));
-
-            if (!naverProfile.email) {
-              console.error("Email is missing in Naver profile");
-              return false;
-            }
+            // if (!naverProfile.email) {
+            //   console.error("Email is missing in Naver profile");
+            //   return false;
+            // }
 
             email = naverProfile.email;
           } else {

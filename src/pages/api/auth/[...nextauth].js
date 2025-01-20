@@ -7,8 +7,6 @@ import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
 
 export const authOptions = {
-  debug: true,
-  
   secret: "968416519848645165",
   providers: [
     GithubProvider({

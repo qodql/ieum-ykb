@@ -14,16 +14,6 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    // NaverProvider({
-    //   clientId: process.env.NAVER_CLIENT_ID,
-    //   clientSecret: process.env.NAVER_CLIENT_SECRET,
-    //   authorization: {
-    //     params: {
-    //       scope: "email",
-    //       // scope: "email name nickname",
-    //     },
-    //   },
-    // }),
     NaverProvider({
       clientId: process.env.NAVER_CLIENT_ID || "missing_client_id",
       clientSecret: process.env.NAVER_CLIENT_SECRET || "missing_client_secret",
@@ -119,7 +109,6 @@ export const authOptions = {
             email,
             nickname: account.provider === "naver" ? profile.response.nickname : user.name,
             provider: account.provider,
-            // image: account.provider === "naver" ? "/img_member_profile.svg" : user.image,
           };
 
           try {
@@ -168,10 +157,23 @@ export const authOptions = {
         return null;
       }
     },
+
+    async error({ error }) {
+      console.error("Error callback triggered:", error);
+
+      // OAuthCallbackError 처리
+      if (error.name === "OAuthCallbackError") {
+        console.log("Redirecting due to OAuthCallbackError");
+        return "/";
+      }
+
+      // 기타 에러 처리 (필요에 따라 추가)
+      return "/";
+    },
   },
 
   pages: {
-    error: "/", 
+    error: "/", // 기본 에러 페이지 설정
   },
 };
 

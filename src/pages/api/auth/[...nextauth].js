@@ -167,13 +167,12 @@ export const authOptions = {
         return "/";
       }
 
-      // 기타 에러 처리 (필요에 따라 추가)
       return "/";
     },
   },
 
   pages: {
-    error: "/", // 기본 에러 페이지 설정
+    error: "/",
   },
 };
 

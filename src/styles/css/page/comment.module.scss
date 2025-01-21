@@ -2,14 +2,22 @@
     max-width: 390px;
     margin: 16px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 125px;
-    .commentList_back::after{
-        content: url(../../../../public/back.png);
+    position: relative;
+    .commentList_back{
         width: 24px;
         height: 24px;
+        cursor: pointer;
+        &::after{
+            display: block;
+            content: url(../../../../public/back.png);
+        }
     }
-    h2{
+    .commentList_title_center{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         word-spacing: 0;
         font-size: 20px;
         font-weight: bold;

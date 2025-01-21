@@ -112,7 +112,7 @@ const CommentList = () => {
       <main style={{ marginTop: '48px', height: '850px' }}>
         <div className={s.commentList_title}>
           <span className={s.commentList_back} onClick={backBtn}></span>
-          <h2>코멘트</h2>
+          <h2 className={s.commentList_title_center}>코멘트</h2>
         </div>
         <div className={s.commetListWrite}>
           <h5>코멘트 작성</h5>

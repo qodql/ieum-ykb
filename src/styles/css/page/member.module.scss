@@ -186,16 +186,18 @@
     }
   }
   .externalLoginBox{
+    width: calc(100% - 137px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    gap: 40px;
+    margin: 20px auto;
+    gap: 36px;
     .loginIcon{
       width: 40px;
       height: 40px;
       background-repeat: no-repeat;
       background-size: cover;
+      cursor: pointer;
     }
   }
 }
@@ -231,6 +233,7 @@
       margin: 0 auto;
       border: none ;
       border-bottom: 1px solid #111111;
+      background-color: transparent;
       &:focus::placeholder{
         opacity: 0;
       }

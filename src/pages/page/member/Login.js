@@ -67,7 +67,7 @@ const Login = () => {
       <main style={{ marginTop: '48px', height: '850px' }}>
         <div className={comment.commentList_title}>
           <span className={comment.commentList_back} onClick={backBtn}></span>
-          <h2>로그인</h2>
+          <h2 className={comment.commentList_title_center}>로그인</h2>
         </div>
         <div className={loginStyles.loginBox}>
           <div
@@ -110,17 +110,17 @@ const Login = () => {
           <div className={loginStyles.externalLoginBox}>
             <div
               onClick={handleNaverLogin} // 네이버 로그인 처리 함수 연결
-              style={{ backgroundImage: `url(/icon_login_naver.svg)` }}
+              style={{ backgroundImage: `url(/icon/icon_login_naver.svg)` }}
               className={loginStyles.loginIcon}
             />
             <div
               onClick={() => signIn('github', { callbackUrl: '/' })}
-              style={{ backgroundImage: `url(/icon_login_github.svg)` }}
+              style={{ backgroundImage: `url(/icon/icon_login_git.svg)` }}
               className={loginStyles.loginIcon}
             />
             <div
               onClick={() => signIn('google', { callbackUrl: '/' })}
-              style={{ backgroundImage: `url(/icon_login_google.svg)` }}
+              style={{ backgroundImage: `url(/icon/icon_login_google.svg)` }}
               className={loginStyles.loginIcon}
             />
           </div>

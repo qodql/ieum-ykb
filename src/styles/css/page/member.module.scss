@@ -42,11 +42,11 @@
     }
 
     .userInput{
-
-      display: block;
       width: 358px;
       height: 43px;
+      display: block;
       margin: 0 auto;
+      background-color: transparent;
       border: none ;
       border-bottom: 1px solid #111111;
       &:focus::placeholder{
@@ -77,45 +77,49 @@
       margin-bottom: 32px;
       &>li:nth-of-type(1){
         font-size: 20px;
-        margin-bottom: 32px;
+        margin-bottom: 16px;
       }
-      &>li:nth-of-type(2){
+      li:nth-of-type(2), li:nth-of-type(3) {
         margin-bottom: 8px;
         display: flex;
         align-items: center;
-        &>input{
-          margin-right: 12px;
-          width: 23px;
+        input[type="checkbox"]{
+          width: 20px;
           height: 20px;
-        }
-        &>span{
-          font-size: 20px;
-        }
+          margin-right: 8px;
+          background-color: #ccc;
+          border: none;
+          border-radius: 50%;
+          appearance: none;
+          cursor: pointer;
+          transition: 0.1s background-color;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:checked{
+            background-color: #2E8B57;
+            &::after{
+              content: '';
+              width: 12px;
+              height: 9px;
+              background: url('../../../../public/icon/icon_check.svg') no-repeat;
+            }
+          }
       }
-      &>li:nth-of-type(3){
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        &>input{
-          margin-right: 12px;
-          width: 23px;
-          height: 20px;
-        }
-        &>span{
-          font-size: 20px;
+        span{
+          font-size: 18px;
         }
       }
      }
      .createAccountBtn{
-      width: 100%;
-      background-color: #2E8B57;
-      border: none;
-      border-radius: 8px;
-      color: #FFFFFF;
-      height: 48px;
+        width: 100%;
+        background-color: #2E8B57;
+        border: none;
+        border-radius: 8px;
+        color: #FFFFFF;
+        height: 48px;
      }
   }
- 
 }
 
 // 로그인

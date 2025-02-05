@@ -13,6 +13,7 @@
         content: url(../../../../public/back.png);
         width: 24px;
         height: 24px;
+        cursor: pointer;
     }
     h2{
         word-spacing: 0;
@@ -69,6 +70,7 @@
         border-radius: 8px;
         background-color: #2E8B57;
         color: #fafafa;
+        font-size: 13px;
       }
      }
      .termsList{
@@ -87,7 +89,7 @@
           width: 20px;
           height: 20px;
           margin-right: 8px;
-          background-color: #ccc;
+          background-color: #eaeaea;
           border: none;
           border-radius: 50%;
           appearance: none;
@@ -107,7 +109,8 @@
           }
       }
         span{
-          font-size: 18px;
+          cursor: pointer;
+          font-size: 16px;
         }
       }
      }
@@ -118,6 +121,7 @@
         border-radius: 8px;
         color: #FFFFFF;
         height: 48px;
+        font-size: 16px;
      }
   }
 }
@@ -221,6 +225,7 @@
         content: url(../../../../public/back.png);
         width: 24px;
         height: 24px;
+        cursor: pointer;
     }
     h2{
         word-spacing: 0;
@@ -265,6 +270,7 @@
        color: #fafafa;
        border: none;
        border-radius: 8px;
+       font-size: 13px;
       }
      }
     .findBtn{
@@ -275,6 +281,7 @@
       border: none;
       border-radius: 8px;
       margin-top: 36px;
+      font-size: 16px;
     }
   }
  }

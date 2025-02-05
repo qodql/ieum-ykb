@@ -126,13 +126,12 @@ import Footer from "@/component/Footer";
                 <p>약관 동의</p>
               </li>
               <li>
-                <input type="checkbox" className={loginStyles}/>
-                <span>(필수)인증시 고유식별정보 동의</span>
+                <input type="checkbox" id="agree1" className={loginStyles}/>
+                <label htmlFor="agree1"><span>인증시 고유식별정보 동의 (필수)</span></label>
               </li>
               <li>
-                {/* ture 일시에 회원가입 가능하도록 설계해야함 */}
-                <input type="checkbox" className={loginStyles}/>
-                <span>(필수)통신사 이용약관</span>
+                <input type="checkbox" id="agree2" className={loginStyles}/>
+                <label htmlFor="agree2"><span>통신사 이용약관 (선택)</span></label>
               </li>
             </ul>
             <button className={loginStyles.createAccountBtn} onClick={userData}>회원가입</button>

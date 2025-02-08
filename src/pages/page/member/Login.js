@@ -46,7 +46,7 @@ const Login = () => {
         email,
         password,
         callbackUrl: '/',
-        redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        //redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
 
       if (!result) {

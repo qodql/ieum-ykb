@@ -85,7 +85,7 @@ const Mypage = () => {
   }
 
   return (
-    <MockupComponent>
+    <MockupComponent height="906px">
       <main style={{marginTop:'24px', height:'850px'}}>  
       {
         <div className={loginStyles.mypageBox}>

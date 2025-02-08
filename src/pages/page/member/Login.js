@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [remember, setRemember] = useState(false); 
+  const [remember, setRemember] = useState(false); // ✅ 아이디 저장 체크박스 상태 추가
   const router = useRouter();
 
   // ✅ 컴포넌트 마운트 시 localStorage에서 저장된 이메일 불러오기
@@ -48,9 +48,15 @@ const Login = () => {
         redirect: false, // ✅ 로그인 실패 시 홈으로 자동 이동 방지
       });
 
+      // ✅ signIn이 null을 반환하는 경우 대비
+      if (!result) {
+        alert('로그인 처리 중 오류가 발생했습니다. 다시 시도해주세요.');
+        return;
+      }
+
       if (result.error) {
         alert('이메일 또는 비밀번호를 다시 확인해주세요.');
-      } else {
+      } else if (result.ok) {
         // ✅ 아이디 저장 체크 여부 확인 후 저장/삭제
         if (remember) {
           localStorage.setItem('savedEmail', email);
@@ -58,7 +64,7 @@ const Login = () => {
           localStorage.removeItem('savedEmail');
         }
 
-        window.location.href = '/';
+        window.location.href = '/'; // 로그인 성공 시 홈으로 이동
       }
     } catch (err) {
       alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
@@ -71,7 +77,9 @@ const Login = () => {
   const handleNaverLogin = async () => {
     try {
       await signIn('naver', { redirect: true, callbackUrl: '/' });
-    } catch (error) {}
+    } catch (error) {
+      alert('네이버 로그인 중 문제가 발생했습니다. 다시 시도해 주세요.');
+    }
   };
 
   // 뒤로가기
@@ -111,6 +119,7 @@ const Login = () => {
             />
             
             <div className={loginStyles.loginIdbox}>
+              {/* ✅ 아이디 저장 체크박스 추가 */}
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -130,7 +139,7 @@ const Login = () => {
               className={loginStyles.loginBtn}
               disabled={loading}
             >
-              {loading ? '로그인' : '로그인'}
+              {loading ? '로그인 중...' : '로그인'}
             </button>
           </form>
 

@@ -45,19 +45,19 @@ const Login = () => {
       const result = await signIn('credentials', {
         email,
         password,
-        callbackUrl: '/',
-        //redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        //callbackUrl: '/',
+        redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
 
       if (result.error) {
         alert('로그인 중 오류가 발생했습니다.');
       } else {
         // ✅ 아이디 저장 여부 확인 후 저장/삭제
-        if (remember) {
-          localStorage.setItem('savedEmail', email);
-        } else {
-          localStorage.removeItem('savedEmail');
-        }
+        // if (remember) {
+        //   localStorage.setItem('savedEmail', email);
+        // } else {
+        //   localStorage.removeItem('savedEmail');
+        // }
         window.location.href = '/'; // 로그인 성공 시 홈 이동
       } 
     } catch (err) {
@@ -112,7 +112,7 @@ const Login = () => {
               disabled={loading}
             />
             
-            {/* <div className={loginStyles.loginIdbox}>
+            <div className={loginStyles.loginIdbox}>
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -125,7 +125,7 @@ const Login = () => {
               <Link href='/page/member/Findid' className={loginStyles.findId}>
                 아이디 찾기
               </Link>
-            </div> */}
+            </div>
 
             <button
               type="submit"

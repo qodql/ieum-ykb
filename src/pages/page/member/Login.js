@@ -110,17 +110,14 @@ const Login = () => {
           <div className={loginStyles.externalLoginBox}>
             <div
               onClick={() => signIn('google', { callbackUrl: '/' })}
-              style={{ backgroundImage: url(/icon/icon_login_google.svg) }}
               className={loginStyles.loginIcon}
               />
             <div
               onClick={() => signIn('github', { callbackUrl: '/' })}
-              style={{ backgroundImage: url(/icon/icon_login_git.svg) }}
               className={loginStyles.loginIcon}
               />
             <div
               onClick={handleNaverLogin} // 네이버 로그인 처리 함수 연결
-              style={{ backgroundImage: url(/icon/icon_login_naver.svg) }}
               className={loginStyles.loginIcon}
             />
           </div>

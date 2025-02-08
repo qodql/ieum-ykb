@@ -45,10 +45,9 @@ const Login = () => {
       const result = await signIn('credentials', {
         email,
         password,
+        callbackUrl: '/',
         redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
-
-      console.log('로그인 응답:', result); // ✅ 결과 확인
 
       if (!result) {
         alert('로그인 응답을 받을 수 없습니다. 서버 상태를 확인해주세요.');
@@ -56,21 +55,18 @@ const Login = () => {
       }
 
       if (result.error) {
-        setError(`로그인 실패: ${result.error}`);
-        alert(`로그인 실패: ${result.error}`);
+        alert('로그인 중 오류가 발생했습니다.');
       } else if (result.ok) {
-        window.location.href = '/';
         // ✅ 아이디 저장 여부 확인 후 저장/삭제
-        // if (remember) {
-        //   localStorage.setItem('savedEmail', email);
-        // } else {
-        //   localStorage.removeItem('savedEmail');
-        // }
+        if (remember) {
+          localStorage.setItem('savedEmail', email);
+        } else {
+          localStorage.removeItem('savedEmail');
+        }
 
-       
+        window.location.href = '/'; // 로그인 성공 시 홈 이동
       }
     } catch (err) {
-      console.error('로그인 중 오류 발생:', err); // ✅ 에러 로그 출력
       alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
     } finally {
       setLoading(false);

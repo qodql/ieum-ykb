@@ -109,7 +109,7 @@ const Membercorrection = () => {
             <span className={loginStyles.labelText}>핸드폰번호</span>
             <input
               type="text"
-              placeholder="010-6660-1578"
+              placeholder="010-8914-9824"
               readOnly
               className={loginStyles.userInput}
             />

@@ -73,7 +73,7 @@ const Login = () => {
           <div
             onClick={() => (location.href = '/')}
             className={loginStyles.loginLogo}
-            style={{ backgroundImage: url(../../IEUMLOGO.svg) }}
+            
           />
           <form onSubmit={handleLogin}>
             <input

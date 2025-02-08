@@ -348,23 +348,22 @@
     .btnBox{
       display: flex;
       width: 100%;
-      padding-top: 16px;
+      padding: 16px;
       align-items: center;
       justify-content: space-between;
       .backBtn{
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
         background-repeat: no-repeat;
         background-size: cover;
-        margin-left: 16px;
       }
       span{
         display: block;
-        margin-right:16px;
+        cursor: pointer;
         color: #fff;
       }
     }
-
     .profile{
       .profileImg{
         width: 55px;
@@ -397,10 +396,11 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      &>span{
+      span{
         font-size: 20px;
       }
-      &>a{
+      a{
+        cursor: pointer;
         font-size: 12px;
       }
     }

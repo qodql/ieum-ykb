@@ -94,7 +94,7 @@ const Mypage = () => {
               <div 
               onClick={backBtn}
               className={loginStyles.backBtn}  
-              style={{backgroundImage:`url(/icon/icon_back_white)`}}
+              style={{backgroundImage:`url(/arrow-left.svg)`}}
               />
               {
             <span onClick={async () => {
@@ -107,7 +107,7 @@ const Mypage = () => {
               <Link href='/page/member/Membercorrection'
               className={loginStyles.profileImg}
               style={{backgroundImage:`url(/icon/icon_profile.svg)`}}/>
-              <p>{session ? session.user.name : ""}</p>
+              <p>{session ? session.user.name : ""} 님</p>
             <span>{session == undefined || session == null ?'': session.user.email}</span>
             </div>
           </div>

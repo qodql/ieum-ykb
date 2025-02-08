@@ -358,9 +358,10 @@
         background-size: cover;
         margin-left: 16px;
       }
-      &>span{
+      span{
         display: block;
-        margin-right:16px ;
+        margin-right:16px;
+        color: #fff;
       }
     }
 
@@ -373,14 +374,15 @@
         margin-left: 32px;
         display: block;
       }
-      &>p{
+      p{
         font-size: 20px;
         font-weight: 500;
         margin-left: 32px;
+        color: #fff;
       }
-      &>span{
+      span{
         font-size: 12px;
-        color: #999999;
+        color: #eaeaea;
         margin-left: 32px;
         display: block;
         margin-bottom: 20px;

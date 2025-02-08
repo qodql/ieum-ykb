@@ -94,7 +94,7 @@ const Mypage = () => {
               <div 
               onClick={backBtn}
               className={loginStyles.backBtn}  
-              style={{backgroundImage:`url(/icon_login_backbtn.svg)`}}
+              style={{backgroundImage:`url(/icon/icon_back_white)`}}
               />
               {
             <span onClick={async () => {

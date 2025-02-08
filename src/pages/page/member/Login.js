@@ -46,7 +46,7 @@ const Login = () => {
         email,
         password,
         callbackUrl: '/',
-        redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        //redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
 
       if (result.error) {
@@ -112,7 +112,7 @@ const Login = () => {
               disabled={loading}
             />
             
-            <div className={loginStyles.loginIdbox}>
+            {/* <div className={loginStyles.loginIdbox}>
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -125,7 +125,7 @@ const Login = () => {
               <Link href='/page/member/Findid' className={loginStyles.findId}>
                 아이디 찾기
               </Link>
-            </div>
+            </div> */}
 
             <button
               type="submit"

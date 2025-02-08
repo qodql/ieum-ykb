@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import loginStyles from '@/styles/css/page/member.module.scss';
 import MockupComponent from '@/component/MockupComponent';

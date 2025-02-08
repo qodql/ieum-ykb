@@ -15,7 +15,7 @@ const Login = () => {
   const [remember, setRemember] = useState(false);
   const router = useRouter();
 
-  // ✅ 저장된 이메일 불러오기 (useEffect)
+  // 아이디 세션
   useEffect(() => {
     const savedEmail = localStorage.getItem('savedEmail');
     if (savedEmail) {
@@ -45,37 +45,30 @@ const Login = () => {
       const result = await signIn('credentials', {
         email,
         password,
-        redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        redirect: false,
       });
 
-      console.log('로그인 응답:', result); // ✅ 결과 확인
-
       if (!result) {
-        alert('로그인 응답을 받을 수 없습니다. 서버 상태를 확인해주세요.');
+        alert('이메일 또는 비밀번호를 다시 확인해주세요.');
         return;
       }
-
       if (result.error) {
-        alert(`로그인 실패: ${result.error}`);
+        alert(`이메일 또는 비밀번호를 다시 확인해주세요.`);
       } else if (result.ok) {
-        // ✅ 아이디 저장 여부 확인 후 저장/삭제
         if (remember) {
           localStorage.setItem('savedEmail', email);
         } else {
           localStorage.removeItem('savedEmail');
         }
-
-        window.location.href = '/'; // 로그인 성공 시 홈 이동
+        window.location.href = '/'; 
       }
     } catch (err) {
-      console.error('로그인 중 오류 발생:', err); // ✅ 에러 로그 출력
-      alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
+      alert('이메일 또는 비밀번호를 다시 확인해주세요.');
     } finally {
       setLoading(false);
     }
   }
 
-  // ✅ 네이버 로그인 처리 함수
   const handleNaverLogin = async () => {
     try {
       await signIn('naver', { redirect: true, callbackUrl: '/' });
@@ -84,7 +77,7 @@ const Login = () => {
     }
   };
 
-  // ✅ 뒤로가기
+  // 뒤로가기 
   const backBtn = () => {
     router.back();
   };
@@ -119,9 +112,7 @@ const Login = () => {
               onChange={handlePasswordChange}
               disabled={loading}
             />
-            
             <div className={loginStyles.loginIdbox}>
-              {/* ✅ 아이디 저장 체크박스 추가 */}
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -135,7 +126,6 @@ const Login = () => {
                 아이디 찾기
               </Link>
             </div>
-
             <button
               type="submit"
               className={loginStyles.loginBtn}
@@ -144,18 +134,11 @@ const Login = () => {
               {loading ? '로그인 중...' : '로그인'}
             </button>
           </form>
-
-          {/* ✅ 회원가입 링크 */}
           <div className={loginStyles.linkTextBox}>
             <Link href='/page/member/CreateAcount' className={loginStyles.linkText}>
               회원가입
             </Link>
           </div>
-
-          {/* ✅ 로그인 실패 시 오류 메시지 표시 */}
-          {error && <div className={loginStyles.errorMessage}>{error}</div>}
-
-          {/* ✅ 소셜 로그인 버튼 */}
           <div className={loginStyles.externalLoginBox}>
             <div
               onClick={() => signIn('google', { callbackUrl: '/' })}

@@ -12,10 +12,10 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [remember, setRemember] = useState(false); // ✅ 아이디 저장 체크박스 상태 추가
+  const [remember, setRemember] = useState(false);
   const router = useRouter();
 
-  // ✅ 컴포넌트 마운트 시 localStorage에서 저장된 이메일 불러오기
+  // ✅ 저장된 이메일 불러오기 (useEffect)
   useEffect(() => {
     const savedEmail = localStorage.getItem('savedEmail');
     if (savedEmail) {
@@ -45,35 +45,37 @@ const Login = () => {
       const result = await signIn('credentials', {
         email,
         password,
-        redirect: false, // ✅ 로그인 실패 시 홈으로 자동 이동 방지
+        redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
 
-      // ✅ signIn이 null을 반환하는 경우 대비
+      console.log('로그인 응답:', result); // ✅ 결과 확인
+
       if (!result) {
-        alert('로그인 처리 중 오류가 발생했습니다. 다시 시도해주세요.');
+        alert('로그인 응답을 받을 수 없습니다. 서버 상태를 확인해주세요.');
         return;
       }
 
       if (result.error) {
-        alert('이메일 또는 비밀번호를 다시 확인해주세요.');
+        alert(`로그인 실패: ${result.error}`);
       } else if (result.ok) {
-        // ✅ 아이디 저장 체크 여부 확인 후 저장/삭제
+        // ✅ 아이디 저장 여부 확인 후 저장/삭제
         if (remember) {
           localStorage.setItem('savedEmail', email);
         } else {
           localStorage.removeItem('savedEmail');
         }
 
-        window.location.href = '/'; // 로그인 성공 시 홈으로 이동
+        window.location.href = '/'; // 로그인 성공 시 홈 이동
       }
     } catch (err) {
+      console.error('로그인 중 오류 발생:', err); // ✅ 에러 로그 출력
       alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
     } finally {
       setLoading(false);
     }
   }
 
-  // 네이버 로그인 처리 함수
+  // ✅ 네이버 로그인 처리 함수
   const handleNaverLogin = async () => {
     try {
       await signIn('naver', { redirect: true, callbackUrl: '/' });
@@ -82,7 +84,7 @@ const Login = () => {
     }
   };
 
-  // 뒤로가기
+  // ✅ 뒤로가기
   const backBtn = () => {
     router.back();
   };
@@ -143,7 +145,7 @@ const Login = () => {
             </button>
           </form>
 
-          {/* ✅ 회원가입 & 아이디 찾기 링크를 소셜 로그인 아래로 이동 */}
+          {/* ✅ 회원가입 링크 */}
           <div className={loginStyles.linkTextBox}>
             <Link href='/page/member/CreateAcount' className={loginStyles.linkText}>
               회원가입

@@ -135,6 +135,9 @@ const Login = () => {
             </button>
           </form>
 
+          {error && <div className={loginStyles.errorMessage}>{error}</div>}
+
+
           {/* ✅ 회원가입 링크 */}
           <div className={loginStyles.linkTextBox}>
             <Link href='/page/member/CreateAcount' className={loginStyles.linkText}>

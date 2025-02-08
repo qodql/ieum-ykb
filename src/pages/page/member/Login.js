@@ -15,10 +15,10 @@ const Login = () => {
   const [remember, setRemember] = useState(false);
   const router = useRouter();
 
-  // ✅ 저장된 이메일 불러오기 (useEffect)
+  // ✅ 저장된 이메일 불러오기
   useEffect(() => {
     const savedEmail = localStorage.getItem('savedEmail');
-    if (savedEmail) {
+    if (savedEmail && savedEmail !== 'undefined' && savedEmail !== 'null') {
       setEmail(savedEmail);
       setRemember(true);
     }
@@ -45,22 +45,34 @@ const Login = () => {
       const result = await signIn('credentials', {
         email,
         password,
-        //callbackUrl: '/',
-        redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        redirect: false, // ✅ 자동 리디렉션 방지
       });
 
+      console.log('로그인 응답:', result); // ✅ 디버깅
+
+      if (!result) {
+        alert('서버 응답이 없습니다. 다시 시도해 주세요.');
+        return;
+      }
+
       if (result.error) {
-        setError('로그인 중 오류가 발생했습니다.'); // 오류 메시지 설정
-      } else {
+        setError(`로그인 실패: ${result.error}`); // ✅ UI에 반영
+        return;
+      }
+
+      if (result.ok) {
+        // ✅ 이메일 저장 여부 확인 후 저장
         if (remember) {
           localStorage.setItem('savedEmail', email);
         } else {
           localStorage.removeItem('savedEmail');
         }
-        window.location.href = '/'; // 로그인 성공 시 홈 이동
-      } 
+
+        window.location.href = '/'; // ✅ 로그인 성공 시 홈으로 이동
+      }
     } catch (err) {
-      setError('로그인 처리 중 문제가 발생했습니다.'); // 예외 처리
+      console.error('로그인 오류:', err);
+      setError('로그인 중 문제가 발생했습니다.');
     } finally {
       setLoading(false);
     }
@@ -112,6 +124,7 @@ const Login = () => {
             />
             
             <div className={loginStyles.loginIdbox}>
+              {/* ✅ 아이디 저장 체크박스 추가 */}
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -131,12 +144,9 @@ const Login = () => {
               className={loginStyles.loginBtn}
               disabled={loading}
             >
-              {loading ? '로그인' : '로그인'}
+              {loading ? '로그인 중...' : '로그인'}
             </button>
           </form>
-
-          {error && <div className={loginStyles.errorMessage}>{error}</div>}
-
 
           {/* ✅ 회원가입 링크 */}
           <div className={loginStyles.linkTextBox}>
@@ -145,7 +155,8 @@ const Login = () => {
             </Link>
           </div>
 
-          
+          {/* ✅ 로그인 실패 시 오류 메시지 표시 */}
+          {error && <div className={loginStyles.errorMessage}>{error}</div>}
 
           {/* ✅ 소셜 로그인 버튼 */}
           <div className={loginStyles.externalLoginBox}>

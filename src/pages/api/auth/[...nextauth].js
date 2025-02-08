@@ -2,178 +2,132 @@ import NextAuth from "next-auth";
 import NaverProvider from "next-auth/providers/naver";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
-import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/firebase";
 import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions = {
-  debug: true,
-  secret: "968416519848645165",
+  secret: '968416519848645165',
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
     NaverProvider({
-      clientId: process.env.NAVER_CLIENT_ID || "missing_client_id",
-      clientSecret: process.env.NAVER_CLIENT_SECRET || "missing_client_secret",
-      authorization: {
-        params: {
-          scope: "email",
-        },
-      },
+      clientId: process.env.NAVER_CLIENT_ID,
+      clientSecret: process.env.NAVER_CLIENT_SECRET,
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
-      name: "Email and Password",
+      name: 'Email and Password',
       credentials: {
         email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        console.log("Authorize callback triggered");
-
-        try {
-          const q = query(
-            collection(db, "userInfo"),
-            where("info.email", "==", credentials.email),
-            where("info.password", "==", credentials.password)
-          );
-          const querySnapshot = await getDocs(q);
-
-          let user = null;
-          querySnapshot.docs.forEach((doc) => {
-            user = doc.data();
-          });
-
-          if (user) {
-            return user.info;
-          } else {
-            throw new Error("Invalid credentials");
-          }
-        } catch (error) {
-          console.error("Error during authorize callback:", error);
-          throw error;
+        const q = query(
+          collection(db, "userInfo"),
+          where("info.email", "==", credentials.email),
+          where("info.password", "==", credentials.password)
+        );
+        const querySnapshot = await getDocs(q);
+        let user = null;
+        querySnapshot.docs.map((doc) => {
+          user = doc.data();
+        });
+        if (user) {
+          return user.info;
+        } else {
+          throw new Error('Invalid credentials');
         }
       },
-    }),
+    })
   ],
 
   callbacks: {
-    async signIn({ user, account, profile }) {
-      console.log("SignIn callback triggered");
-      if (["naver", "google", "github"].includes(account.provider)) {
+    async signIn({ user, account, profile, email, credentials }) {
+
+      if (account.provider === 'credentials') {
+        // 자체 로그인 처리
+        const q = query(
+          collection(db, "userInfo"),
+          where("info.email", "==", credentials.email),
+          where("info.password", "==", credentials.password)
+        );
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot.empty) {
+          throw new Error('Invalid credentials');
+        }
+        return true;
+      } else if (account.provider === 'naver' || account.provider === 'google' || account.provider === 'github') {
         let email;
-
-        if (account.provider === "naver") {
-          console.log("Naver Profile:", profile);
-
-          const naverProfile = profile?.response;
-          if (!naverProfile) {
-            console.error("No response from Naver API");
-            return false;
-          }
-          if (!naverProfile.email) {
-            console.error("Email is missing in Naver profile");
-            return false;
-          }
-
-          email = naverProfile.email;
-        } else {
+        
+        if (account.provider === 'naver') {
+          email = profile.response.email;
+        } else if (account.provider === 'google' || account.provider === 'github') {
           email = user.email;
         }
-
-        // Firestore에서 사용자 조회
-        const q = query(collection(db, "userInfo"), where("info.email", "==", email));
-        console.log("Firestore query initiated for email:", email);
-
-        let querySnapshot;
-        try {
-          querySnapshot = await getDocs(q);
-          if (querySnapshot.empty) {
-            console.log("User not found, adding new user to Firestore.");
-          }
-        } catch (error) {
-          console.error("Firestore query failed:", error);
-          return false;
-        }
-
-        // Firestore에 사용자 정보 추가
+  
+        const q = query(
+          collection(db, "userInfo"),
+          where("info.email", "==", email)
+        );
+        const querySnapshot = await getDocs(q);
         if (querySnapshot.empty) {
-          const userInfo = {
-            id: account.provider === "naver" ? profile.response.id : user.id,
-            name: account.provider === "naver" ? profile.response.name : user.name,
-            email,
-            nickname: account.provider === "naver" ? profile.response.nickname : user.name,
-            provider: account.provider,
-          };
-
-          try {
-            console.log("Adding new user to Firestore:", userInfo);
-            await addDoc(collection(db, "userInfo"), { info: userInfo });
-            console.log(`${account.provider} user added to Firestore:`, userInfo);
-          } catch (error) {
-            console.error("Failed to save user to Firestore:", error);
-            return false;
+          const userRef = collection(db, "userInfo");
+  
+          if (account.provider === 'google' || account.provider === 'github') {
+            await addDoc(userRef, {
+              info: {
+                id: user.id,
+                nickname: user.name,
+                email: user.email,
+                provider: account.provider
+              }
+            });
+          } else if (account.provider === 'naver') {
+            try {
+              await addDoc(userRef, {
+                info: {
+                  id: profile.response.id,
+                  name: profile.response.name,
+                  email: profile.response.email,
+                  nickname: profile.response.nickname,
+                  phonenum: profile.response.mobile,
+                  provider: account.provider,
+                  image: '/img_member_profile.svg'
+                }
+              });
+  
+              console.log("Documents added successfully");
+            } catch (error) {
+              console.error("Error adding documents: ", error);
+              throw new Error('Failed to add documents');
+            }
           }
         }
-
         return true;
       }
-      return false; // 지원하지 않는 제공자의 경우 false 반환
+      return false;
     },
-
-    async jwt({ token, account, profile }) {
-      console.log("JWT callback triggered");
-      try {
-        if (account) {
-          if (account.provider === "naver" && (!profile?.response || !profile.response.email)) {
-            console.error("Invalid Naver profile during JWT callback");
-            return {};
-          }
-          token.accessToken = account.access_token;
-        }
-        return token;
-      } catch (error) {
-        console.error("Error during JWT callback:", error);
-        return token;
+  
+    async jwt({ token, user, account, profile }) {
+      if (account) {
+        token.accessToken = account.access_token;
+      } else if (user) {
+        token.accessToken = user.id;
       }
+      return token;
     },
-
+  
     async session({ session, token }) {
-      console.log("Session callback triggered");
-      try {
-        if (!token || !token.accessToken) {
-          console.error("Session error: No access token found");
-          return null;
-        }
-        session.accessToken = token.accessToken;
-        return session;
-      } catch (error) {
-        console.error("Error during session callback:", error);
-        return null;
-      }
-    },
-
-    async error({ error }) {
-      console.error("Error callback triggered:", error);
-
-      // OAuthCallbackError 처리
-      if (error.name === "OAuthCallbackError") {
-        console.log("Redirecting due to OAuthCallbackError");
-        return "/";
-      }
-
-      return "/";
-    },
-  },
-
-  pages: {
-    error: "/",
-  },
+      session.accessToken = token.accessToken;
+      return session;
+    }
+  }
 };
 
 export default NextAuth(authOptions);

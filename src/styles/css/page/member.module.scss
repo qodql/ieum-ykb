@@ -213,7 +213,7 @@
   }
   .loginBtn{
     width: calc(100% - 137px);
-    background-color: #2E8B57;
+    background-color: #ccc;
     color: #fafafa;
     font-size: 16px;
     border: none;
@@ -222,6 +222,10 @@
     display: block;
     margin-bottom: 8px;
     height: 40px;
+    transition: background-color 0.3s ease;
+  }
+  .activeBtn{
+    background-color: #2E8B57;
   }
   .linkTextBox{
     width: calc(100% - 137px);
@@ -237,6 +241,7 @@
       border-radius: 8px;
       color: #2E8B57;
       font-size: 16px;
+      font-weight: 600;
     }
   }
   .externalLoginBox{
@@ -255,7 +260,6 @@
     }
   }
 }
-
 //아이디찾기
  .findIdBox{
   max-width: 390px;
@@ -332,15 +336,15 @@
     }
   }
  }
- 
 //마이페이지
 .mypageBox{
   width: 390px;
   margin: 0 auto;
   .profileBox{
     width: 100%;
-    height: 187px;
-    background-color: #F5F5DC;
+    height: 240px;
+    background: url('../../../../public/img_mypage_bg.jpg') no-repeat;
+    background-position: 0 0;
     .btnBox{
       display: flex;
       width: 100%;

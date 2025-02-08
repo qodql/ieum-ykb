@@ -19,9 +19,6 @@ const Mypage = () => {
   const [readingPage, setReadingPage] = useState(false);
   const router = useRouter();
 
-  
-
-
   useEffect(() => {
     if(session){
       const fetchRead = async () => {
@@ -36,7 +33,6 @@ const Mypage = () => {
         fetchRead();
     }
   }, [session]);
-
 
 
   useEffect(() => {
@@ -110,7 +106,7 @@ const Mypage = () => {
             <div className={loginStyles.profile}>
               <Link href='/page/member/Membercorrection'
               className={loginStyles.profileImg}
-              style={{backgroundImage:`url(/img_member_profile.svg)`}}/>
+              style={{backgroundImage:`url(/icon/icon_profile.svg)`}}/>
               <p>{session ? session.user.name : ""}</p>
             <span>{session == undefined || session == null ?'': session.user.email}</span>
             </div>

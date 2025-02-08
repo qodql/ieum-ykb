@@ -14,6 +14,8 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [remember, setRemember] = useState(false);
   const router = useRouter();
+  const isFormValid = email.trim() !== '' && password.trim() !== '';
+
 
   // 아이디 세션
   useEffect(() => {
@@ -128,10 +130,10 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className={loginStyles.loginBtn}
-              disabled={loading}
+              className={`${loginStyles.loginBtn} ${isFormValid ? loginStyles.activeBtn : ''}`}
+              disabled={!isFormValid || loading}
             >
-              {loading ? '로그인 중...' : '로그인'}
+              {loading ? '로그인' : '로그인'}
             </button>
           </form>
           <div className={loginStyles.linkTextBox}>

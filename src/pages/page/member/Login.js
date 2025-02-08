@@ -46,7 +46,7 @@ const Login = () => {
         email,
         password,
         callbackUrl: '/',
-        //redirect: false, // ✅ 중요: 자동 리디렉션 방지
+        redirect: false, // ✅ 중요: 자동 리디렉션 방지
       });
 
       if (!result) {
@@ -118,8 +118,7 @@ const Login = () => {
               disabled={loading}
             />
             
-            <div className={loginStyles.loginIdbox}>
-              {/* ✅ 아이디 저장 체크박스 추가 */}
+            {/* <div className={loginStyles.loginIdbox}>
               <div className={loginStyles.rememberBox}>
                 <input
                   type="checkbox"
@@ -132,14 +131,14 @@ const Login = () => {
               <Link href='/page/member/Findid' className={loginStyles.findId}>
                 아이디 찾기
               </Link>
-            </div>
+            </div> */}
 
             <button
               type="submit"
               className={loginStyles.loginBtn}
               disabled={loading}
             >
-              {loading ? '로그인 중...' : '로그인'}
+              {loading ? '로그인' : '로그인'}
             </button>
           </form>
 
@@ -150,8 +149,7 @@ const Login = () => {
             </Link>
           </div>
 
-          {/* ✅ 로그인 실패 시 오류 메시지 표시 */}
-          {error && <div className={loginStyles.errorMessage}>{error}</div>}
+          
 
           {/* ✅ 소셜 로그인 버튼 */}
           <div className={loginStyles.externalLoginBox}>

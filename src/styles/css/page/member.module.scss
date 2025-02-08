@@ -237,7 +237,7 @@
       border-radius: 8px;
       color: #2E8B57;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 16px;
     }
   }
   .externalLoginBox{
@@ -509,8 +509,8 @@
     border: none ;
     border-bottom: 1px solid #111111;
     background-color: transparent;
+    color: #333;
     .userInput:focus{
-      border-bottom: 1px solid #111111;
     }
     &:nth-of-type(1):focus{
       outline: none;

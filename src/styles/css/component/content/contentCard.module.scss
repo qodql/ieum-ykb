@@ -9,6 +9,7 @@
     text-align: center;
     background-color: #F7FAF6;
     border-radius: 8px;
+    cursor: pointer;
     .bookmark{
         position: absolute;
         top: 0;
@@ -34,6 +35,7 @@
 
 //card2
 .contentCard2{
+    cursor: pointer;
     .contentCard2_image{
         width: 165px;
         height: 242px;
@@ -73,8 +75,8 @@
 }
 
 //card3
-
 .contentCard3{
+    cursor: pointer;
     .contentCard3_image{
         width: 143px;
         height: 212px;

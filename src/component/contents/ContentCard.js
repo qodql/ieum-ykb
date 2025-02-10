@@ -115,7 +115,7 @@ const ContentList_card = ({item, showBookmark, comment}) => {
                         {item.author}
                     </p>
                     <p className={s.ContentList_card_rateTitle}>
-                    책이음 평점
+                       
                     </p>
                     <div className={s.ContentList_card_rate}>
                         <Rating value={averageRating}

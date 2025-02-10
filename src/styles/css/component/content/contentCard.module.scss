@@ -172,6 +172,7 @@
     margin: 0 16px;
     border-bottom: 1px solid #ddd;
     .ContentList_card_main{
+        cursor: pointer;
         display: flex;
         .ContentList_card_img{
             position: relative;
@@ -218,11 +219,12 @@
                 white-space:nowrap;    
             }
             .ContentList_card_rateTitle{
-                margin: 4px 0;
+                margin-top: 8px;
                 font-size: 12px;
-                color: #999;
+                color: #333;
             }
             .ContentList_card_rate{
+                margin-top: 28px;
                 font-size: 16px;
                 position: relative;
                 span{
@@ -239,10 +241,15 @@
                 top: 6%;
                 left: 37%;
                 color: #333;
+                font-weight: 600;
             }
         }
     }
     .ContentList_card_category{
+        max-width: 220px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         font-size: 13px;
         color: #999
     }

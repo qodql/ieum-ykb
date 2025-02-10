@@ -50,6 +50,7 @@
                 }
                 .detailThumbInfo{
                     width: 150%;
+                    height: 200px;
                     position: relative;
                     .detailThumbIcon{
                         display: flex;
@@ -71,7 +72,8 @@
                             justify-content: center;
                             text-align: center;
                             padding: 4px;
-                            background-color: rgba(46, 139, 87, 0.45);
+                            //background-color: rgba(46, 139, 87, 0.45);
+                            background-color: transparent;
                         }
                     }
                     .detailThumbTit{
@@ -82,6 +84,7 @@
                         word-break: keep-all;
                         position: absolute;
                         top: 0; left: 0;
+                        line-height: 22px;
                     }
                     .detailTumbOverview{
                         font-size: 14px;
@@ -98,10 +101,13 @@
                         top: 54%; left: 0;
                     }
                     .detailThumbType{
-                        font-size: 8px;
+                        max-width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        font-size: 10px;
                         color: #EAEAEA;
                         position: absolute;
-                        top: 73%; left: 0;
+                        top: 70%; left: 0;
                     }
                 }
             }

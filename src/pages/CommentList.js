@@ -166,7 +166,7 @@ const CommentList = () => {
           {commentList.map((comment, index) => (
             <div key={index} className={s.detailComment}>
               <div>
-                <img src={comment.userImage || './profile.png'} alt="Profile" />
+                <img src={comment.userImage || './icon/icon_profile.svg'} alt="Profile" />
               </div>
               <div className={s.detailCommentInfo}>
                 <div className={s.detailCommentNickName}>

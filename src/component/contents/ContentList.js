@@ -40,7 +40,7 @@ const BannerBox = (props) => {
                     </p>
                 </div>
                 <div className={s.bannerBot}>
-                    <p className={s.bannerPage}>{i+1}/3</p>
+                    <p className={s.bannerPage}>{i+1} / 3</p>
                 </div>
             </div>
           </SwiperSlide>   

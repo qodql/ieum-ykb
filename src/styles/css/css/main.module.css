@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 860px;
   background-color: transparent;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 860px;
   background-color: #2E8B57;
   animation: loadingfadeIn 0.5s forwards;
 }
@@ -24,32 +24,30 @@
   }
 }
 .modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  z-index: 9;
+  z-index: 2;
 }
 .modalOverlay .modalContent {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 120px;
   width: 100%;
-  max-width: 480px;
+  max-width: 390px;
   background: white;
   padding: 20px;
   border-radius: 16px 16px 0 0;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  transform: translateY(100%);
+  transform: translateY(50%);
+  left: 50%;
 }
 .modalOverlay .modalContent.open {
-  transform: translateY(0);
+  transform: translateY(-30%);
 }
 .modalOverlay .modalContent h3 {
   text-align: center;
@@ -112,12 +110,17 @@
   align-items: center;
   gap: 16px;
 }
-.mainContent3 .c3Category .c3Category_li:first-of-type > .c3Category_btn {
-  color: #111111;
-}
 .mainContent3 .c3Category .c3Category_li .c3Category_btn {
   border: none;
   color: #666;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.active {
+  border: none;
+  color: #111111;
+  font-weight: bold;
   font-size: 16px;
   background-color: transparent;
 }

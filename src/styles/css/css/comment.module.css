@@ -1,15 +1,24 @@
 .commentList_title {
+  max-width: 390px;
   margin: 16px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 125px;
+  position: relative;
 }
-.commentList_title .commentList_back::after {
-  content: url(../../../../public/back.png);
+.commentList_title .commentList_back {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
-.commentList_title h2 {
+.commentList_title .commentList_back::after {
+  display: block;
+  content: url(../../../../public/back.png);
+}
+.commentList_title .commentList_title_center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   word-spacing: 0;
   font-size: 20px;
   font-weight: bold;
@@ -23,7 +32,15 @@
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 12px;
+}
+.commetListWrite .commetListWriteBox form .detailInfoStar {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.commetListWrite .commetListWriteBox form .detailInfoStar span {
+  margin-right: 2px;
 }
 .commetListWrite .commetListWriteBox form button {
   width: 100%;
@@ -42,10 +59,11 @@
   height: 80px;
   border-radius: 8px;
   padding: 8px;
+  background-color: transparent;
+  color: #999;
 }
 .commetListWrite .commetListWriteBox .commetListWriteCont textarea::placeholder {
   font-size: 12px;
-  color: #999;
 }
 .commetListWrite .commetListWriteBox .commetListWriteCont .commetListWriteLetters {
   position: absolute;
@@ -60,6 +78,12 @@
 
 .commentCard_list {
   margin: 0 16px 60px;
+}
+.commentCard_list.commentCard_list2 {
+  margin: 0;
+}
+.commentCard_list.commentCard_list2 .detailComment {
+  border-top: none;
 }
 .commentCard_list h5 {
   font-size: 16px;
@@ -80,7 +104,7 @@
 .commentCard_list .detailComment .detailCommentInfo .detailCommentNickName {
   display: flex;
   align-items: flex-end;
-  gap: 4px;
+  gap: 8px;
 }
 .commentCard_list .detailComment .detailCommentInfo .detailCommentNickName p {
   font-size: 14px;
@@ -92,6 +116,9 @@
 }
 .commentCard_list .detailComment .detailCommentStar {
   padding-top: 0;
+}
+.commentCard_list .detailComment .detailCommentStar span span span {
+  display: block;
 }
 .commentCard_list .detailComment .detailCommentCont {
   font-size: 12px;

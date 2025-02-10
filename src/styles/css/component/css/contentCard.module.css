@@ -7,6 +7,7 @@
   text-align: center;
   background-color: #F7FAF6;
   border-radius: 8px;
+  cursor: pointer;
 }
 .contentCard1 .bookmark {
   position: absolute;
@@ -30,6 +31,9 @@
   background-size: cover;
 }
 
+.contentCard2 {
+  cursor: pointer;
+}
 .contentCard2 .contentCard2_image {
   width: 165px;
   height: 242px;
@@ -67,6 +71,9 @@
   white-space: nowrap;
 }
 
+.contentCard3 {
+  cursor: pointer;
+}
 .contentCard3 .contentCard3_image {
   width: 143px;
   height: 212px;
@@ -98,14 +105,17 @@
   border-radius: 8px;
 }
 .comment .profile {
+  height: 32px;
   display: flex;
   align-items: center;
+  margin: 12px 0;
 }
 .comment .profile span {
   width: 32px;
   height: 32px;
   border-radius: 100%;
   margin: 16px 8px 12px 16px;
+  background-size: 32px;
 }
 .comment .profile .profile_text {
   padding-top: 4px;
@@ -122,6 +132,7 @@
 .commentCard {
   display: flex;
   margin: 16px;
+  gap: 12px;
 }
 .commentCard .commentCard_img {
   width: 84px;
@@ -135,6 +146,9 @@
 .commentCard .commentCard_text .commentCard_rate {
   font-size: 12px;
   color: #ffc700;
+}
+.commentCard .commentCard_text .commentCard_rate span span span {
+  display: block;
 }
 .commentCard .commentCard_text .commentCard_review {
   font-size: 12px;
@@ -202,6 +216,21 @@
 }
 .ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_rate {
   font-size: 16px;
+  position: relative;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_rate span span span {
+  display: block;
+}
+.ContentList_card .ContentList_card_main .ContentList_card_text .ContentList_card_commentRate {
+  font-size: 12px;
+  position: absolute;
+  top: 6%;
+  left: 37%;
+  color: #333;
+}
+.ContentList_card .ContentList_card_category {
+  font-size: 13px;
+  color: #999;
 }
 .ContentList_card .ContentList_card_foot {
   display: flex;
@@ -212,14 +241,7 @@
   font-size: 13px;
 }
 .ContentList_card .ContentList_card_foot .ContentList_card_Like::before {
-  content: url(../../../../../public/Like.png);
   margin-right: 8px;
-}
-.ContentList_card .ContentList_card_foot .ContentList_card_category {
-  width: 220px;
-  font-size: 13px;
-  margin-left: 20px;
-  color: rgba(0, 0, 0, 0.5);
 }
 
 .MypageCard .MypageCard_box {
@@ -285,8 +307,33 @@
   font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 .MypageComment .MypageComment_more {
-  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 20px;
+  position: relative;
+}
+.MypageComment .MypageComment_moreBox {
+  margin-left: 4px;
+  height: 100%;
+  border: 1px solid #333333;
+  padding: 4px;
+  border-radius: 8px;
+}
+.MypageComment .MypageComment_moreBox > span {
+  display: block;
+}
+
+.MypageLine {
+  width: 358px;
+  height: 1px;
+  border: 1px solid #fafafa;
 }

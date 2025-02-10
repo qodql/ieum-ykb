@@ -3,34 +3,52 @@
   margin: 0 auto;
   padding: 40px 16px;
 }
-.CreateAccountBox .ieumLogo {
-  width: 43%;
-  height: 40px;
-  background-repeat: no-repeat;
-  margin: 16px auto;
-  display: block;
-  background-size: contain;
+.CreateAccountBox .commentList_title {
+  max-width: 390px;
+  margin: 16px 0 80px;
+  display: flex;
+  align-items: center;
+  gap: 125px;
 }
-.CreateAccountBox .createAccount {
-  font-size: 36px;
+.CreateAccountBox .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.CreateAccountBox .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
   font-weight: bold;
-  text-align: center;
+  color: #111;
 }
 .CreateAccountBox form .inputText {
   display: block;
   font-weight: 500;
   margin: 12px 0;
 }
+.CreateAccountBox form .passwordCheck {
+  font-size: 12px;
+  color: rgb(255, 11, 11);
+  margin-top: 8px;
+}
+.CreateAccountBox form .passwordCheckok {
+  font-size: 12px;
+  color: #999999;
+  margin-top: 8px;
+}
 .CreateAccountBox form > span:nth-of-type(1) {
   margin-top: 32px;
 }
 .CreateAccountBox form .userInput {
-  display: block;
   width: 358px;
   height: 43px;
+  display: block;
   margin: 0 auto;
+  background-color: transparent;
   border: none;
   border-bottom: 1px solid #111111;
+  color: #333;
 }
 .CreateAccountBox form .userInput:focus::placeholder {
   opacity: 0;
@@ -52,6 +70,7 @@
   border-radius: 8px;
   background-color: #2E8B57;
   color: #fafafa;
+  font-size: 13px;
 }
 .CreateAccountBox form .termsList {
   width: 358px;
@@ -60,33 +79,39 @@
 }
 .CreateAccountBox form .termsList > li:nth-of-type(1) {
   font-size: 20px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
-.CreateAccountBox form .termsList > li:nth-of-type(2) {
+.CreateAccountBox form .termsList li:nth-of-type(2), .CreateAccountBox form .termsList li:nth-of-type(3) {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
 }
-.CreateAccountBox form .termsList > li:nth-of-type(2) > input {
-  margin-right: 12px;
-  width: 23px;
+.CreateAccountBox form .termsList li:nth-of-type(2) input[type=checkbox], .CreateAccountBox form .termsList li:nth-of-type(3) input[type=checkbox] {
+  width: 20px;
   height: 20px;
-}
-.CreateAccountBox form .termsList > li:nth-of-type(2) > span {
-  font-size: 20px;
-}
-.CreateAccountBox form .termsList > li:nth-of-type(3) {
-  margin-bottom: 8px;
+  margin-right: 8px;
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+  transition: 0.1s background-color;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-.CreateAccountBox form .termsList > li:nth-of-type(3) > input {
-  margin-right: 12px;
-  width: 23px;
-  height: 20px;
+.CreateAccountBox form .termsList li:nth-of-type(2) input[type=checkbox]:checked, .CreateAccountBox form .termsList li:nth-of-type(3) input[type=checkbox]:checked {
+  background-color: #2E8B57;
 }
-.CreateAccountBox form .termsList > li:nth-of-type(3) > span {
-  font-size: 20px;
+.CreateAccountBox form .termsList li:nth-of-type(2) input[type=checkbox]:checked::after, .CreateAccountBox form .termsList li:nth-of-type(3) input[type=checkbox]:checked::after {
+  content: "";
+  width: 12px;
+  height: 9px;
+  background: url("../../../../public/icon/icon_check.svg") no-repeat;
+}
+.CreateAccountBox form .termsList li:nth-of-type(2) span, .CreateAccountBox form .termsList li:nth-of-type(3) span {
+  cursor: pointer;
+  font-size: 16px;
 }
 .CreateAccountBox form .createAccountBtn {
   width: 100%;
@@ -95,6 +120,7 @@
   border-radius: 8px;
   color: #FFFFFF;
   height: 48px;
+  font-size: 16px;
 }
 
 .loginBox {
@@ -113,87 +139,145 @@
   font-size: 80px;
 }
 .loginBox .loginLogo {
-  width: 45%;
-  height: 40px;
+  width: 104px;
+  height: 28px;
   background-repeat: no-repeat;
-  margin: 80px auto 0px auto;
+  margin: 160px auto 0;
   background-size: contain;
 }
+.loginBox .loginIdbox {
+  width: calc(100% - 137px);
+  margin: 4px auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginBox .loginIdbox .rememberBox {
+  display: flex;
+  align-items: center;
+}
+.loginBox .loginIdbox .rememberBox input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+  transition: 0.1s background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginBox .loginIdbox .rememberBox input[type=checkbox]:checked {
+  background-color: #2E8B57;
+}
+.loginBox .loginIdbox .rememberBox input[type=checkbox]:checked::after {
+  content: "";
+  width: 8px;
+  height: 6px;
+  background: url("../../../../public/icon/icon_check.svg") no-repeat;
+  background-size: 8px;
+}
+.loginBox .loginIdbox .rememberBox span {
+  cursor: pointer;
+  font-size: 13px;
+}
+.loginBox .loginIdbox .findId {
+  color: #999;
+  font-size: 13px;
+  text-decoration: underline;
+}
 .loginBox .loginInput {
-  display: block;
   width: calc(100% - 137px);
   height: 40px;
+  display: block;
   margin: 28px auto 0 auto;
   border: 1px solid #999999;
   border-radius: 8px;
+  background-color: #fafafa;
+  color: #111;
+  text-indent: 16px;
 }
 .loginBox .loginInput:nth-of-type(2) {
   margin-top: 8px;
-  margin-bottom: 20px;
 }
 .loginBox .loginInput::placeholder {
-  color: #CCCCCC;
-  opacity: 0.4;
-  padding-left: 16px;
-}
-.loginBox .loginInput:focus::placeholder {
-  opacity: 0;
+  color: #ccc;
 }
 .loginBox .loginBtn {
   width: calc(100% - 137px);
-  background-color: #2E8B57;
+  background-color: #ccc;
   color: #fafafa;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   margin: 0 auto;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   height: 40px;
+  transition: background-color 0.3s ease;
+}
+.loginBox .activeBtn {
+  background-color: #2E8B57;
 }
 .loginBox .linkTextBox {
-  width: 50%;
-  display: flex;
+  width: calc(100% - 137px);
+  display: block;
   margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
 }
 .loginBox .linkTextBox .linkText {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
   display: block;
-  text-decoration: underline;
+  text-align: center;
+  border: 1px solid #2E8B57;
+  border-radius: 8px;
+  color: #2E8B57;
+  font-size: 16px;
+  font-weight: 600;
 }
 .loginBox .externalLoginBox {
+  width: calc(100% - 137px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  gap: 40px;
+  margin: 20px auto;
+  gap: 36px;
 }
 .loginBox .externalLoginBox .loginIcon {
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .findIdBox {
-  width: 390px;
+  max-width: 390px;
+  margin: 0 auto;
   padding: 0 16px;
-  margin: 60px auto;
 }
-.findIdBox > p {
-  text-align: center;
-  font-weight: 500;
-  font-size: 36px;
-  margin-top: 16px;
-  margin-bottom: 32px;
+.findIdBox .commentList_title {
+  max-width: 390px;
+  margin: 0 0 100px;
+  display: flex;
+  align-items: center;
+  gap: 115px;
 }
-.findIdBox .ieumLogo {
-  width: 35%;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin: 16px auto;
-  background-size: contain;
+.findIdBox .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.findIdBox .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
 }
 .findIdBox form .userInput {
   display: block;
@@ -201,7 +285,9 @@
   height: 43px;
   margin: 0 auto;
   border: none;
+  color: #333;
   border-bottom: 1px solid #111111;
+  background-color: transparent;
 }
 .findIdBox form .userInput:focus::placeholder {
   opacity: 0;
@@ -228,6 +314,7 @@
   color: #fafafa;
   border: none;
   border-radius: 8px;
+  font-size: 13px;
 }
 .findIdBox form .findBtn {
   width: 100%;
@@ -237,6 +324,7 @@
   border: none;
   border-radius: 8px;
   margin-top: 36px;
+  font-size: 16px;
 }
 
 .mypageBox {
@@ -245,38 +333,49 @@
 }
 .mypageBox .profileBox {
   width: 100%;
-  height: 250px;
-  background-color: #F5F5DC;
+  height: 240px;
+  background: url("../../../../public/img_mypage_bg.jpg") no-repeat;
+  background-position: 0 0;
 }
-.mypageBox .profileBox .backBtn {
-  width: 30px;
-  height: 30px;
+.mypageBox .profileBox .btnBox {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.mypageBox .profileBox .btnBox .backBtn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
   background-repeat: no-repeat;
-  position: relative;
-  top: 16px;
-  left: 16px;
+  background-size: cover;
 }
-.mypageBox .profileBox .profile {
-  margin-top: 100px;
+.mypageBox .profileBox .btnBox span {
+  display: block;
+  cursor: pointer;
+  color: #fff;
 }
 .mypageBox .profileBox .profile .profileImg {
   width: 55px;
   height: 55px;
   background-repeat: no-repeat;
-  margin-top: 36px;
+  margin-top: 20px;
   margin-left: 32px;
   display: block;
 }
-.mypageBox .profileBox .profile > p {
+.mypageBox .profileBox .profile p {
   font-size: 20px;
   font-weight: 500;
   margin-left: 32px;
+  color: #fff;
 }
-.mypageBox .profileBox .profile > span {
+.mypageBox .profileBox .profile span {
   font-size: 12px;
-  color: #999999;
+  color: #eaeaea;
   margin-left: 32px;
   display: block;
+  margin-bottom: 20px;
 }
 .mypageBox .contentBox {
   padding: 0 16px;
@@ -288,10 +387,11 @@
   align-items: flex-end;
   justify-content: space-between;
 }
-.mypageBox .contentBox .contentList > span {
+.mypageBox .contentBox .contentList span {
   font-size: 20px;
 }
-.mypageBox .contentBox .contentList > a {
+.mypageBox .contentBox .contentList a {
+  cursor: pointer;
   font-size: 12px;
 }
 .mypageBox .contentBox .mypageCardBox {
@@ -299,12 +399,59 @@
   display: flex;
   margin-top: 12px;
   margin-bottom: 40px;
-  gap: 20px;
+  gap: 16px;
   overflow: hidden;
 }
 .mypageBox .contentBox .contentText {
   font-size: 12px;
   color: #999999;
+  display: block;
+}
+.mypageBox .morePage {
+  width: 390px;
+  height: 1200px;
+  padding: 0 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+}
+.mypageBox .morePage > ul {
+  height: 100%;
+}
+.mypageBox .morePage .headerBox {
+  width: 205px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.mypageBox .morePage .headerBox .moreBackBtn {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mypageBox .morePage .headerBox > h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.mypageBox .morePage > span:first-of-type {
+  display: block;
+  margin-top: 20px;
+}
+.mypageBox .morePage > span:first-of-type::after {
+  content: "";
+  border: 1px solid #eaeaea;
+  width: 358px;
+  margin-top: 12px;
+  display: block;
+}
+.mypageBox .morePage .myComentList::after {
+  content: "";
+  border: 1px solid #eaeaea;
+  width: 358px;
+  margin-top: 12px;
   display: block;
 }
 
@@ -313,24 +460,29 @@
   padding: 0 16px;
   margin: 60px auto;
 }
-.memberCorrection > h2 {
-  text-align: center;
-  font-size: 32px;
+.memberCorrection .commentList_title {
+  max-width: 390px;
+  margin: 0 0 88px;
+  display: flex;
+  align-items: center;
+  gap: 115px;
+}
+.memberCorrection .commentList_title .commentList_back::after {
+  content: url(../../../../public/back.png);
+  width: 24px;
+  height: 24px;
+}
+.memberCorrection .commentList_title h2 {
+  word-spacing: 0;
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 28px;
+  color: #111;
 }
 .memberCorrection .labelText {
   font-size: 16px;
   font-weight: 500;
   display: block;
   margin-top: 16px;
-}
-.memberCorrection .ieumLogo {
-  width: 38%;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin: 16px auto;
-  background-size: contain;
 }
 .memberCorrection .nicknameChangeBox > span {
   display: block;
@@ -345,12 +497,13 @@
   margin: 0 auto;
   border: none;
   border-bottom: 1px solid #111111;
-}
-.memberCorrection .userInput .userInput:focus {
-  border-bottom: 1px solid #111111;
+  background-color: transparent;
+  color: #333;
 }
 .memberCorrection .userInput:nth-of-type(1):focus {
   outline: none;
+  border: none;
+  transition: 0.3s;
 }
 .memberCorrection .userInput:focus::placeholder {
   opacity: 0;

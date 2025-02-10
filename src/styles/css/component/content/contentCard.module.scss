@@ -118,6 +118,7 @@
             height: 32px;
             border-radius: 100%;
             margin: 16px 8px 12px 16px;
+            background-size: 32px;
         }
         .profile_text{
             padding-top: 4px;
@@ -291,7 +292,6 @@
 .MypageComment{
     display: flex;
     margin: 20px 0;
-
     .MypageComment_img{    
         background-repeat: no-repeat;
         background-size: cover;

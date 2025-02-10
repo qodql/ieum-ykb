@@ -43,7 +43,7 @@ const CommentCard = ({randomComment}) => {
     return (
         <div className={s.comment}>
             <div className={s.profile}>
-            <span style={{backgroundImage:`url(./image16.png)`}}></span>
+            <span style={{backgroundImage:`url(./icon/icon_profile.svg)`}}></span>
             <div className={s.profile_text}>
                 <p className={s.name}>{randomComment.nickname}</p>
                 <p className={s.date}>{randomComment.Creationdate}</p>
@@ -145,11 +145,6 @@ const ContentList_card = ({item, showBookmark, comment}) => {
                     </p>
                 </div>
             </div>
-            {/* <div className={s.ContentList_card_foot}>
-                <p className={s.ContentList_card_category}>
-                    {item.categoryName}
-                </p>
-            </div> */}
         </div>
     )
 }

@@ -352,7 +352,7 @@ const Detail = () => {
                                                 commentList.slice(0, 3).map((comment, index) => (
                                                     <div key={index} className={commentS.detailComment}>
                                                         <div>
-                                                            <img src={comment.userImage || './profile.png'} alt="Profile" />
+                                                            <img src={comment.userImage || './icon/icon_profile.svg'} alt="Profile" />
                                                         </div>
                                                         <div className={commentS.detailCommentInfo}>
                                                             <div className={commentS.detailCommentNickName}>

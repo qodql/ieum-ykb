@@ -165,10 +165,7 @@
     }
 }
 
-
-
 // ContentList_card
-
 .ContentList_card{
     padding: 20px 0;
     margin: 0 16px;
@@ -239,9 +236,14 @@
                 font-size: 12px;
                 position: absolute;
                 top: 6%;
-                left: 38%;
+                left: 37%;
+                color: #333;
             }
         }
+    }
+    .ContentList_card_category{
+        font-size: 13px;
+        color: #999
     }
     .ContentList_card_foot{
         display: flex;
@@ -253,12 +255,6 @@
         .ContentList_card_Like::before{
 
             margin-right: 8px;
-        }
-        .ContentList_card_category{
-            width: 220px;
-            font-size: 13px;
-            margin-left: 52px;
-            color: rgba(0, 0, 0, 50%);
         }
     }
 }

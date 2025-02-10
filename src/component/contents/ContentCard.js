@@ -138,18 +138,18 @@ const ContentList_card = ({item, showBookmark, comment}) => {
                             averageRating ?
                             <span className={s.ContentList_card_commentRate}>{averageRating}</span>
                             : <span className={s.ContentList_card_commentRate}>리뷰없음</span>
-
                         }
                     </div>
+                    <p className={s.ContentList_card_category}>
+                        {item.categoryName}
+                    </p>
                 </div>
             </div>
-            <div className={s.ContentList_card_foot}>
-                <p className={s.ContentList_card_Like}>
-                </p>
+            {/* <div className={s.ContentList_card_foot}>
                 <p className={s.ContentList_card_category}>
                     {item.categoryName}
                 </p>
-            </div>
+            </div> */}
         </div>
     )
 }

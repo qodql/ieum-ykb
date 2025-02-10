@@ -88,39 +88,39 @@ const Book = () => {
     
     return (
         <>
-        <MockupComponent>
-            <Header/>
-            <main>
-            <div className={list.book}>
-                <div className={list.bookBanner}>
-                    <h2>
-                        {getCategoryLabel(categoryTab)}
-                    </h2>
-                </div>
-                <div className={list.tabContainer}>
-                    {categoryItems.map((v) => (
-                        <button
-                            key={v}
-                            className={router.query === v ? list.activeTab : list.tab}
-                            onClick={() => router.push({ pathname: '/Book', query: { category: v } })}
-                        >
-                            <img src={`./icon/${v}.svg`} alt={v}
-                                className={list.tabImage} 
-                            />
-                        </button>
-                    ))}
-                </div>
+            <MockupComponent>
+                <Header/>
+                <main>
+                <div className={list.book}>
+                    <div className={list.bookBanner}>
+                        <h2>
+                            {getCategoryLabel(categoryTab)}
+                        </h2>
+                    </div>
+                    <div className={list.tabContainer}>
+                        {categoryItems.map((v) => (
+                            <button
+                                key={v}
+                                className={router.query === v ? list.activeTab : list.tab}
+                                onClick={() => router.push({ pathname: '/Book', query: { category: v } })}
+                            >
+                                <img src={`./icon/${v}.svg`} alt={v}
+                                    className={list.tabImage} 
+                                />
+                            </button>
+                        ))}
+                    </div>
 
-                <div className={list.bookList}>
-                    {mainItems[categoryTab]?.item && rankItems(mainItems[categoryTab].item).map((item) => (
-                        <div key={item.itemId} onClick={() => detailMove(item)}>
-                            <ContentList_card item={item} showBookmark={true} comment={comment}/>
-                        </div>
-                    ))}
+                    <div className={list.bookList}>
+                        {mainItems[categoryTab]?.item && rankItems(mainItems[categoryTab].item).map((item) => (
+                            <div key={item.itemId} onClick={() => detailMove(item)}>
+                                <ContentList_card item={item} showBookmark={true} comment={comment}/>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-            </main>
-            <Footer />
+                </main>
+                <Footer />
             </MockupComponent>
         </>
     );

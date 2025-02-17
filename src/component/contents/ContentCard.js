@@ -193,7 +193,6 @@ const MypageCard2 = (props) => {
     )
 }
 
-
 //Mypage commentCard
 const MypageComment = (props) => {
     const [more, setMore] = useState(false);
@@ -299,7 +298,6 @@ const Mypageread = (props) => {
         props.onDelete(props.item.bookid);
       }
       
-
     return (
         <>
         <div  className={s.MypageComment}>

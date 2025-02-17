@@ -159,7 +159,6 @@ const Detail = () => {
         //     item.data()
         //     item.id
         // })
-        // console.log(querySnapshot.doc,'=============')
 
         if (querySnapshot.empty) {
             const docRef = collection(db, "readlist"); // 컬렉션 참조 생성
@@ -174,7 +173,6 @@ const Detail = () => {
             alert("읽는중에 추가되었습니다.");
         } else {
             await deleteDoc(doc(db, "readlist", querySnapshot.docs[0].id))
-            // 이미 존재하는 경우의 로직을 여기에 추가할 수 있습니다.
             alert("'읽는중'이 취소되었습니다.");
         }
     };
@@ -189,7 +187,7 @@ const Detail = () => {
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
-            const docRef = collection(db, "readwantlist"); // 컬렉션 참조 생성
+            const docRef = collection(db, "readwantlist");
             await addDoc(docRef, {
                 email: session.user.email,
                 title: item.title,
@@ -222,26 +220,26 @@ const Detail = () => {
                                         <img src={item.cover} alt={item.title} />
                                     </div>
                                     <div className={detail.detailThumbInfo}>
+                                        <div className={detail.detailThumbIcon}>
+                                                {
+                                                    item.bestRank ? 
+                                                    <p>베스트<br/>{item.bestRank}&nbsp;위</p>
+                                                    : <></>
+                                                }
+                                                {
+                                                    item.customerReviewRank > 0 ? 
+                                                    <p>블로거<br/>{item.customerReviewRank}&nbsp;위</p>
+                                                    : <></>
+                                                }
+                                                {
+                                                    futureDate >= pubDate && pubDate >= date ? 
+                                                    <p>신&nbsp;간</p>
+                                                    : <></>
+                                                }
+                                        </div>
                                         <h5 className={detail.detailThumbTit}>{item.title}</h5>
                                         <span className={detail.detailThumbWriter}>{item.author}</span>
                                         <span className={detail.detailThumbType}>{item.categoryName}</span>
-                                        <div className={detail.detailThumbIcon}>
-                                            {
-                                                item.bestRank ? 
-                                                <p>베스트<br/>{item.bestRank}&nbsp;위</p>
-                                                : <></>
-                                            }
-                                            {
-                                                item.customerReviewRank > 0 ? 
-                                                <p>블로거<br/>{item.customerReviewRank}&nbsp;위</p>
-                                                : <></>
-                                            }
-                                            {
-                                                futureDate >= pubDate && pubDate >= date ? 
-                                                <p>신&nbsp;간</p>
-                                                : <></>
-                                            }
-                                        </div>
                                     </div>
                                 </div>
                                 <div className={detail.detailInfoArea}>

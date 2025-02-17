@@ -24,27 +24,24 @@ const BannerBox = (props) => {
     className={`${s.banner} mySwiper`}>
       {
       props.mainItems.Bestseller.item.slice(0,3).map((idx, i)=>
-          <SwiperSlide className={s.bannerBox} key={idx.itemId}>
-            <div className={s.bannerImg} 
-            onClick={() => detailMove(idx)}
+        <SwiperSlide className={s.bannerBox} key={idx.itemId} onClick={() => detailMove(idx)}>
+          <div className={s.bannerImg} 
             style={{ backgroundImage: `url(${idx.cover})` }}
-            >
+          >
+          </div>
+          <div className={s.bannerText}>
+            <div className={s.bannerTitle}>
+              <h2>{idx.title}</h2>
+              <p>{idx.author}</p>
             </div>
-            <div className={s.bannerText}>
-                <div className={s.bannerTitle}>
-                    <h2>{idx.title}</h2>
-                    <p>{idx.author}</p>
-                </div>
-                <div className={s.bannerOverview}>
-                    <p>
-                        {idx.description}
-                    </p>
-                </div>
-                <div className={s.bannerBot}>
-                    <p className={s.bannerPage}>{i+1} / 3</p>
-                </div>
+            <div className={s.bannerOverview}>
+              <p>{idx.description}</p>
             </div>
-          </SwiperSlide>   
+            <div className={s.bannerBot}>
+              <p className={s.bannerPage}>{i + 1} / 3</p>
+            </div>
+          </div>
+        </SwiperSlide>   
         )
       }
     </Swiper>

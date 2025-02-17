@@ -14,6 +14,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
        <Head>
+        <title>IEUM</title>
         <link rel="icon" href="/icon/favicon.png" /> 
       </Head>
      

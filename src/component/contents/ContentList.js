@@ -28,11 +28,12 @@ const BannerBox = (props) => {
             <div className={s.bannerImg} 
             onClick={() => detailMove(idx)}
             style={{ backgroundImage: `url(${idx.cover})` }}
-            ></div>
+            >
+            </div>
             <div className={s.bannerText}>
                 <div className={s.bannerTitle}>
                     <h2>{idx.title}</h2>
-                    <p>{idx.auther}</p>
+                    <p>{idx.author}</p>
                 </div>
                 <div className={s.bannerOverview}>
                     <p>

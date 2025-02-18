@@ -56,6 +56,7 @@ const BannerBox = (props) => {
         delay: 5000,
         disableOnInteraction: false
       }}
+      loop={true}
       slidesPerView={'1'}
       spaceBetween={50}
       className={`${s.banner} mySwiper`}>

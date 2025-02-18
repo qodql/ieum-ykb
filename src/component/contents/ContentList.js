@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ContentCard1, ContentCard2, ContentCard3 } from './ContentCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules'; 
@@ -7,33 +7,57 @@ import 'swiper/css/pagination';
 import s from '@/styles/css/component/content/contentList.module.scss'
 import BookStore from '../../stores/BookStore';
 import { useRouter } from 'next/router';
-
+import { db } from '@/lib/firebase';
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
 
 const BannerBox = (props) => {
   const router = useRouter();
+  const [likeCounts, setLikeCounts] = useState({});
+
+  // 상세페이지 이동
   const detailMove = (item) => {
     router.push({
-        pathname: '/Detail',
-        query: { itemId: item.itemId, itemTitle: item.title },
+      pathname: '/Detail',
+      query: { itemId: item.itemId, itemTitle: item.title },
     });
   };
 
+  // 각 책의 좋아요 수 가져오기 (실시간 업데이트)
+  useEffect(() => {
+    const fetchLikeCounts = () => {
+      props.mainItems.Bestseller.item.forEach((item) => {
+        const q = query(collection(db, "readwantlist"), where("bookid", "==", item.itemId));
+
+        // 실시간으로 좋아요 수 감지
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+          setLikeCounts((prev) => ({
+            ...prev,
+            [item.itemId]: snapshot.size, // 해당 책의 좋아요 수 저장
+          }));
+        });
+
+        return unsubscribe;
+      });
+    };
+
+    if (props.mainItems?.Bestseller?.item) {
+      fetchLikeCounts();
+    }
+  }, [props.mainItems]);
+
   return (
     <Swiper
-    modules={[Pagination]}
-    pagination={{ 
-      type: "fraction",
-      el: '.swiper-pagination'
-    }}    
-    slidesPerView={'1'}
-    spaceBetween={50}
-    className={`${s.banner} mySwiper`}>
-      {
-      props.mainItems.Bestseller.item.slice(0,3).map((idx, i)=>
+      modules={[Pagination]}
+      pagination={{
+        type: "fraction",
+        el: '.swiper-pagination'
+      }}
+      slidesPerView={'1'}
+      spaceBetween={50}
+      className={`${s.banner} mySwiper`}>
+      {props.mainItems.Bestseller.item.slice(0, 3).map((idx) => (
         <SwiperSlide className={s.bannerBox} key={idx.itemId} onClick={() => detailMove(idx)}>
-          <div className={s.bannerImg} 
-            style={{ backgroundImage: `url(${idx.cover})` }}
-          >
+          <div className={s.bannerImg} style={{ backgroundImage: `url(${idx.cover})` }}>
           </div>
           <div className={s.bannerText}>
             <div className={s.bannerTitle}>
@@ -43,14 +67,14 @@ const BannerBox = (props) => {
             <div className={s.bannerOverview}>
               <p>{idx.description}</p>
             </div>
-            {/* <div className={s.bannerBot}>
-              <p className={s.bannerPage}>{i + 1} / 3</p>
-            </div> */}
+            <div className={s.bannerBot}>
+              <img src="/Like.png" alt="like" className={s.likeIcon} />
+              <p>{likeCounts[idx.itemId] || 0}</p>
+            </div>
           </div>
-        </SwiperSlide>   
-        )
-      }
-      <div className="swiper-pagination"></div> 
+        </SwiperSlide>
+      ))}
+      <div className="swiper-pagination"></div>
     </Swiper>
   )
 }

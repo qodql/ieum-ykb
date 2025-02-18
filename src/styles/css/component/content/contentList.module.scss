@@ -8,6 +8,7 @@
     width: 100%;
     height: 225px;
 }
+
 .bannerBox{
     display: flex;
     cursor: pointer;
@@ -55,17 +56,6 @@
         }
     }
     .bannerBot{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .bannerLike{
-            font-size: 12px;
-            color: #fafafa;
-        }
-        .bannerLike::before{
-            content: url(../../../../../public/Like.png);
-            margin-right: 4px;
-        }
         .bannerPage{
             font-size: 12px;
             color: #fafafa;

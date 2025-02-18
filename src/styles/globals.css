@@ -91,3 +91,15 @@ main {
     width: 100%;
   }
 }
+
+.swiper-pagination{
+  width: 48px !important;
+  height: 20px;
+  line-height: 20px;
+  bottom: 18px !important;
+  left: 78% !important;
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
+  color: #fafafa !important;
+  font-size: 12px;
+}

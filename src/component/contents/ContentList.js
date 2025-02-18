@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { ContentCard1, ContentCard2, ContentCard3 } from './ContentCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules'; 
 import 'swiper/css';
+import 'swiper/css/pagination';
 import s from '@/styles/css/component/content/contentList.module.scss'
-
 import BookStore from '../../stores/BookStore';
 import { useRouter } from 'next/router';
 
@@ -19,6 +20,11 @@ const BannerBox = (props) => {
 
   return (
     <Swiper
+    modules={[Pagination]}
+    pagination={{ 
+      type: "fraction",
+      el: '.swiper-pagination'
+    }}    
     slidesPerView={'1'}
     spaceBetween={50}
     className={`${s.banner} mySwiper`}>
@@ -37,13 +43,14 @@ const BannerBox = (props) => {
             <div className={s.bannerOverview}>
               <p>{idx.description}</p>
             </div>
-            <div className={s.bannerBot}>
+            {/* <div className={s.bannerBot}>
               <p className={s.bannerPage}>{i + 1} / 3</p>
-            </div>
+            </div> */}
           </div>
         </SwiperSlide>   
         )
       }
+      <div className="swiper-pagination"></div> 
     </Swiper>
   )
 }

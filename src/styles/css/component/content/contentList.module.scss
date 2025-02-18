@@ -60,13 +60,14 @@
         align-items: center;
         gap: 4px;
         position: absolute;
-        bottom: 0;
+        bottom: 4px;
         img {
             width: 12px;
             height: 11px;
         }
         p {
             color: #fff;
+            font-size: 12px;
         }
     }
 }

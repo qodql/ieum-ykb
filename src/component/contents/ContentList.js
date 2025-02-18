@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ContentCard1, ContentCard2, ContentCard3 } from './ContentCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules'; 
+import { Pagination, Autoplay } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import s from '@/styles/css/component/content/contentList.module.scss'
@@ -47,10 +47,14 @@ const BannerBox = (props) => {
 
   return (
     <Swiper
-      modules={[Pagination]}
+      modules={[Pagination, Autoplay]}
       pagination={{
         type: "fraction",
         el: '.swiper-pagination'
+      }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false
       }}
       slidesPerView={'1'}
       spaceBetween={50}

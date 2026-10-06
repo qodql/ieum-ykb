@@ -34,7 +34,7 @@ const BookStore = create((set) => ({
   itemApi: async (type, categoryId, Cover = 'Big') => {
     set({ loading: true, error: null });
     try {
-      const response = await instant.get('/aladin', {
+      const response = await instant.get('/yes24', {
         params: { type , categoryId, Cover }
       });
       if(type==='main'){
@@ -54,7 +54,7 @@ const BookStore = create((set) => ({
   searchApi: async (keyword) => {
     set({ searchLoading: true, error: null });
     try {
-      const response = await instant.get('/aladin', {
+      const response = await instant.get('/yes24', {
         params: { type:'search', Query: keyword}
       });
       set({ searchResults: response.data, searchLoading: false });

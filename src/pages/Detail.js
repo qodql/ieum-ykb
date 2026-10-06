@@ -333,9 +333,8 @@ const Detail = () => {
                                     <div className={detail.detailInfoPlace}>
                                         <p>구매 가능한 곳</p>
                                         <div className={detail.detailInfoImgbox}>
-                                            <img src='./aladin.jpg'></img>
-                                            <img src='./kyobo.jpg'></img>
-                                            <img src='./yes24.jpg'></img>
+                                            <Link href={item.link ?? 'https://www.yes24.com'} target="_blank" rel="noopener noreferrer"><img src='./yes24.jpg' alt='YES24에서 보기'></img></Link>
+                                            <Link href={'https://www.kyobobook.co.kr/'} target="_blank" rel="noopener noreferrer"><img src='./kyobo.jpg' alt='교보문고'></img></Link>
                                         </div>
                                     </div>
                                     <div className={detail.detailCommentWrap}>
@@ -522,9 +521,8 @@ const Detail = () => {
                                     <div className={detail.detailInfoPlace}>
                                         <p>구매 가능한 곳</p>
                                         <div className={detail.detailInfoImgbox}>
-                                            <Link href={searchItemLink}><img src='./aladin.jpg'></img></Link>
-                                            <Link href={'https://www.kyobobook.co.kr/'}><img src='./kyobo.jpg'></img></Link>
-                                            <Link href={'https://m.yes24.com/Home/Main'}><img src='./yes24.jpg'></img></Link>
+                                            <Link href={searchItemLink ?? 'https://www.yes24.com'} target="_blank" rel="noopener noreferrer"><img src='./yes24.jpg' alt='YES24에서 보기'></img></Link>
+                                            <Link href={'https://www.kyobobook.co.kr/'} target="_blank" rel="noopener noreferrer"><img src='./kyobo.jpg' alt='교보문고'></img></Link>
                                         </div>
                                     </div>
                                     <div className={detail.detailCommentWrap}>

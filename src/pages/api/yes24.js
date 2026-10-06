@@ -25,18 +25,25 @@ const LIST_ENDPOINTS = {
 };
 const RANKED_LISTS = ["Bestseller", "BlogBest"];
 
-// Main.js 의 알라딘 카테고리 번호 → YES24 카테고리 이름 키워드
-// (YES24 카테고리 코드는 /v1/category/list 에서 자동으로 찾아옵니다)
-const ALADIN_CATEGORY_KEYWORDS = {
-  "1": "소설",          // 문학
-  "170": "경제",        // 경제
-  "2556": "추리",       // 추리
-  "55889": "종교",      // 종교
-  "8516": "에세이",     // 에세이
-  "4132": "판타지",     // 판타지
+// Main.js 버튼의 알라딘 번호 → YES24 카테고리 코드
+// (전체 코드 목록은 /api/yes24?type=categories 에서 확인할 수 있습니다)
+const CATEGORY_MAP = {
+  "1":     { id: "001001046",    name: "소설/시/희곡" }, // 문학
+  "170":   { id: "001001025",    name: "경제 경영" },    // 경제
+  "2556":  { id: "001001046011", name: "장르소설" },     // 추리
+  "55889": { id: "001001021",    name: "종교" },         // 종교
+  "8516":  { id: "001001047",    name: "에세이" },       // 에세이
+  "4132":  { id: "001001008009", name: "판타지" },       // 판타지 (만화/라이트노벨)
 };
 
-// ---------- 카테고리 ----------
+function resolveCategory(categoryId) {
+  const id = categoryId ? String(categoryId) : "";
+  if (CATEGORY_MAP[id]) return CATEGORY_MAP[id];
+  if (/^0\d{2,}$/.test(id)) return { id, name: "" }; // YES24 코드를 직접 넘긴 경우
+  return { id: ROOT_CATEGORY, name: "" };            // 그 외에는 국내도서 전체
+}
+
+// ---------- 카테고리 목록 (확인용) ----------
 let categoryCache = null; // { list, fetchedAt }
 const CATEGORY_TTL = 1000 * 60 * 60 * 24;
 
@@ -48,32 +55,6 @@ async function getCategoryList() {
   const list = data?.data?.data ?? [];
   categoryCache = { list, fetchedAt: Date.now() };
   return list;
-}
-
-const normalize = (s = "") => s.replace(/[\s/·,]/g, "");
-
-async function resolveCategory(categoryId) {
-  const id = categoryId ? String(categoryId) : "";
-  const keyword = ALADIN_CATEGORY_KEYWORDS[id];
-
-  if (keyword) {
-    try {
-      const list = await getCategoryList();
-      const match = list
-        .filter((c) => (c.categoryFullPath ?? "").startsWith("국내도서"))
-        .filter((c) => normalize(c.categoryName).includes(normalize(keyword)))
-        .sort((a, b) => a.categoryId.length - b.categoryId.length)[0];
-      if (match) return { id: match.categoryId, name: match.categoryName };
-    } catch (e) {
-      console.error("[yes24] 카테고리 목록 조회 실패:", e.message);
-    }
-    return { id: ROOT_CATEGORY, name: "" };
-  }
-
-  // 이미 YES24 코드(예: 001001046)를 넘긴 경우 그대로 사용
-  if (/^0\d{2,}$/.test(id)) return { id, name: "" };
-
-  return { id: ROOT_CATEGORY, name: "" };
 }
 
 // ---------- 응답 변환 (YES24 → 알라딘 형태) ----------
@@ -121,7 +102,7 @@ async function fetchList(key, category, pageSize) {
 }
 
 async function mainItems(res, categoryId) {
-  const category = await resolveCategory(categoryId);
+  const category = resolveCategory(categoryId);
   const keys = Object.keys(LIST_ENDPOINTS);
   const results = await Promise.allSettled(keys.map((k) => fetchList(k, category, 10)));
 
@@ -139,7 +120,7 @@ async function mainItems(res, categoryId) {
 
 async function listItems(res, type, categoryId) {
   if (!LIST_ENDPOINTS[type]) return res.status(400).json({ message: `알 수 없는 type: ${type}` });
-  const category = await resolveCategory(categoryId);
+  const category = resolveCategory(categoryId);
   res.status(200).json(await fetchList(type, category, 20));
 }
 

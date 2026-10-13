@@ -27,26 +27,28 @@ const BookStore = create((set) => ({
   items: [],         // 리스트 데이터
   searchResults: [], // 검색 결과
   loading: true,    // 로딩 상태
+  cateLoading: true, // 편집자 추천(카테고리) 로딩 상태
   searchLoading: true, // 검색 로딩 상태
   error:'',
 
   // List Api 요청
   itemApi: async (type, categoryId, Cover = 'Big') => {
-    set({ loading: true, error: null });
+    const loadingKey = type === 'cate' ? 'cateLoading' : 'loading';
+    set({ [loadingKey]: true, error: null });
     try {
-      const response = await instant.get('/aladin', {
+      const response = await instant.get('/yes24', {
         params: { type , categoryId, Cover }
       });
       if(type==='main'){
         set({ mainItems: response.data, loading: false });
       }else if(type==='cate'){
-        set({ category: response.data, loading: false });
+        set({ category: response.data, cateLoading: false });
       }else{
         set({ items: response.data.item, loading: false });
       }
 
     } catch (error) {
-      set({ error: error, loading: false });
+      set({ error: error, [loadingKey]: false });
     }
   },
 
@@ -54,7 +56,7 @@ const BookStore = create((set) => ({
   searchApi: async (keyword) => {
     set({ searchLoading: true, error: null });
     try {
-      const response = await instant.get('/aladin', {
+      const response = await instant.get('/yes24', {
         params: { type:'search', Query: keyword}
       });
       set({ searchResults: response.data, searchLoading: false });

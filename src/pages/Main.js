@@ -6,16 +6,17 @@ import { CommentCard } from '../component/contents/ContentCard';
 import { ContentListMain1, ContentListMain2, ContentListMain3, BannerBox} from '../component/contents/ContentList';
 import { useEffect, useState } from 'react';
 import BookStore from '../stores/BookStore';
-import LoadingScreen from '../component/loadingScreen'; 
+import LoadingScreen from '../component/loadingScreen';
 import MockupComponent from '@/component/MockupComponent';
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 export default function Home() {
-    const { mainItems, itemApi, } = BookStore();
+    const { mainItems, itemApi, error } = BookStore();
     const [cate, setCate] = useState('1');
-    const [loading, setLoading] = useState(true); 
     const [active, setActive] = useState(true);
+    // 처음 들어올 때만 로고 화면 표시 (이미 받아둔 데이터가 있으면 바로 본문)
+    const [loading, setLoading] = useState(!mainItems.Bestseller.item.length);
     const [loadingfadeOut, setLoadingfadeOut] = useState(false);
     const [randomComment, setRandomComment] = useState(null);
 
@@ -29,16 +30,14 @@ export default function Home() {
         const coverSize = 'Big';
         if(!mainItems.Bestseller.item.length){
             async function fetchData() {
+                // 요청이 성공하든 실패하든 끝나면 로고 화면을 닫음
                 await itemApi('main', cateNum, coverSize);
-            
                 setTimeout(() => {
                     setLoadingfadeOut(true);
                     setTimeout(() => setLoading(false), 500);
                 }, 1000);
             }
             fetchData();
-        }else{
-            setLoading(false)
         }
     }, []);
 
@@ -60,6 +59,22 @@ export default function Home() {
 
 
     if (loading) return <LoadingScreen loadingfadeOut={loadingfadeOut}/>;
+
+    // API 호출이 실패해 데이터가 없을 때 원인을 화면에 표시
+    if (!mainItems.Bestseller.item.length && error) {
+        return (
+            <MockupComponent>
+                <Header/>
+                <main style={{ padding: '80px 16px', textAlign: 'center', color: '#666' }}>
+                    <p>도서 정보를 불러오지 못했어요.</p>
+                    <p style={{ fontSize: '13px', marginTop: '8px' }}>
+                        {error?.response?.data?.message ?? error?.message ?? '잠시 후 다시 시도해 주세요.'}
+                    </p>
+                </main>
+                <Footer/>
+            </MockupComponent>
+        );
+    }
 
     return (
         <>

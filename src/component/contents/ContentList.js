@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import s from '@/styles/css/component/content/contentList.module.scss'
 import BookStore from '../../stores/BookStore';
+import { SkeletonCardRow } from '../Skeleton';
 import { useRouter } from 'next/router';
 import { db } from '@/lib/firebase';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
@@ -147,7 +148,7 @@ const ContentListMain3 = (props) => {
     });
   };
 
-  const {category, itemApi, loading} = BookStore();
+  const {category, itemApi, cateLoading} = BookStore();
 
   useEffect( () => {
     
@@ -163,12 +164,8 @@ const ContentListMain3 = (props) => {
   const mainCateNum = props.cate
 
   // 로딩
-  if (loading || !category.ItemEditorChoice.item) {
-    return (
-        <div className={s.loading}>
-            <img src="/icon/loading.gif" alt="Loading..." />
-        </div>
-    );
+  if (cateLoading || !category.ItemEditorChoice.item) {
+    return <SkeletonCardRow count={3} />;
   }
 
   return (

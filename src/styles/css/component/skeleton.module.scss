@@ -1,0 +1,78 @@
+// 스켈레톤 UI - 데이터를 불러오는 동안 실제 카드 자리에 표시
+.bone {
+    display: block;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #eeeeee 25%, #f6f6f6 37%, #eeeeee 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+// 움직임 줄이기 설정을 켠 사용자에게는 애니메이션을 끔
+@media (prefers-reduced-motion: reduce) {
+    .bone { animation: none; }
+}
+
+// 메인 - 분야별 추천 (ContentCard3 크기)
+.cardRow {
+    display: flex;
+    gap: 24px;
+    overflow: hidden;
+    padding: 0 16px;
+}
+.card3 {
+    flex-shrink: 0;
+    .card3Image { width: 143px; height: 212px; }
+    .card3Title { width: 110px; height: 16px; margin-top: 12px; }
+    .card3Author { width: 70px; height: 14px; margin-top: 16px; }
+}
+
+// 목록/검색 페이지 (ContentList_card 크기)
+.listCard {
+    display: flex;
+    padding: 20px 0;
+    margin: 0 16px;
+    border-bottom: 1px solid #ddd;
+    .listImage { width: 80px; height: 120px; flex-shrink: 0; }
+    .listText {
+        margin: 0 20px;
+        flex: 1;
+        .listTitle { width: 80%; height: 16px; margin-bottom: 8px; }
+        .listAuthor { width: 50%; height: 13px; margin-bottom: 8px; }
+        .listCategory { width: 60%; height: 13px; }
+        .listRate { width: 96px; height: 16px; margin-top: 28px; }
+    }
+}
+
+// 메인 페이지 전체 스켈레톤
+.banner {
+    margin: 24px 0 0 16px;
+    height: 225px;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 16px;
+    background: #f3f3f3;
+    .bannerImg { width: 133px; height: 197px; flex-shrink: 0; }
+    .bannerText { flex: 1; }
+    .bannerLine { height: 18px; width: 70%; margin-bottom: 10px; }
+    .bannerLineShort { height: 14px; width: 40%; }
+}
+.sectionTitle { width: 140px; height: 22px; margin: 40px 16px 16px; }
+.card1 { width: 135px; height: 148px; flex-shrink: 0; border-radius: 8px; }
+.card2 {
+    flex-shrink: 0;
+    .card2Image { width: 165px; height: 242px; margin-bottom: 8px; }
+    .card2Line { width: 120px; height: 14px; margin-top: 6px; }
+}
+.tabRow {
+    display: flex;
+    gap: 16px;
+    margin: 0 16px 16px;
+    .tab { width: 40px; height: 20px; }
+}

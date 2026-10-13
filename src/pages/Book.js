@@ -6,6 +6,7 @@ import list from '../styles/css/page/book.module.scss'
 import s from '../styles/css/page/main.module.scss'
 import BookStore from '../stores/BookStore';
 import MockupComponent from '@/component/MockupComponent';
+import { SkeletonList } from '@/component/Skeleton';
 import { useRouter } from 'next/router';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
@@ -19,8 +20,10 @@ const Book = () => {
     
     //api 요청
     useEffect(() => {
-        const coverSize = 'Mid';
-        itemApi('main', coverSize);
+        // 메인에서 이미 받아온 데이터가 있으면 다시 요청하지 않음 (탭 전환 시 깜빡임 방지)
+        if (!mainItems.Bestseller.item.length) {
+            itemApi('main', '', 'Mid');
+        }
     }, [itemApi]);
 
     // 네비게이션
@@ -59,12 +62,14 @@ const Book = () => {
     }, []);
 
     // 로딩
-    if (loading || !comment) {
+    if ((loading && !mainItems[categoryTab]?.item?.length) || !comment) {
         return (
             <MockupComponent>
-                <div className={s.loading}>
-                    <img src="/icon/loading.gif" alt="Loading..." />
-                </div>
+                <Header/>
+                <main>
+                    <SkeletonList count={6} />
+                </main>
+                <Footer />
             </MockupComponent>
         );
     }

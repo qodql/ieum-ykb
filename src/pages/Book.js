@@ -61,18 +61,8 @@ const Book = () => {
         fetchAverageComment();
     }, []);
 
-    // 로딩
-    if ((loading && !mainItems[categoryTab]?.item?.length) || !comment) {
-        return (
-            <MockupComponent>
-                <Header/>
-                <main>
-                    <SkeletonList count={6} />
-                </main>
-                <Footer />
-            </MockupComponent>
-        );
-    }
+    // 로딩: 제목과 탭 버튼은 그대로 보여주고 목록 자리만 스켈레톤으로 표시
+    const isLoading = (loading && !mainItems[categoryTab]?.item?.length) || !comment;
 
     // 상세페이지 이동
     const detailMove = (item) => {
@@ -117,7 +107,7 @@ const Book = () => {
                     </div>
 
                     <div className={list.bookList}>
-                        {mainItems[categoryTab]?.item && rankItems(mainItems[categoryTab].item).map((item) => (
+                        {isLoading ? <SkeletonList count={6} /> : mainItems[categoryTab]?.item && rankItems(mainItems[categoryTab].item).map((item) => (
                             <div key={item.itemId} onClick={() => detailMove(item)}>
                                 <ContentList_card item={item} showBookmark={true} comment={comment}/>
                             </div>
